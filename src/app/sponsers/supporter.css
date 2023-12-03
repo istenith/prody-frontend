@@ -1,0 +1,14 @@
+body {
+    background-image:url("../../../public/support.svg");
+    align-items: center;
+   }
+   
+   
+ .supportcard{
+    opacity: 0.8;
+    width: 20rem;
+ }
+ .supportcard:hover{
+    opacity: 1;
+    cursor: pointer;
+ }
