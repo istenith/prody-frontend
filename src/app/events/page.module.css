@@ -3,10 +3,6 @@
 }
 
 .bg {
-  background-image: url("../../public/redbg.svg"),
-    url("../../public/redsun.svg");
-  background-size: 120%;
-
   background-repeat: repeat, no-repeat;
   background-position: 120% -10%, 160% 90%;
   background-color: #030f1b;

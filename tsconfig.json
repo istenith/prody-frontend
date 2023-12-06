@@ -13,8 +13,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "esModuleInterop": true,
-    "module": "esnext",
     "plugins": [
       {
         "name": "next"
@@ -24,9 +22,7 @@
       "@/*": ["./*"]
     }
   },
-  "exclude": ["node_modules"]
-    ]
-  },
+  "exclude": ["node_modules"],
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
