@@ -1,5 +1,5 @@
 import React from 'react';
-// import styles from './globals.css';
+import "../contacts/contact.css";
 // import Image from 'next/image';
 
 const Contact = () => {
