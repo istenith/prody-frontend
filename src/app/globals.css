@@ -2,13 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "nasa";
+  src: url("../../public/fonts/nasa/spaceAge.ttf");
+}
+
+@font-face {
+  font-family: "lemonmilk";
+  src: url("../../public/fonts/lemonMilk/LEMONMILK-Medium.otf");
+}
+
+@font-face {
+  font-family: "beyonders";
+  src: url("../../public/fonts/beyonders/Beyonders.ttf");
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -24,4 +39,65 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-} */
+}
+.spaceFont {
+  font-family: "nasa";
+}
+
+.lemonMilkFont {
+  font-family: "lemonmilk";
+}
+
+.beyonderFont {
+  font-family: "beyonders";
+}
+
+.mainEventsPage {
+  background-image: url("../../public/homepagetheme.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 10% -50%;
+  background-color: #030f1b;
+  color: whitesmoke;
+}
+
+.card-custom {
+  background: rgb(3, 2, 28);
+  background: radial-gradient(
+    circle,
+    rgba(3, 2, 28, 1) 0%,
+    rgba(5, 5, 83, 1) 100%
+  );
+}
+
+.modal-custom {
+  width: clamp(70%, 700px, 90%);
+  height: min(70%, 700px);
+  margin: auto;
+  border-radius: 12px;
+  background: rgb(3, 2, 28);
+  background: radial-gradient(
+    circle,
+    rgba(3, 2, 28, 1) 0%,
+    rgba(5, 5, 83, 1) 100%
+  );
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .contact-container {
+    position: relative;
+    align-items: center;
+    align-content: center;
+
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .contact-card {
+    margin: auto;
+    align-items: center;
+    align-content: center;
+    display: flex;
+  }
+}

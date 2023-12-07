@@ -6,7 +6,7 @@ interface ImageProps{
   card: {
     id: number;
     title: string;
-    decription: string;
+    description: string;
     price: number;
     discountPercentage: number;
     thumbnail: string;
@@ -16,7 +16,7 @@ interface ImageProps{
 
 const ImageComponent: FunctionComponent<ImageProps> = ({card}) => {
   return (
-    <Image loader={()=>card.thumbnail} unoptimized={true} width={350} height={350} src={card.thumbnail} alt="thumbnail"/>
+    <Image loader={()=>card.thumbnail} layout='fill' objectFit='contain' className='rounded-md mx-auto my-4' unoptimized={true} src={card.thumbnail} alt="thumbnail"/>
   )
 }
 

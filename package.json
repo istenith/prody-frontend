@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "^9.90.0",
-    "@react-three/fiber": "^8.15.12",
-    "daisyui": "^3.9.4",
+    "framer-motion": "^10.16.15",
     "next": "14.0.1",
     "react": "^18",
+    "react-blink-text": "^1.0.5",
     "react-dom": "^18",
+    "react-type-animation": "^3.2.0",
+    "@react-three/drei": "^9.90.0",
+    "@react-three/fiber": "^8.15.12",
+    "daisyui": "^4.4.19",
     "styled-components": "^6.1.1",
     "three": "^0.159.0"
   },
@@ -23,6 +26,7 @@
     "@types/react": "18.2.41",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "daisyui": "^4.4.19",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
     "postcss": "^8",
