@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "nasa";
+  src: url("../../public/fonts/nasa/spaceAge.ttf");
+}
+
+@font-face {
+  font-family: "lemonmilk";
+  src: url("../../public/fonts/lemonMilk/LEMONMILK-Medium.otf");
+}
+
+@font-face {
+  font-family: "beyonders";
+  src: url("../../public/fonts/beyonders/Beyonders.ttf");
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -29,8 +44,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  
-  background: #0B0A0F;
+  background: #0b0a0f;
 }
 
 .event-card {
@@ -53,8 +67,8 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 100px; 
-  background: linear-gradient(transparent, purple); 
+  height: 100px;
+  background: linear-gradient(transparent, purple);
   border-radius: 0 0 50% 50% / 0 0 40% 40%;
   z-index: -1;
 }
@@ -64,19 +78,16 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
-  background: #000; 
+  background: #000;
 }
 
-
-
 .contact-card {
-  border-radius: 50%; 
+  border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  color: #fff; 
-  
+  color: #fff;
 }
 
 .contact-image img {
@@ -101,28 +112,68 @@ body {
   margin-top: 10px;
 }
 
-
-
-
 .meet-our-team {
   text-align: center;
   margin: 20px auto; /* Adjust margin as needed */
   width: 100%; /* Take full width */
-  color: #FFF;
-  font-family: 'Rubik', sans-serif;
+  color: #fff;
+  font-family: "Rubik", sans-serif;
   font-size: 48px;
   font-weight: 500;
 }
 
+.spaceFont {
+  font-family: "nasa";
+}
+
+.lemonMilkFont {
+  font-family: "lemonmilk";
+}
+
+.beyonderFont {
+  font-family: "beyonders";
+}
+
+.mainEventsPage {
+  background-image: url("../../public/homepagetheme.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 10% -50%;
+  background-color: #030f1b;
+  color: whitesmoke;
+}
+
+.card-custom {
+  background: rgb(3, 2, 28);
+  background: radial-gradient(
+    circle,
+    rgba(3, 2, 28, 1) 0%,
+    rgba(5, 5, 83, 1) 100%
+  );
+}
+
+.modal-custom {
+  width: clamp(70%, 700px, 90%);
+  height: min(70%, 700px);
+  margin: auto;
+  border-radius: 12px;
+  background: rgb(3, 2, 28);
+  background: radial-gradient(
+    circle,
+    rgba(3, 2, 28, 1) 0%,
+    rgba(5, 5, 83, 1) 100%
+  );
+  justify-content: center;
+  align-items: center;
+}
 
 @media (max-width: 600px) {
   .contact-container {
-     
     position: relative;
     align-items: center;
     align-content: center;
 
-    grid-template-columns: repeat(1, 1fr); 
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .contact-card {
@@ -130,7 +181,5 @@ body {
     align-items: center;
     align-content: center;
     display: flex;
-
-    
   }
 }
