@@ -1,5 +1,6 @@
 import React from 'react';
 import "../contacts/contact.css";
+import Navbar from '../components/Navbar/Navbar.tsx';
 // import Image from 'next/image';
 
 const Contact = () => {
@@ -66,7 +67,7 @@ const Contact = () => {
 
     
     <div className="contact-container">
-
+    <Navbar />
 
 
       

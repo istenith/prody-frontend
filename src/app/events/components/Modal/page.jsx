@@ -2,14 +2,12 @@ import React from 'react'
 import Backdrop from '../Backdrop/page'
 import {motion} from 'framer-motion'
 import Image from "next/image"
-import ImageComponent from '../imageComponent'
-import styles from "./page.module.css"
 
 const Modal = ({handleClose, cardrecieved}) => {
   const dropIn = {
     hidden: {
       x: '-100vw',
-      opacty: 0,
+      opacity: 0,
     },
     visible: {
       x: '0',
@@ -17,8 +15,8 @@ const Modal = ({handleClose, cardrecieved}) => {
       transition: {
         duration: 0.5,
         type: "Spring",
-        dampling: 60,
-        stiffness: 200,
+        damping: 0,
+        stiffness: 10,
       },
     },
     exit: {

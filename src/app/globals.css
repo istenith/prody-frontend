@@ -101,3 +101,9 @@ body {
     display: flex;
   }
 }
+
+.navBarShape {
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  background-color: #010a4a;
+  font-size: 0.6rem;
+}
