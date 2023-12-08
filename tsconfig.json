@@ -27,6 +27,10 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/app/events/components/Backdrop/page.jsx", "src/app/events/components/OpenDialogButton.jsx", "src/app/events/components/OpenDialogButton.jsx", "src/app/events/components/Modal/page.jsx"  ]
+    "**/*.tsx", 
+    "src/app/events/components/Backdrop/page.jsx", 
+    "src/app/events/components/OpenDialogButton.jsx", 
+    "src/app/events/components/OpenDialogButton.jsx", 
+    "src/app/events/components/Modal/page.jsx" 
+  ]
 }

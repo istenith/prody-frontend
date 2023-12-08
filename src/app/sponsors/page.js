@@ -2,13 +2,14 @@
 
 import React, { useState } from 'react';
 import "./supporter.css";
+import Navbar from '../components/Navbar/Navbar';
 
 const SupporterCard = ({ title, content, onClick ,src}) => (
-  <div className="supportcard m-auto bg-gray-600 p-2 rounded-lg shadow-lg" onClick={onClick}>
-    <img src={src} alt="supporter" className="card-img rounded m-auto h-2/3  w-5/6"/> 
-    <h3 className="text-center text-white text-lg font-semibold truncate">{title}</h3>
-    <p className="text-center text-white text-m overflow-ellipsis overflow-hidden">{content}</p>
-  </div>
+    <div className="supportcard p-2 m-auto bg-gray-600 rounded-lg shadow-lg" onClick={onClick}>
+      <img src={src} alt="supporter" className="card-img rounded m-auto h-2/3 w-5/6"/> 
+      <h3 className="text-center text-white text-lg font-semibold truncate">{title}</h3>
+      <p className="text-center text-white text-m overflow-ellipsis overflow-hidden">{content}</p>
+    </div>
 );
 
 const Modal = ({ show, onClose, title,content,src }) => {
@@ -66,7 +67,8 @@ const SupportersComponent = () => {
 
   return (
     <>
-     <div>
+      <Navbar />
+     <div className='pt-10'>
      <div>
         {selectedSupporter && (
           <Modal

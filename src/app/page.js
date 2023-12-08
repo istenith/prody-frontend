@@ -3,7 +3,7 @@
 import React ,{Suspense} from "react";
 import "./homeComponents/animation.css";
 import { Canvas } from "@react-three/fiber";
-
+import Navbar from "./components/Navbar/Navbar"
 import Earth from "./homeComponents/earth.jsx";
 
 import styled from "styled-components";
@@ -16,36 +16,41 @@ const CanvasContainer = styled.div`
 
 function App() {
   return (
-    <CanvasContainer>
-      <Canvas background="black" camera={{ position: [0, 0, 5], fov: 70 }}>
-        <Suspense fallback={null}>
-          <ambientLight intensity={1} />
-          <directionalLight position={[0, 0, 5]} intensity={0.5} />
-          <Earth />
-          <OrbitControls enableZoom={false}/> // Allows for camera movement with mouse interaction
-          <Stars /> 
-          <Text
-            color="white"
-            anchorX="center"
-            anchorY="top"
-            fontSize={0.1}
-            position={[0, 0.65, 3]}>Welcome!! to</Text>
+    <>
+      <Navbar />   
+      <CanvasContainer>
+        <Canvas background="black" camera={{ position: [0, 0, 5], fov: 70 }}>
+          <Suspense fallback={null}>
+            <ambientLight intensity={1} />
+            <directionalLight position={[0, 0, 5]} intensity={0.5} />
+            <Earth />
+            <OrbitControls enableZoom={false}/>
+            <Stars /> 
             <Text
-            color="purple"
-            anchorX="center"
-            anchorY="middle"
-            fontSize={0.5}
-            font="/fonts/Rubiks.ttf"
-            position={[0, 0.03, 3]}>Prodyogiki</Text>
-            <Text
-            color="white"
-            anchorX="center"
-            anchorY="bottom"
-            fontSize={0.11}
-            position={[0, -0.65, 3]}>by ISTE@NITH</Text>
-        </Suspense>
-      </Canvas>
-    </CanvasContainer>
+              color="white"
+              anchorX="center"
+              anchorY="top"
+              font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
+              fontSize={0.1}
+              position={[0, 0.65, 3]}>Announcing</Text>
+              <Text
+              color="whitesmoke"
+              anchorX="center"
+              anchorY="middle"
+              fontSize={0.5}
+              font="/fonts/beyonders/Beyonders.ttf"
+              position={[0, 0.03, 3]}>Prodyogiki</Text>
+              <Text
+              color="white"
+              anchorX="center"
+              anchorY="bottom"
+              fontSize={0.11}
+              font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
+              position={[0, -0.65, 3]}>by ISTE@NITH</Text>
+          </Suspense>
+        </Canvas>
+      </CanvasContainer>
+    </>
   );
 }
 
