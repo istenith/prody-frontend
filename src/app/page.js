@@ -5,6 +5,7 @@ import "./homeComponents/animation.css";
 import { Canvas } from "@react-three/fiber";
 import Navbar from "./components/Navbar/Navbar"
 import Earth from "./homeComponents/earth.jsx";
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 import styled from "styled-components";
 import { OrbitControls, Stars ,Text } from "@react-three/drei";
@@ -17,14 +18,13 @@ const CanvasContainer = styled.div`
 function App() {
   return (
     <>
-      <Navbar />   
       <CanvasContainer>
         <Canvas background="black" camera={{ position: [0, 0, 5], fov: 70 }}>
           <Suspense fallback={null}>
             <ambientLight intensity={1} />
             <directionalLight position={[0, 0, 5]} intensity={0.5} />
             <Earth />
-            <OrbitControls enableZoom={false}/>
+            <OrbitControls />
             <Stars /> 
             <Text
               color="white"

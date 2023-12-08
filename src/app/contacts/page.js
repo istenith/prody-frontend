@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import "../contacts/contact.css";
 import Navbar from '../components/Navbar/Navbar.tsx';
