@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react'
 import {motion} from "framer-motion"
 import styles from "./page.module.css"
-import { Interface } from 'readline'
+// import { Interface } from 'readline'
 
-interface BackdropProps {
-  children?: ReactNode;
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+export interface BackdropProps {
+  children: ReactNode;
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 const Backdrop: React.FC<BackdropProps> = ({children, onClick}) => {
@@ -19,4 +19,4 @@ const Backdrop: React.FC<BackdropProps> = ({children, onClick}) => {
   )
 }
 
-export default Backdrop
+export default Backdrop;

@@ -1,7 +1,7 @@
 import React from 'react'
-import Backdrop from '../Backdrop/page'
 import {motion} from 'framer-motion'
 import Image from "next/image"
+import Backdrop from '../Backdrop/backdrop'
 
 const Modal = ({handleClose, cardrecieved}) => {
   const dropIn = {

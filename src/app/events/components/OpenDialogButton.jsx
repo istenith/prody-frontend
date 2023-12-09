@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from 'react'
-import Modal from './Modal/page'
+import Modal from './Modal/modal'
 
 const OpenDialogButton = ({card}) => {
   const [modalOpen, setModalOpen] = useState(false)

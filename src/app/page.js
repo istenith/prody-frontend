@@ -4,7 +4,7 @@ import React ,{Suspense} from "react";
 import "./homeComponents/animation.css";
 import { Canvas } from "@react-three/fiber";
 import Navbar from "./components/Navbar/Navbar"
-import Earth from "./homeComponents/earth.jsx";
+import Earth from "./homeComponents/Earth.jsx";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 import styled from "styled-components";
