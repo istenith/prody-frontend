@@ -80,7 +80,7 @@ const SupportersComponent = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar isHomePage={false}/>
      <div className='pt-10'>
      <div>
         {selectedSupporter && (

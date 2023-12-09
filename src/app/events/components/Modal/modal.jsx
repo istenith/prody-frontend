@@ -38,21 +38,21 @@ const Modal = ({handleClose, cardrecieved}) => {
           className="modal-custom flex flex-col gap-10 md:flex-row border-slate-950"
         >
           <div>
-            <Image loader={()=>cardrecieved.thumbnail} width={300} height={100} src={cardrecieved.thumbnail} alt='event-image'/>
+            <Image loader={()=>cardrecieved.poster} width={300} height={100} src={cardrecieved.poster} alt='event-image'/>
           </div>
 
           <div className='flex flex-col gap-4 justify-center items-center'>
             <div role="tablist" className="tabs w-11/12 mx-auto h-4/5 tabs-lifted">
               <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Event name" defaultChecked/>
               <div role="tabpanel" className="tab-content h-full bg-base-100 border-base-300 rounded-box p-6">
-                <h2>{cardrecieved.title}</h2>
+                <h2>{cardrecieved.name}</h2>
               </div>
 
               <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Description"/>
               <div role="tabpanel" className="h-full tab-content bg-base-100 border-base-300 rounded-box p-6">{cardrecieved.description}</div>
 
               <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Price" />
-              <div role="tabpanel" className="h-full tab-content bg-base-100 border-base-300 rounded-box p-6">{cardrecieved.price} with {cardrecieved.discountPercentage}% discount</div>
+              <div role="tabpanel" className="h-full tab-content bg-base-100 border-base-300 rounded-box p-6">{cardrecieved.date_time} with {cardrecieved.poster}% discount</div>
             </div>
             <motion.button 
               className='btn btn-accent max-w-xs' 

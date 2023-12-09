@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <>
       <div>
-        <Navbar></Navbar>
+        <Navbar isHomePage={false}/>
       </div>
       <div>
         <Chrono

@@ -18,6 +18,7 @@ const CanvasContainer = styled.div`
 function App() {
   return (
     <>
+    <Navbar isHomePage={true}/>
       <CanvasContainer>
         <Canvas background="black" camera={{ position: [0, 0, 5], fov: 70 }}>
           <Suspense fallback={null}>
