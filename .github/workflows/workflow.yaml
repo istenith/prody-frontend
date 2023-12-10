@@ -23,6 +23,12 @@ jobs:
 
     - name: Build and Deploy
       run: |
-        npm run build
-        # Add your deployment command here
-        # Example for deploying to Vercel:
+          ssh -o StrictHostKeyChecking=no lucifer@sumitdhiman.in << EOF
+            cd prody-frontend
+            git config pull.rebase false
+            git pull origin master
+            rm -rf node_modules
+            yarn install
+            yarn run build
+            yarn start
+          EOF
