@@ -113,3 +113,27 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.cornerBlobBackground {
+  background-image: url("../../public/images/cornerBlobs.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.randomBlobBackground {
+  background-image: url("../../public/images/randomBlobs.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.randomBlobBackground2 {
+  background-image: url("../../public/images/randomBlobs2.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.randomBlobBackground3 {
+  background-image: url("../../public/images/randomBlobs3.svg");
+  background-size: fill;
+  background-repeat: no-repeat;
+}
