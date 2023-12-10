@@ -24,7 +24,7 @@ const page = async () => {
 
   return (
     <>
-        <Navbar />    
+        <Navbar isHomePage={false}/>    
         <div className='mainEventsPage text-center pt-20'>
           <h1 className='beyonderFont text-5xl'>
             Events
@@ -42,7 +42,7 @@ const page = async () => {
           <div className="flex flex-row w-full flex-wrap p-10 gap-5 content-around h-full justify-around">
               {cardData.map(card => {   
                 return(
-                    <div key={card.id} className="card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl card-custom">
+                    <div key={card.id} className="card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl card-custom-background">
                       <figure className="relative h-60">
                         <ImageComponent card={card} />
                       </figure>
