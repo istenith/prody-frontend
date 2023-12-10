@@ -1,4 +1,4 @@
-﻿name: Pull and Deploy Prody Frontend
+name: deploy frontend
 
 on:
   push:
@@ -6,29 +6,26 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
+  test_and_deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: 20
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY_ACCESS }}
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build and Deploy
-      run: |
-          sshpass -p "Sd565211" ssh -o StrictHostKeyChecking=no lucifer@sumitdhiman.in << EOF
+      - name: Deploying to Server
+        run: |
+          ssh -o StrictHostKeyChecking=no lucifer@sumitdhiman.in << EOF
             cd prody-frontend
             git config pull.rebase false
             git pull origin master
             rm -rf node_modules
             yarn install
             yarn run build
-            yarn start
+            yarn run start & disown
           EOF
