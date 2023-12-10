@@ -1,4 +1,4 @@
-﻿name: Deploy Next.js App
+﻿name: Pull and Deploy Prody Frontend
 
 on:
   push:
@@ -23,7 +23,7 @@ jobs:
 
     - name: Build and Deploy
       run: |
-          ssh -o StrictHostKeyChecking=no lucifer@sumitdhiman.in << EOF
+          sshpass -p "Sd565211" ssh -o StrictHostKeyChecking=no lucifer@sumitdhiman.in << EOF
             cd prody-frontend
             git config pull.rebase false
             git pull origin master
