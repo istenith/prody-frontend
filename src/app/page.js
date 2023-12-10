@@ -1,11 +1,10 @@
 "use client";
 
-import React ,{Suspense} from "react";
+import React ,{Suspense ,useState ,useEffect} from "react";
 import "./homeComponents/animation.css";
 import { Canvas } from "@react-three/fiber";
 import Navbar from "./components/Navbar/Navbar"
 import Earth from "./homeComponents/Earth.jsx";
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 import styled from "styled-components";
 import { OrbitControls, Stars ,Text } from "@react-three/drei";
@@ -16,6 +15,23 @@ const CanvasContainer = styled.div`
 `;
 
 function App() {
+
+  const [text, setText] = useState(0.43);
+  const [text2, setText2] = useState(0.11);
+
+  const updateTextSize = () => {
+    const newSize = window.innerWidth / 5000;
+    setText(Math.max(0.12, newSize));
+    setText2(Math.max(0.09, newSize/2));
+};
+
+useEffect(() => {
+  updateTextSize();
+  window.addEventListener('resize', updateTextSize);
+  return () => {
+      window.removeEventListener('resize', updateTextSize);
+  };
+}, []);
   return (
     <>
     <Navbar isHomePage={true}/>
@@ -27,25 +43,25 @@ function App() {
             <Earth />
             <OrbitControls />
             <Stars /> 
-            <Text
+            <Text className="prody-text"
               color="white"
               anchorX="center"
               anchorY="top"
               font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
-              fontSize={0.1}
+              fontSize={text2}
               position={[0, 0.65, 3]}>Announcing</Text>
               <Text
               color="whitesmoke"
               anchorX="center"
               anchorY="middle"
-              fontSize={0.5}
+              fontSize={text}
               font="/fonts/beyonders/Beyonders.ttf"
               position={[0, 0.03, 3]}>Prodyogiki</Text>
               <Text
               color="white"
               anchorX="center"
               anchorY="bottom"
-              fontSize={0.11}
+              fontSize={text2}
               font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
               position={[0, -0.65, 3]}>by ISTE@NITH</Text>
           </Suspense>
