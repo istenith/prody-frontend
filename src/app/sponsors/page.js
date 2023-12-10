@@ -20,7 +20,7 @@ const Modal = ({ show, onClose, title,content,src }) => {
         
       <div className="modal-content">
       <button className="close-modal"  onClick={onClose}>&times;</button>
-        <img src={src} alt="supporter" className="modal-img  "/> 
+        <img src={src} alt="supporter" className="modal-img"/> 
       <h3 className="text-center p-2 text-white text-5xl font-semibold truncate">{title}</h3>
       <p className="text-center text-white text-2xl overflow-ellipsis overflow-hidden">{content}</p>
       </div>
@@ -39,13 +39,13 @@ const SupportersComponent = () => {
       setSelectedSupporter(null);
     }
   };
-  const handleEscKeyPress = (event) => {
-    if (event.keyCode === 27) { // 27 is the key code for the Esc key
-      toggleModal(null);
-    }
-  };
-
+  
   useEffect(() => {
+    const handleEscKeyPress = (event) => {
+      if (event.keyCode === 27) { // 27 is the key code for the Esc key
+        toggleModal(null);
+      }
+    };
     if (selectedSupporter) {
       window.addEventListener('keydown', handleEscKeyPress);
     }

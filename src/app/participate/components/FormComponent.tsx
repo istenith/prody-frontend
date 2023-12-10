@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useState, ChangeEvent } from 'react'
 
 interface Props {
   isRegistered: Boolean;

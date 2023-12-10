@@ -90,7 +90,7 @@ function Earth(props) {
                 console.error('CameraAction animation not found in GLTF file.');
             }
         });
-    }, [scene, router]);
+    }, [scene, router, setupAnimation]);
 
     // Handle Earth click to start the animation and zoom into the Earth
     const onEarthClick = () => {
