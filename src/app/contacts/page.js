@@ -68,7 +68,7 @@ const Contact = () => {
 
     
     <div className="contact-container">
-    <Navbar />
+      <Navbar isHomePage={false}/>
 
 
       

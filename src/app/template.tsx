@@ -11,7 +11,7 @@ const Template = ({children}: {children: React.ReactNode})  => {
         key={route}
         initial='before'
         animate='animate'
-        exit='after'
+        exit={{opacity: 0}}
         variants={{
           before:{
             opacity: 0,
@@ -21,11 +21,11 @@ const Template = ({children}: {children: React.ReactNode})  => {
             opacity: 1,
             clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
           },
-          after: {
-            clipPath: "polygon(0% 0%, 0% 0, 100% 100%, 100% 100%)",
+          afterr: {
+            opacity: 0,
           }
         }}
-        transition={{duration: 0.8}}
+        transition={{duration: 2}}
       >
         {children}
       </motion.div>

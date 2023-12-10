@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./supporter.css";
 import Navbar from '../components/Navbar/Navbar';
 
@@ -17,15 +17,14 @@ const Modal = ({ show, onClose, title,content,src }) => {
 
   return (
     <div className="modal-backdrop">
-
+        
       <div className="modal-content">
-        <img src={src} alt="supporter" className="modal-img  "/> 
+      <button className="close-modal"  onClick={onClose}>&times;</button>
+        <img src={src} alt="supporter" className="modal-img"/> 
       <h3 className="text-center p-2 text-white text-5xl font-semibold truncate">{title}</h3>
       <p className="text-center text-white text-2xl overflow-ellipsis overflow-hidden">{content}</p>
       </div>
-      <div className="modal">
-        <button className="close-modal" onClick={onClose}>&times;</button>
-      </div>
+    
     </div>
   );
 };
@@ -40,6 +39,20 @@ const SupportersComponent = () => {
       setSelectedSupporter(null);
     }
   };
+  
+  useEffect(() => {
+    const handleEscKeyPress = (event) => {
+      if (event.keyCode === 27) { // 27 is the key code for the Esc key
+        toggleModal(null);
+      }
+    };
+    if (selectedSupporter) {
+      window.addEventListener('keydown', handleEscKeyPress);
+    }
+    return () => {
+      window.removeEventListener('keydown', handleEscKeyPress);
+    };
+  },[selectedSupporter]);
 
   const supporters = [
     { id: 1, title: 'Sponsor 1', content: 'Description for sponsor 1' ,src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01"},
@@ -67,7 +80,7 @@ const SupportersComponent = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar isHomePage={false}/>
      <div className='pt-10'>
      <div>
         {selectedSupporter && (
@@ -105,16 +118,7 @@ const SupportersComponent = () => {
         ))}
       
       </div>
-      <div>
-        <h3 className="font-semibold mb-2">WHAT IS ISTE?</h3>
-        <p className="text-sm mb-4">
-          The Indian Society for Technical Education (ISTE) is the leading National
-          Professional non-profit making Society for the Technical Education System
-          in our country. The Students Chapter NIT Hamirpur is the representative at
-          NIT Hamirpur to promote such technical culture in our college. We at NIT-H,
-          conduct various events within the college and also participate in inter-college fests.
-        </p>
-      </div>
+      
     </div>
     </>
   );
