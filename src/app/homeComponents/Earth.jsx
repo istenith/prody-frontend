@@ -71,7 +71,7 @@ function Earth(props) {
 
             mixerRef.current.addEventListener('finished', () => {
                 gltf.scene.visible = false;
-                router.push('/events');
+                router.push('/home');
             });
         };
     };
