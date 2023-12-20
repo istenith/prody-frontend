@@ -1,10 +1,11 @@
 "use client"
 import Image from 'next/image'
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import Astronaut from '../../../../public/images/Astronaut.png'
 import { TypeAnimation } from 'react-type-animation'
 import Navbar from '../../components/Navbar/Navbar'
 import { LazyMotion , domAnimation, motion, useAnimate} from 'framer-motion'
+import UpcomingEvents from './components/UpcomingEvents'
 
 const Dashboard = () => {
   const username = "Mehul Ambastha"
@@ -23,12 +24,13 @@ const Dashboard = () => {
   })
   
 
+
   return (
     <LazyMotion features={domAnimation}>
-      <div className=''>
         <Navbar isHomePage={false} />
-        <div className="hero randomBlobBackground3 h-screen py-20 px-10">
-          <div className="hero-content flex-col lg:flex-row">
+      <div className=''>
+        <div className="hero randomBlobBackground3 m-auto min-h-screen py-20 px-10">
+          <div className="hero-content w-11/12 flex-col lg:flex-row">
             <div ref={scope} style={{translate: '-100px', opacity: 0}}
             >
               <Image 
@@ -39,48 +41,48 @@ const Dashboard = () => {
               className="max-w-sm rounded-lg" />
             </div>
             <div>
-              <p className='lemonMilkFont text-warning' style={{fontSize: '0.9rem'}}>&gt;&gt; ASTRONAUT PROFILE...</p>
 
-              <h1 className="text-4xl py-4 font-bold beyonderFont" style={{lineHeight: '3rem'}}>
+              <p className='lemonMilkFont text-warning' style={{fontSize: '0.9rem'}}>
                 <TypeAnimation
-                  sequence={[`HI, ${username}`, 500, `HI, ${prody_id}`, 500]}
-                  cursor={true}
+                  sequence={[1500, ">> Collecting cosmic logs...", 1000, ">> loaded ASTRONAUT PROFILE...", 500]}
+                  cursor={false}
+                  repeat={0}
+                  speed={70}
+                  deletionSpeed={80}
+                />  
+              </p>
+
+            <div className="w-11/12 m-auto typeAnimationText">
+              <h1 className="text-4xl py-4 flex-wrap whitespace-pre-wrap font-bold beyonderFont" id='containerText' style={{lineHeight: '4rem'}}>
+                <TypeAnimation
+                  sequence={[5800, `HI, ${username}`, 500, `HI, ${prody_id}`, 500]}
+                  cursor={false}
                   repeat={Infinity}
                 />
               </h1>
-              <p className="py-6 text-lg">
-                This is your <span className=''>space station</span> where you can check the events you&apos;ve completed, upcoming events and your progress!
-              </p>
-              <div className="flex m-auto flex-col w-11/12 md:w-80 lg:w-40 md:flex-row gap-4">
-                <button className="btn btn-outline">Your Events</button>
-                <button className="btn btn-primary">Logout</button>
-              </div>
+            </div>
+              <motion.div
+                initial={{y: 10, opacity: 0}}
+                animate={{y: 0, opacity: 1}}
+                transition={{delay: 6.8}}              
+              >
+                <p 
+                  className="py-6 text-lg"
+                >
+                  {`This is your space hub where you can check the events you've completed,
+
+                  upcoming events you can participate in and your progress!`}
+                </p>
+                <div className="flex m-auto flex-col w-11/12 md:w-80 lg:w-40 md:flex-row gap-4">
+                  <button className="btn btn-outline">Your Events</button>
+                  <button className="btn btn-primary">Logout</button>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
-        <div className="carousel carousel-center rounded-box">
-        <div className="carousel-item">
-          <img src="https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.jpg" alt="Pizza" />
-        </div> 
-        <div className="carousel-item">
-          <img src="https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg" alt="Pizza" />
-        </div> 
-        <div className="carousel-item">
-          <img src="https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg" alt="Pizza" />
-        </div> 
-        <div className="carousel-item">
-          <img src="https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg" alt="Pizza" />
-        </div> 
-        <div className="carousel-item">
-          <img src="https://daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg" alt="Pizza" />
-        </div> 
-        <div className="carousel-item">
-          <img src="https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg" alt="Pizza" />
-        </div> 
-        <div className="carousel-item">
-          <img src="https://daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.jpg" alt="Pizza" />
-        </div>
-      </div>
+        <br /><br /><br />
+        <UpcomingEvents />
       </div>
     </LazyMotion>
   )
