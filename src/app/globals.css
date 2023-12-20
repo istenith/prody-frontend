@@ -128,9 +128,11 @@ body {
 
 .card-custom-background {
   background: rgb(3, 2, 28);
-  background: radial-gradient(circle,
-      rgba(3, 2, 28, 1) 0%,
-      rgba(5, 5, 83, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(3, 2, 28, 0.5) 0%,
+    rgba(5, 5, 83, 0.5) 100%
+  );
 }
 
 .modal-custom {
@@ -172,5 +174,29 @@ body {
 .spaceThemeBackground {
   background-image: url("../../public/homepagetheme.svg");
   background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cornerBlobBackground {
+  background-image: url("../../public/images/cornerBlobs.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.randomBlobBackground {
+  background-image: url("../../public/images/randomBlobs.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.randomBlobBackground2 {
+  background-image: url("../../public/images/randomBlobs2.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.randomBlobBackground3 {
+  background-image: url("../../public/images/randomBlobs3.svg");
+  background-size: fill;
   background-repeat: no-repeat;
 }

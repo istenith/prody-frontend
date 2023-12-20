@@ -1,5 +1,7 @@
+"use client"
+
 import { Chrono } from "./react";
-import { Navbar } from "./react";
+import Navbar from "../components/Navbar/Navbar";
 import "./supporter.css";
 
 export default function Home() {
