@@ -33,13 +33,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
+
 .spaceFont {
   font-family: "nasa";
 }
@@ -52,6 +50,19 @@ body {
   font-family: "beyonders";
 }
 
+.gradient-bg {
+  background-image: url("../../public/gradient-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
 .mainEventsPage {
   background-image: url("../../public/homepagetheme.svg");
   background-size: cover;
@@ -61,13 +72,65 @@ body {
   color: whitesmoke;
 }
 
+.button-bg {
+  background-color: #b778ff;
+  border: 1px solid #b778ffa9;
+  border-radius: 10px;
+}
+
+.button-explore {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.button-hover {
+  margin-left: 10px;
+  margin-top: 3px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-effect:hover .button-hover {
+  transform: rotate(0deg) scale(150%);
+}
+
+.custom-hr {
+  height: 10px;
+  border: 0px solid;
+  width: 90%;
+  margin: auto;
+  background-color: #b778ffa9;
+}
+
+.glass-bg {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 3px solid #b778ffa9;
+  /* border: 3px solid rgba(255, 255, 255, 0.18); */
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
+}
+
+.glass-bg:hover {
+  transform: scale(105%);
+  box-shadow: 0 0 10px 5px #b778ffa9;
+}
+
+.custom-modal-rules{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.72);
+}
+
 .card-custom-background {
   background: rgb(3, 2, 28);
-  background: radial-gradient(
-    circle,
-    rgba(3, 2, 28, 1) 0%,
-    rgba(5, 5, 83, 1) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(3, 2, 28, 1) 0%,
+      rgba(5, 5, 83, 1) 100%);
 }
 
 .modal-custom {
@@ -76,11 +139,9 @@ body {
   margin: auto;
   border-radius: 12px;
   background: rgb(3, 2, 28);
-  background: radial-gradient(
-    circle,
-    rgba(3, 2, 28, 1) 0%,
-    rgba(5, 5, 83, 1) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(3, 2, 28, 1) 0%,
+      rgba(5, 5, 83, 1) 100%);
   justify-content: center;
   align-items: center;
 }
