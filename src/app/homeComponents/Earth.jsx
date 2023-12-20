@@ -22,7 +22,7 @@ function Earth(props) {
     const {scene, camera } = useThree();
 
     // Spring for camera position animation
-    const [cameraSpring, setCameraSpring] = useSpring(() => ({ position: [0, 0, 5], config: { duration: 4000 } })); // Adjust duration for speed
+    const [cameraSpring, setCameraSpring] = useSpring(() => ({ position: [0, 0, 6], config: { duration: 500 } })); // Adjust duration for speed
 
     // Router from Next.js for navigation
     const router = useRouter();
@@ -68,11 +68,11 @@ function Earth(props) {
         return () => {
             gltf.scene.visible = true;
             action.reset().play();
-
             mixerRef.current.addEventListener('finished', () => {
                 gltf.scene.visible = false;
                 router.push('/events');
             });
+
         };
     };
 
@@ -101,7 +101,7 @@ function Earth(props) {
         }
 
         // Update camera spring to zoom in
-        setCameraSpring({ position: [0, 0, -10] }); // Adjust these values for desired zoom level
+        setCameraSpring({ position: [0, 0, 2] }); // Adjust these values for desired zoom level
     };
 
     return (
@@ -109,7 +109,7 @@ function Earth(props) {
             <ambientLight intensity={1.0} color={"#ffffff"} />
             <mesh ref={earthRef} onClick={onEarthClick}>
                 <sphereGeometry args={[sphereSize, 32, 32]} />
-                <meshPhongMaterial specular={"#555555"} shininess={30} map={earthTexture} />
+                <meshPhongMaterial specular={"#555555"} shininess={10} map={earthTexture} />
             </mesh>
         </>
     );
