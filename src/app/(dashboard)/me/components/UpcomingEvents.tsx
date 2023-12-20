@@ -20,7 +20,7 @@ const UpcomingEvents = () => {
     })
       .then(response => response.json)
       .then(data => {
-        setevents(data)
+        setevents(data as any)
         console.log(data)
       })
       .catch(error => console.error(error))
