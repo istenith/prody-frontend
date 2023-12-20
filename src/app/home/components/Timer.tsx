@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NumberBox } from './NumBox';
+import NumberBox from './NumberBox';
 
 interface TimeProps {
   days: number | string;
@@ -10,7 +10,7 @@ interface TimeProps {
 
 const fixedDate = new Date('January 19, 2024 00:00:00 GMT+0000').getTime();
 
-export const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
+ const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
   const [countdownOver, setCountdownOver] = useState(false);
 
   // Convert values to numbers for comparison
@@ -110,3 +110,5 @@ export const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => 
     </div>
   );
 };
+
+export default TimerContainer
