@@ -1,11 +1,15 @@
 import React, { FormEvent, useState, ChangeEvent } from 'react'
+import {redirect} from 'next/navigation'
+import { useRouter } from 'next/navigation';
 
 interface Props {
   isRegistered: Boolean;
 }
 
 const FormComponent = ({isRegistered}: Props) => {
-  
+  const router = useRouter()
+
+
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -42,10 +46,15 @@ const FormComponent = ({isRegistered}: Props) => {
       console.log(apiResponse)
     })
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    router.push("/me")
+  }
   
   return (
     <div>
-      <form onSubmit={submitForm} action="POST">
+      <form >
         <label className="label">
           <span className="label-text">Enter username - no spaces!</span>
         </label>
@@ -85,7 +94,7 @@ const FormComponent = ({isRegistered}: Props) => {
           className="input bg-transparent input-bordered w-full max-w-xs" 
         />
 
-        <button className="btn btn-info m-5" type="submit" disabled={isLoading}>
+        <button className="btn btn-info m-5" onClick={handleSubmit} disabled={isLoading}>
           {isLoading ? <span>Taking you in...</span> : (isRegistered ? <span>Login &#8594;</span> : <span>Register</span>)}
         </button>
       </form>
