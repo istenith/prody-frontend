@@ -3,14 +3,14 @@ import {motion} from 'framer-motion'
 import Image from "next/image"
 import Backdrop from '../Backdrop/backdrop'
 
-const Modal = ({handleClose, cardrecieved}) => {
+const Modal = ({cardrecieved, handleClose}) => {
   const dropIn = {
     hidden: {
-      x: '-100vw',
+      y: -50,
       opacity: 0,
     },
     visible: {
-      x: '0',
+      y: 0,
       opacity: 1,
       transition: {
         duration: 0.5,
@@ -20,7 +20,7 @@ const Modal = ({handleClose, cardrecieved}) => {
       },
     },
     exit: {
-      x: '100vh',
+      y: 50,
       opacity: 0,
     },
   }
@@ -38,7 +38,7 @@ const Modal = ({handleClose, cardrecieved}) => {
           className="modal-custom flex flex-col gap-10 md:flex-row border-slate-950"
         >
           <div>
-            <Image loader={()=>cardrecieved.poster} width={300} height={100} src={cardrecieved.poster} alt='event-image'/>
+            <Image loader={()=>cardrecieved.thumbnail} width={300} height={100} src={cardrecieved.thumbnail} alt='event-image'/>
           </div>
 
           <div className='flex flex-col gap-4 justify-center items-center'>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import ImageComponent from '@/src/app/events/components/imageComponent';
 import styles from '../page.module.css';
 

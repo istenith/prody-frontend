@@ -25,7 +25,7 @@ const LandingPage = () => {
   })
   return (
     <div className=''>
-      <div className="hero randomBlobBackground3 m-auto min-h-screen pt-28 px-10">
+      <div className="hero randomBlobBackground3 m-auto min-h-screen pt-20 px-10">
         <div className="hero-content w-11/12 flex-col lg:flex-row">
           <div ref={scope} style={{translate: '-100px', opacity: 0}}>
             <Image 
@@ -51,7 +51,7 @@ const LandingPage = () => {
             <div className="m-auto typeAnimationText">
               <h1 className="text-4xl py-4 flex-wrap whitespace-pre-wrap font-bold beyonderFont" id='containerText' style={{lineHeight: '4rem'}}>
                 <TypeAnimation
-                  sequence={[4800, `HI, ${username}`, 500, `HI, ${prody_id}`, 500]}
+                  sequence={[4600, `👋 HI, ${username}`, 500, `👋 HI, ${prody_id}`, 500]}
                   cursor={false}
                   repeat={Infinity}
                 />
@@ -72,19 +72,19 @@ const LandingPage = () => {
 
               <div className="eventStats my-8 mb-12">
                 <h2 className='coolveticaFont text-4xl my-4'>Your Journey</h2>
-                <progress className="progress progress-info h-8 w-full" value={40} max="100"></progress>
+                <progress className="progress progress-info h-6 w-full" value={40} max="100"></progress>
               </div>
 
               <div className="coolveticaFont flex flex-col w-full lg:flex-row bg-transparent">
-                <div className="grid flex-grow h-32 card rounded-box place-items-center">
-                  <h1 className="text-3xl">
+                <div className="grid flex-grow h-20 card rounded-box place-items-center">
+                  <h1 className="text-2xl">
                     Total Events
                   </h1>
                   <h2 className="text-2xl">10</h2>
                 </div> 
                 <div className="divider lg:divider-horizontal"></div> 
-                <div className="grid flex-grow h-32 card rounded-box place-items-center">
-                  <h1 className="text-3xl">
+                <div className="grid flex-grow h-20 card rounded-box place-items-center">
+                  <h1 className="text-2xl">
                     Registered Events
                   </h1>
                   <h2 className="text-2xl">4</h2>
