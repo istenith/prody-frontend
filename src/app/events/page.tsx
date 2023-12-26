@@ -6,6 +6,7 @@ import { TypeAnimation } from 'react-type-animation';
 import Navbar from '../components/Navbar/Navbar';
 import { AnimatePresence } from 'framer-motion';
 import Modal from './components/Modal/modal';
+import MediaQuery from "react-responsive";
 
 interface Card{
   id: number;
@@ -62,16 +63,25 @@ const Page = () => {
           <h1 className='beyonderFont text-5xl'>
             Events
           </h1>
-          <h2 className='spaceFont text-3xl m-4'>
-            &nbsp;
-            <TypeAnimation
-              sequence={['PRODYOGIKI', 500, 'by iste', 500]}
-              repeat={Infinity}
-              cursor={false}
-              speed={{type: 'keyStrokeDelayInMs', value: 125}}
-            />
-            &nbsp;
-          </h2>
+
+            <h2 className='spaceFont hidden lg:block text-3xl m-4'>
+              &nbsp;
+              <TypeAnimation
+                sequence={['PRODYOGIKI', 500, 'by iste', 500]}
+                repeat={Infinity}
+                cursor={false}
+                speed={{type: 'keyStrokeDelayInMs', value: 125}}
+              />
+              &nbsp;
+            </h2>
+
+            <h2 className='spaceFont block lg:hidden text-3xl m-4'>
+              &nbsp;
+                Prodyogiki
+              &nbsp;
+            </h2>            
+
+
           <div className="flex flex-row w-full flex-wrap p-10 gap-5 content-around h-full justify-around">
             {isLoaded ? 
                 cardData.map(card => {   
@@ -90,7 +100,7 @@ const Page = () => {
                   )
                 })
                 :
-                Array.apply(null, { length: 12 }).map((e, i) => (
+                Array.from({ length: 12 }).map((_, i) => (
                   <div key={i} className="flex flex-col gap-4 w-72 h-96 md:w-80 lg:w-80">
                     <div className="skeleton h-56 w-full"></div>
                     <div className="skeleton h-5 w-28"></div>

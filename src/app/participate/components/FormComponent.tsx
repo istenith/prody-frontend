@@ -47,7 +47,7 @@ const FormComponent = ({isRegistered}: Props) => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     router.push("/me")
   }

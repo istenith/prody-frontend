@@ -5,13 +5,15 @@ import {useEffect, useState} from 'react'
 import Astronaut from '../../../../../public/images/Astronaut.png'
 import { TypeAnimation } from 'react-type-animation'
 import { LazyMotion , domAnimation, motion, useAnimate} from 'framer-motion'
-import MediaQuery from 'react-responsive'
+import { useWindowSize } from '@uidotdev/usehooks'
 
 
 const LandingPage = () => {
+  const window = useWindowSize()
+  const windowWidth = window.width!
   const username = "Mehul Ambastha"
   const prody_id = "PRODY#2533"
-
+  console.log(windowWidth)
   const [scope, animate] = useAnimate()
 
   const animateAstronaut = async () => {
@@ -27,7 +29,7 @@ const LandingPage = () => {
     <div className=''>
       <div className="hero randomBlobBackground3 m-auto min-h-screen pt-20 px-10">
         <div className="hero-content w-11/12 flex-col lg:flex-row">
-          <div ref={scope} style={{translate: '-100px', opacity: 0}}>
+          <div ref={scope} className="hidden lg:block" style={{translate: '-100px', opacity: 0}}>
             <Image 
             height={200}
             width={300}
@@ -38,7 +40,7 @@ const LandingPage = () => {
         
         
           <div>
-            <div className='lemonMilkFont text-warning' style={{fontSize: '1rem'}}>
+            <div className='hidden lg:block lemonMilkFont text-warning' style={{fontSize: '1rem'}}>
               <TypeAnimation
                     sequence={[1200, `>> Collecting space rock...`, 600, `>> Loaded Astronaut Profile...`, 600]}
                     cursor={false}
@@ -48,20 +50,45 @@ const LandingPage = () => {
               />              
             </div>
 
+            <div className='lemonMilkFont block lg:hidden text-warning' style={{fontSize: '1rem'}}>
+              <TypeAnimation
+                      sequence={[400, `>> Loaded Astronaut Profile...`]}
+                      cursor={false}
+                      speed={50}
+                      deletionSpeed={90}
+                      repeat={0}
+              />             
+            </div>
+
             <div className="m-auto typeAnimationText">
-              <h1 className="text-4xl py-4 flex-wrap whitespace-pre-wrap font-bold beyonderFont" id='containerText' style={{lineHeight: '4rem'}}>
+              <h1 className="text-4xl py-4 hidden lg:block flex-wrap font-bold beyonderFont" id='containerText' style={{lineHeight: '4rem'}}>
                 <TypeAnimation
-                  sequence={[4600, `👋 HI, ${username}`, 500, `👋 HI, ${prody_id}`, 500]}
+                  sequence={[4000, `👋 HI, ${username}`, 500, `👋 HI, ${prody_id}`, 500]}
                   cursor={false}
+                  speed={50}
                   repeat={Infinity}
                 />
               </h1>
+              <motion.div 
+                className="block lg:hidden"
+                initial={{opacity: 0, y: 10}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 2.5}}
+              >
+                <h1 className="text-2xl py-4 flex-wrap font-bold beyonderFont" id='containerText' style={{lineHeight: '4rem'}}>
+                  {`👋 HI, ${username}`}
+                </h1>
+                <h2 className='text-sm flex-wrap beyonderFont'>
+                  {`${prody_id}`}
+                </h2>
+              </motion.div>
             </div>
               
             <motion.div
               initial={{y: 10, opacity: 0}}
               animate={{y: 0, opacity: 1}}
-              transition={{delay: 6.8}}              
+              transition={(windowWidth > 500) ? {delay: 10} : {delay: 4}}   
+              className='mx-auto'           
             >
               <div 
                 className="py-6 text-2xl coolveticaFont"
@@ -96,7 +123,6 @@ const LandingPage = () => {
                 <button className="btn btn-primary">Logout</button>
               </div>
             </motion.div>
-
           </div>
         </div>
       </div>

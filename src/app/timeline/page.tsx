@@ -1,8 +1,9 @@
-import { Chrono } from "./react";
+"use client"
+import { Chrono } from "react-chrono";
 import Navbar from "../components/Navbar/Navbar";
-import "./supporter.css";
+import styles from "./page.module.css";
 
-export default function Home() {
+const Timeline = () => {
   const data = [
     {
       title: "Day-1",
@@ -61,10 +62,8 @@ export default function Home() {
   ];
 
   return (
-    <>
-      <div>
-        <Navbar isHomePage={false}/>
-      </div>
+    <div className={styles.body}>
+      <Navbar isHomePage={false}/>
       <div>
         <Chrono
           items={data}
@@ -87,6 +86,8 @@ export default function Home() {
           }}
         ></Chrono>
       </div>
-    </>
+    </div>
   );
 }
+
+export default Timeline;
