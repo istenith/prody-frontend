@@ -1,9 +1,9 @@
-import React from 'react'
-import ImageComponent from '../../events/components/imageComponent'
-import OpenDialogButton from '../../events/components/OpenDialogButton'
+import React, { useState } from 'react';
+import ImageComponent from '../../events/components/imageComponent';
+import OpenDialogButton from '../../events/components/OpenDialogButton';
 
-interface CardProps{
-  card : {
+interface CardProps {
+  card: {
     id: number;
     title: string;
     description: string;
@@ -11,25 +11,44 @@ interface CardProps{
     discountPercentage: number;
     thumbnail: string;
     images: Array<string>;
-  }
+  };
 }
 
+interface Card {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  thumbnail: string;
+  images: Array<string>;
+}
 
+const Card = ({ card }: CardProps) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
-const Card = ({card}: CardProps) => {
+  const openModal = (card: Card) => {
+    console.log("open modal clicked");
+    console.log(`Card received: ${card}`);
+    console.log(card);
+    setSelectedCard(card);
+    setModalOpen(true);
+  };
+
   return (
     <div key={card.id} className="card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl card-custom-background">
-    <figure className="relative h-60">
-      <ImageComponent card={card} />
-    </figure>
-    <div className="card-body items-center">
-      <h2 className="card-title">{card.title}</h2>
-      <p>{card.description}</p>
-      <p>{card.price}</p>
-      <OpenDialogButton card={card} setModalOpenToTrue={openModal}/>
+      <figure className="relative h-60">
+        <ImageComponent card={card} />
+      </figure>
+      <div className="card-body items-center">
+        <h2 className="card-title">{card.title}</h2>
+        <p>{card.description}</p>
+        <p>{card.price}</p>
+        <OpenDialogButton card={card} setModalOpenToTrue={openModal} />
+      </div>
     </div>
-  </div> 
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
