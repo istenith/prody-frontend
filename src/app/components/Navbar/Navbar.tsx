@@ -53,12 +53,12 @@ const Navbar = ({isHomePage}: NavbarProps) => {
     )
   }else{
     return(
-      <div className="drawer" style={{zIndex: 100}}>
+      <div className="drawer fixed top-0 left-0" style={{zIndex: 100}}>
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-row justify-between">
-          <span className='spaceFont text-4xl p-8'>PRODYOGIKI</span>
-          <span className='p-5 my-auto'>
-            <label htmlFor="my-drawer" className="text-4xl m-auto drawer-button">
+        <div className="drawer-content bg-base-300 flex flex-row justify-around">
+          <span className='spaceFont text-2xl p-4'>PRODYOGIKI</span>
+          <span className='p-3 my-auto'>
+            <label htmlFor="my-drawer" className="text-2xl m-auto drawer-button">
               ☰
             </label>
           </span>
@@ -66,10 +66,13 @@ const Navbar = ({isHomePage}: NavbarProps) => {
         </div> 
         <div className="drawer-side">
           <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+          <ul className="menu p-4 w-80 min-h-full bg-base-300 flex flex-col items-center justify-center text-base-content">
             {/* Sidebar content here */}
-            <li><a>Sidebar Item 1</a></li>
-            <li><a>Sidebar Item 2</a></li>
+            <li><Link href={"/"}>Home</Link></li>
+            <li><Link href={"/events"}>Events</Link></li>
+            <li><Link href={"/sponsors"}>Sponsors</Link></li>
+            <li><Link href={"/contacts"}>Contact</Link></li>
+            <li><Link href={"/participate"}>Participate</Link></li>
             
           </ul>
         </div>

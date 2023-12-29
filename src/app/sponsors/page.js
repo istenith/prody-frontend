@@ -3,21 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import "./supporter.css";
 import Navbar from '../components/Navbar/Navbar';
-
-const SupporterCard = ({ title, content, onClick ,src}) => (
-    <div className="supportcard p-2 m-auto bg-gray-600 rounded-lg shadow-lg" onClick={onClick}>
-      <img src={src} alt="supporter" className="card-img rounded m-auto h-2/3 w-5/6"/> 
-      <h3 className="text-center text-white text-lg font-semibold truncate">{title}</h3>
-      <p className="text-center text-white text-m overflow-ellipsis overflow-hidden">{content}</p>
-    </div>
-);
+import Card from '../components/SponsorCard/Card.tsx';
 
 const Modal = ({ show, onClose, title,content,src }) => {
   if (!show) return null;
 
   return (
-    <div className="modal-backdrop">
-        
+    <div className="modal-backdrop">        
       <div className="modal-content">
       <button className="close-modal"  onClick={onClose}>&times;</button>
         <img src={src} alt="supporter" className="modal-img"/> 
@@ -100,23 +92,22 @@ const SupportersComponent = () => {
       <h3 className="text-center text-xl font-bold mt-12 mb-4">SPONSORS & PARTNERS //</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-20 mb-8">
         {supporters.map(supporter => (
-          <SupporterCard key={supporter.id} title={supporter.title} content={supporter.content} src={supporter.src} onClick={() => toggleModal(supporter)} />
+          <Card key={supporter.id} title={supporter.title} content={supporter.content} src={supporter.src} onClick={() => toggleModal(supporter)} />
         ))}
         
       </div>
       <h3 className="text-center text-xl font-bold mt-12 mb-4">Past Production and Program Sponsors</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 mb-8">
         {olds.map(old => (
-          <SupporterCard key={old.id} title={old.title} content={old.content} src={old.src} onClick={() => toggleModal(old)} />
+          <Card key={old.id} title={old.title} content={old.content} src={old.src} onClick={() => toggleModal(old)} />
         ))}
         
       </div>
       <h3 className="text-center text-xl font-semibold mt-20 mb-4">Proud Partnership With:</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 mb-8">
         {partners.map(partner => (
-          <SupporterCard key={partner.id} title={partner.title} content={partner.content} src={partner.src} onClick={() => toggleModal(partner)}/>
-        ))}
-      
+          <Card key={partner.id} title={partner.title} content={partner.content} src={partner.src} onClick={() => toggleModal(partner)}/>
+        ))}     
       </div>
       
     </div>

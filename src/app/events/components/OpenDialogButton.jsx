@@ -1,8 +1,6 @@
 "use client"
 import React from 'react'
 import { motion, AnimatePresence } from "framer-motion"
-import { useState } from 'react'
-import Modal from './Modal/modal'
 
 const OpenDialogButton = ({card, setModalOpenToTrue}) => {
 

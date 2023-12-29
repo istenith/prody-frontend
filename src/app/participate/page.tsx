@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import FormComponent from './components/FormComponent'
+import FormComponent from '../components/Form/FormComponent'
 import Navbar from '../components/Navbar/Navbar'
 
 const Participate = () => {
