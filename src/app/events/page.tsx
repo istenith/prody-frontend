@@ -5,8 +5,8 @@ import OpenDialogButton from './components/OpenDialogButton';
 import { TypeAnimation } from 'react-type-animation';
 import Navbar from '../components/Navbar/Navbar';
 import { AnimatePresence } from 'framer-motion';
-import Modal from './components/Modal/modal';
-import MediaQuery from "react-responsive";
+import Modal from '../components/Modal/modal';
+import Skeleton from '../components/SkeletonCard/Skeleton';
 
 interface Card{
   id: number;
@@ -100,15 +100,7 @@ const Page = () => {
                   )
                 })
                 :
-                Array.from({ length: 12 }).map((_, i) => (
-                  <div key={i} className="flex flex-col gap-4 w-72 h-96 md:w-80 lg:w-80">
-                    <div className="skeleton h-56 w-full"></div>
-                    <div className="skeleton h-5 w-28"></div>
-                    <div className="skeleton h-5 w-full"></div>
-                    <div className="skeleton h-5 w-full"></div>
-                    <div className="skeleton h-5 w-full"></div>
-                  </div>
-                ))
+                <Skeleton num={6} />
             }
           </div>
         </div>

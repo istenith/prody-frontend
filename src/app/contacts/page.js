@@ -2,6 +2,7 @@
 import React from 'react';
 import "../contacts/contact.css";
 import Navbar from '../components/Navbar/Navbar.tsx';
+import Card from '../components/ContactCard/Card.tsx';
 // import Image from 'next/image';
 
 const Contact = () => {
@@ -88,18 +89,7 @@ const Contact = () => {
       </div>
 
       {contactData.map((contact) => (
-        <div key={contact.id} className="contact-card">
-
-
-
-          <div className="contact-image">
-            <img src={contact.image} alt={contact.name} />
-          </div>
-          <div className="contact-details">
-            <h2>{contact.name}</h2>
-            <p>{contact.email}</p>
-          </div>
-        </div>
+        <Card contact={contact} key={contact.id} />
       ))}
     </div>
   );
