@@ -1,56 +1,117 @@
-'use client'
-import React, { useEffect, useState } from 'react';
+"use client"
+import React, {useEffect, useState} from 'react'
+import ImageComponent from './components/imageComponent';
+import OpenDialogButton from './components/OpenDialogButton';
 import { TypeAnimation } from 'react-type-animation';
-import Layout from '../components/Layout';
-import Header from '../components/Header';
-import { GlassCard } from '../components/Cards';
-import { Card } from '../components/exports';
-import Modal from '../components/Modal';
+import Navbar from '../components/Navbar/Navbar';
+import { AnimatePresence } from 'framer-motion';
+import Modal from '../components/Modal/modal';
+import Skeleton from '../components/SkeletonCard/Skeleton';
+
+interface Card{
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  thumbnail: string;
+  images: Array<string>;
+}
+
 
 const Page = () => {
-  const [cardData, setCardData] = useState<Card[]>([]);
+  const [cardData, setCardData] = useState<Card[]>([])
+  const [isLoaded, setIsLoaded] = useState(false)
 
-  useEffect(() => {
-    const fetchCardData = async () => {
-      try {
-        const res = await fetch('https://dummyjson.com/products');
-        const resJson = await res.json();
-        const data = resJson.products.slice(0, 12); // Limiting data to 12 items
-        setCardData(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+  const fetchData = async () => {
+    try{
+      const res = await fetch('https://dummyjson.com/products')
+      const resJson = await res.json()
+      setCardData(resJson.products.slice(0,12))
+      setIsLoaded(true)
+    } catch {
+      console.log('error')
+    }
+  }
 
-    fetchCardData();
-  }, []);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [activeCard, setActiveCard] = useState<Card>();
+  useEffect(()=>{
+    fetchData()
+  }, [])
+
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedCard, setSelectedCard] = useState<Card | null>(null);
+
+
+  const openModal = (card: Card) => {
+    console.log("open modal clicked")
+    console.log(`Card recieved: ${card}`)
+    console.log(card)
+    setSelectedCard(card);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedCard(null);
+  };
+
+
   return (
-    <Layout>
-      <div className='text-center pt-20'>
-        <Header title='Events' />
-        <h2 className='spaceFont text-3xl m-4'>
-          &nbsp;
-          <TypeAnimation
-            sequence={['PRODYOGIKI', 500, 'BY ISTE', 500]}
-            repeat={Infinity}
-            cursor={false}
-            speed={{ type: 'keyStrokeDelayInMs', value: 125 }}
-          />
-          &nbsp;
-        </h2>
-        <div className="flex flex-row w-full flex-wrap p-10 h-full">
-          {cardData && cardData.map(card => {
-            return (
-              <GlassCard card={card} key={card.id} handleOpenClose={() => { setModalOpen(!modalOpen); setActiveCard(card) }} />
-            )
-          })}
-          {modalOpen && <Modal card={activeCard} handleClose={() => { setModalOpen(!modalOpen) }} />}
-        </div>
-      </div>
-    </Layout>
-  )
-};
+    <div className=''>
+        <Navbar isHomePage={false}/>    
+        <div className='mainEventsPage text-center pt-20'>
+          <h1 className='beyonderFont text-5xl'>
+            Events
+          </h1>
 
-export default Page;
+            <h2 className='spaceFont hidden lg:block text-3xl m-4'>
+              &nbsp;
+              <TypeAnimation
+                sequence={['PRODYOGIKI', 500, 'by iste', 500]}
+                repeat={Infinity}
+                cursor={false}
+                speed={{type: 'keyStrokeDelayInMs', value: 125}}
+              />
+              &nbsp;
+            </h2>
+
+            <h2 className='spaceFont block lg:hidden text-3xl m-4'>
+              &nbsp;
+                Prodyogiki
+              &nbsp;
+            </h2>            
+
+
+          <div className="flex flex-row w-full flex-wrap p-10 gap-5 content-around h-full justify-around">
+            {isLoaded ? 
+                cardData.map(card => {   
+                  return(
+                    <div key={card.id} className="card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl card-custom-background">
+                      <figure className="relative h-60">
+                        <ImageComponent card={card} />
+                      </figure>
+                      <div className="card-body items-center">
+                        <h2 className="card-title">{card.title}</h2>
+                        <p>{card.description}</p>
+                        <p>{card.price}</p>
+                        <OpenDialogButton card={card} setModalOpenToTrue={openModal}/>
+                      </div>
+                    </div>  
+                  )
+                })
+                :
+                <Skeleton num={6} />
+            }
+          </div>
+        </div>
+        <AnimatePresence
+          initial={false}
+          mode='wait'
+        >
+          {modalOpen && <Modal cardrecieved={selectedCard} handleClose={closeModal} />}
+        </AnimatePresence>
+    </div>
+  )
+}
+
+export default Page

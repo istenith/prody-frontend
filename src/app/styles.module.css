@@ -1,11 +1,11 @@
 /* // styles.module.css */
 .container {
   display: flex;
-  gap: 40px;  
+  gap: 40px;
   flex-wrap: wrap;
   text-align: center;
   margin-top: 100px;
-  padding:10%;
+  padding: 10%;
 }
 .container::before {
   content: "";
@@ -13,8 +13,8 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 150px; 
-  background: linear-gradient(transparent, purple); 
+  height: 150px;
+  background: linear-gradient(transparent, purple);
   border-radius: 0 0 50% 50% / 0 0 40% 40%;
   z-index: -1;
 }
@@ -28,7 +28,7 @@
 .image {
   width: 100%;
   height: auto;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .eventLabel {
@@ -37,7 +37,7 @@
   text-align: center;
   background-color: #333;
   padding: 5px 0;
-  border-radius: 0 0 10px 10px;  
+  border-radius: 0 0 10px 10px;
   color: white;
 }
 @media only screen and (max-width: 420px) {
@@ -46,9 +46,8 @@
     align-items: center;
     gap: 10px;
   }
-  
+
   .card {
-    width: 90%;  
+    width: 90%;
   }
-  
 }
