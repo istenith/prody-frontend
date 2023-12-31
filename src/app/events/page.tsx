@@ -23,6 +23,17 @@ interface Card{
   images: Array<string>;
 }
 
+interface MyEvent {
+  id: number;
+  date_time: string;
+  date: string;
+  name : string;
+  description : string;
+  poster: string;
+  thumbnail: string;
+  is_live : boolean;
+  is_team_event : boolean;
+}
 
 const Page = () => {
   const [cardData, setCardData] = useState<Card[]>([])
@@ -40,7 +51,7 @@ const Page = () => {
     try{
       const res = await fetch('https://api-dev.prody.istenith.com/api/events/')
       const resJson = await res.json()
-      const formattedData = resJson.map(event => {
+      const formattedData = resJson.map((event:MyEvent) => {
         const eventDate = new Date(event.date_time);
         
         const formattedDate = `${eventDate.getDate()} ${getMonthName(eventDate.getMonth())} ${eventDate.getFullYear()}`;
@@ -113,7 +124,7 @@ const Page = () => {
                   return(
                     <div key={card.id} className="card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl card-custom-background">
                       <figure className="relative h-60">
-                        <ImageComponent card={card} />
+                        <ImageComponent poster={card.poster} />
                         {/* <ImageComponent card={card} /> */}
                       </figure>
                       <div className="card-body items-center">

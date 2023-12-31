@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {motion} from 'framer-motion'
 import Image from "next/image"
 import Backdrop from '../Backdrop/backdrop'
@@ -6,6 +6,12 @@ import { useRouter } from 'next/navigation';
 
 
 const Modal = ({cardrecieved, handleClose}) => {
+
+  useEffect(() => {
+    console.log("cardrecieved",cardrecieved)
+    console.log(cardrecieved.poster)
+  }, [])
+  
   const router = useRouter();
 
   const dropIn = {
@@ -51,8 +57,13 @@ const Modal = ({cardrecieved, handleClose}) => {
           className="modal-custom flex flex-col gap-10 md:flex-row border-slate-950"
         >
           <div>
-            <Image loader={()=>cardrecieved.thumbnail} width={300} height={100} src={cardrecieved.thumbnail} alt='event-image'/>
+          {cardrecieved.poster ? (
+            <Image loader={()=>cardrecieved.poster} width={500} height={500} unoptimized={true} src={cardrecieved.poster} alt="thumbnail"/>
+            ) : (
+            <Image loader={() => cardrecieved.poster} width={300} height={100} src="" alt='event-image' />
+          )}          
           </div>
+
 
           <div className='flex flex-col gap-4 justify-center items-center'>
             <div role="tablist" className="tabs w-11/12 mx-auto h-4/5 tabs-lifted">

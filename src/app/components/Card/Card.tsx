@@ -43,7 +43,7 @@ const Card = ({ card }: CardProps) => {
   return (
     <div key={card.id} className="card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl card-custom-background">
       <figure className="relative h-60">
-        <ImageComponent card={card} />
+        <ImageComponent poster={card.poster} />
       </figure>
       <div className="card-body items-center">
         <h2 className="card-title">{card.name}</h2>

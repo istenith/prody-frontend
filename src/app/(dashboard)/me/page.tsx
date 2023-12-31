@@ -5,6 +5,10 @@ import LandingPage from './components/LandingPage';
 import EventsListing from './components/EventsListing';
 import axios from 'axios';
 import "./page.module.css"
+import { useRouter } from 'next/navigation';
+
+
+
 interface Event {
   id: number;
   date_time: string;
@@ -34,6 +38,7 @@ const Dashboard: React.FC = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [registeredEvents, setRegisteredEvents] = useState<Event[]>([]);
   const [nonRegisteredEvents, setNonRegisteredEvents] = useState<Event[]>([]);
+  const router = useRouter();
 
   function getMonthName(monthIndex: number): string {
     const months = [
@@ -56,8 +61,7 @@ const Dashboard: React.FC = () => {
             date: formattedDate,
           };
         });
-
-        console.log(formattedData);
+        // console.log("events formatted data ones" , formattedData)
         setEvents(formattedData);
       } catch (error) {
         console.log('error', error);
@@ -72,43 +76,39 @@ const Dashboard: React.FC = () => {
     const fetchUserData = async () => {
       try {
         const storedToken = localStorage.getItem('myJwtToken');
-        const response = await axios.get<User>('https://api-dev.prody.istenith.com/api/auth/user/', {
+        const response = await axios.get('https://api-dev.prody.istenith.com/api/auth/user/', {
           headers: {
             Authorization: `${storedToken}`,
           },
         });
         setUser(response.data.user);
-        console.log("response.data",response.data.user);
       } catch (error:any) {
-        alert(`Error fetching user data: ${error.message}`);
-        console.error(`Error fetching user data: ${error.message}`);
+        alert(`Need to login to see your profile`);
+        // console.error(`Error fetching user data: ${error.message}`);
+        router.push("/participate");
       }
     };
 
     fetchUserData();
   }, []);
 
-  useEffect(() => {
-    console.log("events", events);
-    console.log("user",user)
-    
-  }, [])
-  
+
 
   useEffect(() => {
-    console.log("events", events);
-    console.log("user",user)
+
     if (user) {
       const { is_live_events, is_completed_events, is_upcoming_events } = user.registered_events;
       const userRegisteredEvents = [...is_live_events, ...is_completed_events, ...is_upcoming_events];
-      setRegisteredEvents(userRegisteredEvents);
+      
+      const userRegisteredEventsAlternate = events.filter(event => {
+        return userRegisteredEvents.some(registeredEvent => registeredEvent.id === event.id);
+      });
+      setRegisteredEvents(userRegisteredEventsAlternate);
 
       const userNonRegisteredEvents = events.filter(event => {
         return !userRegisteredEvents.some(registeredEvent => registeredEvent.id === event.id);
       });
       setNonRegisteredEvents(userNonRegisteredEvents);
-
-
     }
   }, [events, user]);
 

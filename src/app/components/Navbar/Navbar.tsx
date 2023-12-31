@@ -35,10 +35,16 @@ const Navbar = ({isHomePage}: NavbarProps) => {
                 <Link href={"/contacts"}>Contact</Link>
               </li>
               <li>
+                <Link href={"/events"}>Events</Link>
+              </li>
+              <li>
                 <Link href={"/"} className='spaceFont text-3xl'>PRODYOGIKI</Link>
               </li>
               <li>
-                <Link href={"/events"}>Events</Link>
+                <Link href={"/me"}>Dashboard</Link>
+              </li>
+              <li>
+                <Link href={"/timeline"}>Timeline</Link>
               </li>
               <li>
                 <Link href={"/participate"}>Participate &#129042;</Link>
@@ -70,9 +76,11 @@ const Navbar = ({isHomePage}: NavbarProps) => {
             {/* Sidebar content here */}
             <li><Link href={"/"}>Home</Link></li>
             <li><Link href={"/events"}>Events</Link></li>
+            <li><Link href={"/timeline"}>Timeline</Link></li>
             <li><Link href={"/sponsors"}>Sponsors</Link></li>
             <li><Link href={"/contacts"}>Contact</Link></li>
             <li><Link href={"/participate"}>Participate</Link></li>
+            <li><Link href={"/me"}>Dashboard</Link></li>
             
           </ul>
         </div>

@@ -20,9 +20,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
   const windowWidth = window.width!
   const username = user.username
   const prody_id = user.user_id
+  const [scope, animate] = useAnimate()
+  
   console.log(windowWidth)
   console.log("user",user)
-  const [scope, animate] = useAnimate()
+  // console.log("user registered teams", user.registered_teams)
 
   const handleLogout = async () => {
     try {
@@ -119,7 +121,23 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
 
               <div className="eventStats my-8 mb-12">
                 <h2 className='coolveticaFont text-4xl my-4'>Your Journey</h2>
-                <progress className="progress progress-info h-6 w-full" value={40} max="100"></progress>
+                <h3 className='coolveticaFont text-2xl my-4'> UserName : <span className='text-green-400'>{user.username}</span> </h3>
+                <h3 className='coolveticaFont text-2xl my-4'>Prody ID : <span className='text-green-400'>{user.user_id}</span></h3>
+                
+                {user.registered_teams.length > 0 && (
+                  <>
+                    <h3 className='coolveticaFont text-2xl my-4'>Registered Teams:</h3>
+                    <ul style={{ listStyleType: 'decimal' /* or 'circle' for circles */ }}>
+                    {user.registered_teams.map((team: any, index: number) => (
+                      <li key={index}>
+                          <h3 className='coolveticaFont text-2xl my-4'>{team.registered_events.name}</h3>
+                          <h3 className='coolveticaFont text-xl my-4'>Team ID: <span className='text-yellow-400'>{team.team_id}</span></h3>
+                          <h3 className='coolveticaFont text-xl my-4'>Team Name: <span className='text-yellow-400'>{team.name}</span></h3>
+                      </li>
+                    ))}
+                    </ul>
+                  </>
+                )}                
               </div>
 
               <div className="coolveticaFont flex flex-col w-full lg:flex-row bg-transparent">

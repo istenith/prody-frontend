@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ImageComponent from '@/src/app/events/components/imageComponent';
 import styles from '../page.module.css';
 import { useRouter } from 'next/navigation';
 
-interface Event {
+interface MyEvent {
   id: number;
   date_time: string;
   date: string;
@@ -17,15 +17,16 @@ interface Event {
 interface EventsListingProps {
   upComingEvents: boolean;
   user: any;
-  events: Event[]; 
+  events: MyEvent[]; 
 }
 
 const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, events }) => {
+  console.log("Event Listing events", events)
   const router = useRouter();
 
   const isLoaded = true; 
   
-  const handleRegisterNow = (event: Event) => {
+  const handleRegisterNow = (event: MyEvent) => {
     const eventId = event.id;
     router.push(`/event-register/${eventId}`);
 
@@ -49,7 +50,8 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
             <div key={event.id} className="carousel-item">
               <div className={["card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl", styles.upComingEventCard].join(" ")}>
                 <figure className="relative h-60">
-                  <ImageComponent card={event} />
+                  <ImageComponent poster={event.poster} />
+
                 </figure>
                 <div className="card-body items-center">
                   <h2 className="card-title">{event.name}</h2>
