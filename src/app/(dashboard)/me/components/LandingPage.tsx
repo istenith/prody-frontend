@@ -1,14 +1,21 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react';
 import Image from 'next/image'
-import {useEffect, useState} from 'react'
 import Astronaut from '../../../../../public/images/Astronaut.png'
 import { TypeAnimation } from 'react-type-animation'
-import { LazyMotion , domAnimation, motion, useAnimate} from 'framer-motion'
+import {  motion, useAnimate} from 'framer-motion'
 import { useWindowSize } from '@uidotdev/usehooks'
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
+interface LandingPageProps {
+  user: any;
+  totalEvents: number;
+  registeredEvents: number;
+}
 
-const LandingPage = ({user}) => {
+const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registeredEvents }) => {
+  const router = useRouter();
   const window = useWindowSize()
   const windowWidth = window.width!
   const username = user.username
@@ -16,6 +23,18 @@ const LandingPage = ({user}) => {
   console.log(windowWidth)
   console.log("user",user)
   const [scope, animate] = useAnimate()
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('https://api-dev.prody.istenith.com/api/auth/logout/');
+
+      localStorage.removeItem('myJwtToken');
+      alert("Logout Successful")
+      router.push("/events");
+    } catch (error:any) {
+      console.error('Logout failed:', error.message);
+    }
+  };
 
   const animateAstronaut = async () => {
     await animate(scope.current, {x: 100, opacity: 1}, {delay: 1})
@@ -108,20 +127,20 @@ const LandingPage = ({user}) => {
                   <h1 className="text-2xl">
                     Total Events
                   </h1>
-                  <h2 className="text-2xl">10</h2>
+                  <h2 className="text-2xl">{totalEvents}</h2>
                 </div> 
                 <div className="divider lg:divider-horizontal"></div> 
                 <div className="grid flex-grow h-20 card rounded-box place-items-center">
                   <h1 className="text-2xl">
                     Registered Events
                   </h1>
-                  <h2 className="text-2xl">4</h2>
+                  <h2 className="text-2xl">{registeredEvents}</h2>
                 </div>
               </div>
 
               <div className="flex m-auto flex-col w-11/12 md:w-80 lg:w-40 md:flex-row gap-4 mt-12">
-                <button className="btn btn-outline">Your Events</button>
-                <button className="btn btn-primary">Logout</button>
+                {/* <button className="btn btn-outline">Your Events</button> */}
+                <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
               </div>
             </motion.div>
           </div>

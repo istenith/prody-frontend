@@ -28,7 +28,7 @@ const Page = () => {
   const [cardData, setCardData] = useState<Card[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
 
-  function getMonthName(monthIndex) {
+  function getMonthName(monthIndex:any) {
     const months = [
       'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'
@@ -39,7 +39,6 @@ const Page = () => {
   const fetchData = async () => {
     try{
       const res = await fetch('https://api-dev.prody.istenith.com/api/events/')
-      // const res = await fetch('https://dummyjson.com/products')
       const resJson = await res.json()
       const formattedData = resJson.map(event => {
         const eventDate = new Date(event.date_time);
@@ -53,7 +52,6 @@ const Page = () => {
       
       
       console.log(formattedData)
-      // setCardData(resJson.products.slice(0,12))
       setCardData(formattedData)
       setIsLoaded(true)
     } catch {

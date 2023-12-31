@@ -56,11 +56,9 @@ const EventRegisterPage = () => {
         }
       );
 
-      // alert(response.data.message);
       setErrorMessage(response.data.message);
       setShowModal(true);
-      setIsErrorModal(false); // It's a success modal
-
+      setIsErrorModal(false);
 
     } catch (error) {
 
@@ -72,9 +70,8 @@ const EventRegisterPage = () => {
 
       setErrorMessage(errorMessage);
       setShowModal(true);
-      setIsErrorModal(true); // It's an error modal
+      setIsErrorModal(true); 
 
-    // alert(errorMessage);
       console.error('Error registering for event:', errorMessage);    
       console.error('Error registering for event:', error.response.data);
     }
@@ -134,33 +131,22 @@ const EventRegisterPage = () => {
               Register
             </button>
               
-        {/* {showModal && (
-          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
-            <div className="p-8 rounded shadow-md z-10 failed-registration-modal">
-              <p className=" text-xl">Error in Registration:</p>
-              <p className="text-red-500">{errorMessage}</p>
-              <button onClick={closeModal} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
-                Close
-              </button>
-            </div>
-          </div>
-        )} */}
 
-{showModal && (
-  <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
-    <div className="bg-gray-800 bg-opacity-90 absolute top-0 left-0 w-full h-full"></div>
-    <div className={`registration-modal p-8 rounded shadow-lg z-10 relative fade-in ${isErrorModal ? 'error-modal' : 'success-modal'}`}>
-      {isErrorModal && 
-      (
-        <p className='text-red-600 text-xl'>Error in Registration: </p>
-      )}
-      <p className={isErrorModal ? 'text-red-600' : 'text-green-600'}>{errorMessage}</p>
-      <button onClick={closeModal} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
-        Close
-      </button>
-    </div>
-  </div>
-)}              
+          {showModal && (
+            <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
+              <div className="bg-gray-800 bg-opacity-90 absolute top-0 left-0 w-full h-full"></div>
+              <div className={`registration-modal p-8 rounded shadow-lg z-10 relative fade-in ${isErrorModal ? 'error-modal' : 'success-modal'}`}>
+                {isErrorModal && 
+                (
+                  <p className='text-red-600 text-xl'>Error in Registration: </p>
+                )}
+                <p className={isErrorModal ? 'text-red-600' : 'text-green-600'}>{errorMessage}</p>
+                <button onClick={closeModal} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded">
+                  Close
+                </button>
+              </div>
+            </div>
+          )}              
           </div>
         ) : (
           <p>Loading event data...</p>

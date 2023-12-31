@@ -5,23 +5,27 @@ import OpenDialogButton from '../../events/components/OpenDialogButton';
 interface CardProps {
   card: {
     id: number;
-    title: string;
-    description: string;
-    price: number;
-    discountPercentage: number;
+    date_time: string;
+    date: string;
+    name : string;
+    description : string;
+    poster: string;
     thumbnail: string;
-    images: Array<string>;
+    is_live : boolean;
+    is_team_event : boolean;
   };
 }
 
 interface Card {
   id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
+  date_time: string;
+  date: string;
+  name : string;
+  description : string;
+  poster: string;
   thumbnail: string;
-  images: Array<string>;
+  is_live : boolean;
+  is_team_event : boolean;
 }
 
 const Card = ({ card }: CardProps) => {
@@ -42,9 +46,9 @@ const Card = ({ card }: CardProps) => {
         <ImageComponent card={card} />
       </figure>
       <div className="card-body items-center">
-        <h2 className="card-title">{card.title}</h2>
+        <h2 className="card-title">{card.name}</h2>
         <p>{card.description}</p>
-        <p>{card.price}</p>
+        <p>{card.date_time}</p>
         <OpenDialogButton card={card} setModalOpenToTrue={openModal} />
       </div>
     </div>
