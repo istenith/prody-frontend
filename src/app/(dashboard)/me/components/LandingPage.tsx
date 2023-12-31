@@ -1,20 +1,42 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react';
 import Image from 'next/image'
-import {useEffect, useState} from 'react'
 import Astronaut from '../../../../../public/images/Astronaut.png'
 import { TypeAnimation } from 'react-type-animation'
-import { LazyMotion , domAnimation, motion, useAnimate} from 'framer-motion'
+import {  motion, useAnimate} from 'framer-motion'
 import { useWindowSize } from '@uidotdev/usehooks'
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
+interface LandingPageProps {
+  user: any;
+  totalEvents: number;
+  registeredEvents: number;
+}
 
-const LandingPage = () => {
+const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registeredEvents }) => {
+  const router = useRouter();
   const window = useWindowSize()
   const windowWidth = window.width!
-  const username = "Mehul Ambastha"
-  const prody_id = "PRODY#2533"
-  console.log(windowWidth)
+  const username = user.username
+  const prody_id = user.user_id
   const [scope, animate] = useAnimate()
+  
+  console.log(windowWidth)
+  console.log("user",user)
+  // console.log("user registered teams", user.registered_teams)
+
+  const handleLogout = async () => {
+    try {
+      await axios.post('https://api-dev.prody.istenith.com/api/auth/logout/');
+
+      localStorage.removeItem('myJwtToken');
+      alert("Logout Successful")
+      router.push("/events");
+    } catch (error:any) {
+      console.error('Logout failed:', error.message);
+    }
+  };
 
   const animateAstronaut = async () => {
     await animate(scope.current, {x: 100, opacity: 1}, {delay: 1})
@@ -99,7 +121,23 @@ const LandingPage = () => {
 
               <div className="eventStats my-8 mb-12">
                 <h2 className='coolveticaFont text-4xl my-4'>Your Journey</h2>
-                <progress className="progress progress-info h-6 w-full" value={40} max="100"></progress>
+                <h3 className='coolveticaFont text-2xl my-4'> UserName : <span className='text-green-400'>{user.username}</span> </h3>
+                <h3 className='coolveticaFont text-2xl my-4'>Prody ID : <span className='text-green-400'>{user.user_id}</span></h3>
+                
+                {user.registered_teams.length > 0 && (
+                  <>
+                    <h3 className='coolveticaFont text-2xl my-4'>Registered Teams:</h3>
+                    <ul style={{ listStyleType: 'decimal' /* or 'circle' for circles */ }}>
+                    {user.registered_teams.map((team: any, index: number) => (
+                      <li key={index}>
+                          <h3 className='coolveticaFont text-2xl my-4'>{team.registered_events.name}</h3>
+                          <h3 className='coolveticaFont text-xl my-4'>Team ID: <span className='text-yellow-400'>{team.team_id}</span></h3>
+                          <h3 className='coolveticaFont text-xl my-4'>Team Name: <span className='text-yellow-400'>{team.name}</span></h3>
+                      </li>
+                    ))}
+                    </ul>
+                  </>
+                )}                
               </div>
 
               <div className="coolveticaFont flex flex-col w-full lg:flex-row bg-transparent">
@@ -107,20 +145,20 @@ const LandingPage = () => {
                   <h1 className="text-2xl">
                     Total Events
                   </h1>
-                  <h2 className="text-2xl">10</h2>
+                  <h2 className="text-2xl">{totalEvents}</h2>
                 </div> 
                 <div className="divider lg:divider-horizontal"></div> 
                 <div className="grid flex-grow h-20 card rounded-box place-items-center">
                   <h1 className="text-2xl">
                     Registered Events
                   </h1>
-                  <h2 className="text-2xl">4</h2>
+                  <h2 className="text-2xl">{registeredEvents}</h2>
                 </div>
               </div>
 
               <div className="flex m-auto flex-col w-11/12 md:w-80 lg:w-40 md:flex-row gap-4 mt-12">
-                <button className="btn btn-outline">Your Events</button>
-                <button className="btn btn-primary">Logout</button>
+                {/* <button className="btn btn-outline">Your Events</button> */}
+                <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
               </div>
             </motion.div>
           </div>

@@ -1,0 +1,48 @@
+.failed-registration-modal
+{
+    background-color: rgb(255, 255, 255,0.1);
+
+}
+.event-register-form
+{
+    backdrop-filter: blur(10px);
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 500ms ease-in-out;
+  }
+
+  .fade-out {
+    animation: fadeOut 500ms ease-in-out;
+  }
+
+@media (max-width: 640px) {
+    .mobile-padding {
+      padding: 0 1.5rem; 
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 768px) {
+    .mobile-padding {
+      padding: 0 2rem; 
+    }
+  }
+  
+  
