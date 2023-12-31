@@ -8,53 +8,47 @@ interface Props {
 
 const FormComponent = ({isRegistered}: Props) => {
   const router = useRouter()
-
-
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  let apiResponse = {}
   
   const submitForm = async (e: FormEvent<HTMLFormElement>) => {
     setIsLoading(true)
-    const dataToApi = {
-      username,
-      email,
-      password,
-    }
 
-    const apiUrl = isRegistered ? "https://api-dev.prody.istenith.com/api/login" : "https://api-dev.prody.istenith.com/api/register"
+    const apiUrl = isRegistered ? "https://api-dev.prody.istenith.com/api/auth/login/" : "https://api-dev.prody.istenith.com/api/auth/register/"
 
-    await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(dataToApi)
-    }).then(response => {
-      try {
-        if (response.status == 200) {
-          return response.json()
+      await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(isRegistered ? {username, password} : {username, email, password})
+      }).then(response => {
+        try {
+          if (response.status == 200) {
+            return response.json()
+          }
+        } catch (error) {
+          console.log(error)
         }
-      } catch (error) {
-        console.log(error)
-      }
 
-    }).then(data => {
-      apiResponse = data
-      console.log(apiResponse)
-    })
-  }
+      }).then(data => {
+        const apiResponse = data
+        console.log(apiResponse)
+        isRegistered ? localStorage.setItem("userData", apiResponse.user_data) : localStorage
+        .setItem("loginToken", apiResponse.jwt)
+        
+      })
 
-  const handleSubmit = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault()
+    setIsLoading(false)
+    router.refresh()
     router.push("/me")
-  }
+  } 
   
   return (
     <div>
-      <form >
+      <form onSubmit={submitForm} method='POST'>
         <label className="label">
           <span className="label-text">Enter username - no spaces!</span>
         </label>
@@ -94,7 +88,7 @@ const FormComponent = ({isRegistered}: Props) => {
           className="input bg-transparent input-bordered w-full max-w-xs" 
         />
 
-        <button className="btn btn-info m-5" onClick={handleSubmit} disabled={isLoading}>
+        <button className="btn btn-info m-5" type='submit' disabled={isLoading}>
           {isLoading ? <span>Taking you in...</span> : (isRegistered ? <span>Login &#8594;</span> : <span>Register</span>)}
         </button>
       </form>
