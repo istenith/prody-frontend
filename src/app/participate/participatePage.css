@@ -1,0 +1,41 @@
+.link-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .slide-in-left {
+    animation: fadeInOutLeft 0.3s ease-out;
+  }
+  
+  .slide-in-right {
+    animation: fadeInOutRight 0.3s ease-out;
+  }
+  
+  @keyframes fadeInOutLeft {
+    0% {
+      opacity: 0;
+      /* transform: translateX(100%); */
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      /* transform: translateX(0); */
+    }
+  }
+  
+  @keyframes fadeInOutRight {
+    0% {
+      opacity: 0;
+      /* transform: translateX(-100%); */
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      /* transform: translateX(0); */
+    }
+  }
+  

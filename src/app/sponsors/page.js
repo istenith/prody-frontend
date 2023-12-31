@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Card from '../components/SponsorCard/Card.tsx';
 
 const Modal = ({ show, onClose, title,content,src }) => {
+
   if (!show) return null;
 
   return (
@@ -23,6 +24,23 @@ const Modal = ({ show, onClose, title,content,src }) => {
 
 const SupportersComponent = () => {
 
+  const [sponsors, setSponsors] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('https://api-dev.prody.istenith.com/api/sponsors/');
+        const resJson = await res.json();
+        
+        console.log(resJson);
+        setSponsors(resJson);
+      } catch (error) {
+        console.log('error', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+
   const [selectedSupporter, setSelectedSupporter] = useState(null);
   const toggleModal = (supporter) => {
     if (supporter) {
@@ -34,7 +52,7 @@ const SupportersComponent = () => {
   
   useEffect(() => {
     const handleEscKeyPress = (event) => {
-      if (event.keyCode === 27) { // 27 is the key code for the Esc key
+      if (event.keyCode === 27) { 
         toggleModal(null);
       }
     };
@@ -46,15 +64,14 @@ const SupportersComponent = () => {
     };
   },[selectedSupporter]);
 
-  const supporters = [
-    { id: 1, title: 'Sponsor 1', content: 'Description for sponsor 1' ,src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01"},
-    { id: 2, title: 'Sponsor 2', content: 'Description for sponsor 2',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
-    { id: 1, title: 'Sponsor 1', content: 'Description for sponsor 1',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
-    { id: 2, title: 'Sponsor 2', content: 'Description for sponsor 2',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
-    { id: 1, title: 'Sponsor 1', content: 'Description for sponsor 1',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
-    { id: 2, title: 'Sponsor 2', content: 'Description for sponsor 2',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
-    // ... other supporters
-  ];
+  // const supporters = [
+  //   { id: 1, title: 'Sponsor 1', content: 'Description for sponsor 1' ,src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01"},
+  //   { id: 2, title: 'Sponsor 2', content: 'Description for sponsor 2',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
+  //   { id: 1, title: 'Sponsor 1', content: 'Description for sponsor 1',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
+  //   { id: 2, title: 'Sponsor 2', content: 'Description for sponsor 2',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
+  //   { id: 1, title: 'Sponsor 1', content: 'Description for sponsor 1',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
+  //   { id: 2, title: 'Sponsor 2', content: 'Description for sponsor 2',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01" },
+  // ];
 
   const olds = [
     { id: 1, title: 'Old Sponsor 1', content: 'Description for old sponsor 1',src:"https://flaticons.net/icon.php?slug_category=brand-identity&slug_icon=tata-01"  },
@@ -78,25 +95,25 @@ const SupportersComponent = () => {
         {selectedSupporter && (
           <Modal
             show={!!selectedSupporter}
-            title={selectedSupporter.title}
-            content={selectedSupporter.content}
+            title={selectedSupporter.name}
+            content={selectedSupporter.description}
             src={selectedSupporter.src}
             onClose={() => toggleModal(null)}
           />
         )}
       </div>
      </div>
-    <div className={selectedSupporter ? " blurred items-center text-white p-8" : " items-center text-white p-8"}>
+    <div className={selectedSupporter ? " blurred items-center text-white p-8 h-screen" : " items-center text-white p-8 h-screen"}>
       
       <h2 className="text-center text-4xl font-bold mb-4">OUR SUPPORTERS</h2>
-      <h3 className="text-center text-xl font-bold mt-12 mb-4">SPONSORS & PARTNERS //</h3>
+      <h3 className="text-center text-xl font-bold mt-12 mb-4">SPONSORS & PARTNERS</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-20 mb-8">
-        {supporters.map(supporter => (
-          <Card key={supporter.id} title={supporter.title} content={supporter.content} src={supporter.src} onClick={() => toggleModal(supporter)} />
+        {sponsors.map(supporter => (
+          <Card key={supporter.id} title={supporter.name} content={supporter.description} src={supporter.logo} onClick={() => toggleModal(supporter)} />
         ))}
         
       </div>
-      <h3 className="text-center text-xl font-bold mt-12 mb-4">Past Production and Program Sponsors</h3>
+      {/* <h3 className="text-center text-xl font-bold mt-12 mb-4">Past Production and Program Sponsors</h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 mb-8">
         {olds.map(old => (
           <Card key={old.id} title={old.title} content={old.content} src={old.src} onClick={() => toggleModal(old)} />
@@ -108,7 +125,7 @@ const SupportersComponent = () => {
         {partners.map(partner => (
           <Card key={partner.id} title={partner.title} content={partner.content} src={partner.src} onClick={() => toggleModal(partner)}/>
         ))}     
-      </div>
+      </div> */}
       
     </div>
     </>

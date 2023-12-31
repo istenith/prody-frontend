@@ -1,22 +1,23 @@
 "use client"
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent  } from 'react'
 import Image from 'next/image'
 
 interface ImageProps{
-  card: {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    discountPercentage: number;
-    thumbnail: string;
-    images: Array<string>;
-  };
+  poster:string;
 }
 
-const ImageComponent: FunctionComponent<ImageProps> = ({card}) => {
+const ImageComponent: FunctionComponent<ImageProps> = ({poster}) => {
+
+  
   return (
-    <Image loader={()=>card.thumbnail} layout='fill' objectFit='contain' className='rounded-md mx-auto my-4' unoptimized={true} src={card.thumbnail} alt="thumbnail"/>
+    <div>
+
+      {poster ? (
+        <Image  layout='fill' objectFit='contain' className='rounded-md mx-auto my-4' unoptimized={true} src={poster} alt="thumbnail"/>
+        ) : (
+          <Image  layout='fill' objectFit='contain' className='rounded-md mx-auto my-4' unoptimized={true} src="" alt="thumbnail"/>
+          )}        
+    </div>
   )
 }
 
