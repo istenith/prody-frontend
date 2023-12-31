@@ -1,3 +1,4 @@
+// @ts-ignore
 "use client"
 import React, {useEffect, useState} from 'react'
 import ImageComponent from './components/imageComponent';
@@ -9,9 +10,13 @@ import Modal from '../components/Modal/modal';
 import Skeleton from '../components/SkeletonCard/Skeleton';
 
 interface Card{
+  name:string;
+  date_time :string;
+  date :string;
   id: number;
   title: string;
   description: string;
+  poster : string;
   price: number;
   discountPercentage: number;
   thumbnail: string;
@@ -23,11 +28,33 @@ const Page = () => {
   const [cardData, setCardData] = useState<Card[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
 
+  function getMonthName(monthIndex) {
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    return months[monthIndex];
+  }
+
   const fetchData = async () => {
     try{
-      const res = await fetch('https://dummyjson.com/products')
+      const res = await fetch('https://api-dev.prody.istenith.com/api/events/')
+      // const res = await fetch('https://dummyjson.com/products')
       const resJson = await res.json()
-      setCardData(resJson.products.slice(0,12))
+      const formattedData = resJson.map(event => {
+        const eventDate = new Date(event.date_time);
+        
+        const formattedDate = `${eventDate.getDate()} ${getMonthName(eventDate.getMonth())} ${eventDate.getFullYear()}`;
+        return {
+          ...event,
+          date: formattedDate,
+        };
+      });
+      
+      
+      console.log(formattedData)
+      // setCardData(resJson.products.slice(0,12))
+      setCardData(formattedData)
       setIsLoaded(true)
     } catch {
       console.log('error')
@@ -89,11 +116,12 @@ const Page = () => {
                     <div key={card.id} className="card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl card-custom-background">
                       <figure className="relative h-60">
                         <ImageComponent card={card} />
+                        {/* <ImageComponent card={card} /> */}
                       </figure>
                       <div className="card-body items-center">
-                        <h2 className="card-title">{card.title}</h2>
-                        <p>{card.description}</p>
-                        <p>{card.price}</p>
+                        <h2 className="card-title">{card.name}</h2>
+                        {/* <p>{card.description}</p> */}
+                        <p>{card.date}</p>
                         <OpenDialogButton card={card} setModalOpenToTrue={openModal}/>
                       </div>
                     </div>  

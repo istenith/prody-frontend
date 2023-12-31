@@ -8,12 +8,13 @@ import { LazyMotion , domAnimation, motion, useAnimate} from 'framer-motion'
 import { useWindowSize } from '@uidotdev/usehooks'
 
 
-const LandingPage = () => {
+const LandingPage = ({user}) => {
   const window = useWindowSize()
   const windowWidth = window.width!
-  const username = "Mehul Ambastha"
-  const prody_id = "PRODY#2533"
+  const username = user.username
+  const prody_id = user.user_id
   console.log(windowWidth)
+  console.log("user",user)
   const [scope, animate] = useAnimate()
 
   const animateAstronaut = async () => {

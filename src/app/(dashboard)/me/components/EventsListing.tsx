@@ -12,7 +12,13 @@ interface Event{
   images: Array<string>;
 }
 
-const EventsListing = ({upComingEvents}: {upComingEvents: boolean;}) => {
+interface EventsListingProps {
+  upComingEvents: any; 
+  user: any; 
+}
+
+
+const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const [events, setEvents] = useState<Event[]>([])
 
@@ -20,6 +26,9 @@ const EventsListing = ({upComingEvents}: {upComingEvents: boolean;}) => {
     const res = await fetch('https://dummyjson.com/products')
     const resJson = await res.json()
     const upcomingEvents: Event[] = resJson.products
+    console.log("user upcoming Events 2" , user.registered_events.is_upcoming_events)
+
+    console.log("upcoming Events", upcomingEvents)
     upcomingEvents.length = 5
     setEvents(upcomingEvents)
     setIsLoaded(true)

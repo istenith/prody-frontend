@@ -79,6 +79,15 @@ body {
   color: whitesmoke;
 }
 
+.registerEventsPage {
+  background-image: url("../../public/homepagetheme.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position: 100% -50%; */
+  background-color: #030f1b;
+  color: whitesmoke;
+}
+
 .card-custom-background {
   background: rgb(3, 2, 28);
   background: radial-gradient(
