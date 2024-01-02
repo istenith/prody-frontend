@@ -7,6 +7,8 @@ import  TimerContainer  from './components/Timer'
 import Footer  from './components/footer'
 import  Header  from './components/header'
 import Navbar from '../components/Navbar/Navbar'
+import BackgroundSVG from '../components/Navbar/background.svg';
+
 
 const Home: NextPage = () => {
 
@@ -78,7 +80,7 @@ const Home: NextPage = () => {
             <Navbar isHomePage={false}/>  
 
     
-    <div className="flex min-h-screen flex-col items-center bg-[#1e1f29]">
+            <div className="flex min-h-screen flex-col items-center" style={{ backgroundImage: `url({BackgroundSVG})`, backgroundSize: 'cover' }}>
       <Head>
         <title>Launch Countdown Timer</title>
         <link rel="icon" href="/favicon.ico" />
