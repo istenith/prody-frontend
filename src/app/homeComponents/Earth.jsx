@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame, useLoader, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'; // Add this line
 import { useRouter } from 'next/navigation';
 import { useSpring } from '@react-spring/three';
 
@@ -48,7 +48,7 @@ function Earth(props) {
             action.reset().play();
             mixerRef.current.addEventListener('finished', () => {
                 gltf.scene.visible = false;
-                router.push('/events');
+                router.push('/home');
             });
 
         };
