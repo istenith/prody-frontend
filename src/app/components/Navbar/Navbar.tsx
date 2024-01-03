@@ -72,7 +72,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
         </div> 
         <div className="drawer-side">
           <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-300 flex flex-col items-center justify-center text-base-content">
+          <ul className="menu p-4 w-9/12 min-h-full bg-base-300 flex flex-col items-center justify-center text-base-content">
             {/* Sidebar content here */}
             <li><Link href={"/"}>Home</Link></li>
             <li><Link href={"/events"}>Events</Link></li>

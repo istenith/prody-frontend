@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import '../event-register.css'
+import Footer from '../../components/Footer/Footer';
 
 const EventRegisterPage = () => {
   const [event, setEvent] = useState(null);
@@ -82,9 +83,10 @@ const EventRegisterPage = () => {
   };
 
   return (
+    <>
     <div>
       <Navbar isHomePage={false} />
-      <div className="registerEventsPage text-center pt-20 h-screen mobile-padding">
+      <div className="registerEventsPage text-center pt-20 h-auto mobile-padding">
         <h2 className="beyonderFont text-3xl mb-8">Register</h2>
 
         {event ? (
@@ -150,9 +152,11 @@ const EventRegisterPage = () => {
           </div>
         ) : (
           <p>Loading event data...</p>
-        )}
-      </div>
+          )}
+    <Footer />
+      </div>           
     </div>
+  </>
   );
 };
 
