@@ -97,13 +97,13 @@ const SupportersComponent = () => {
             show={!!selectedSupporter}
             title={selectedSupporter.name}
             content={selectedSupporter.description}
-            src={selectedSupporter.src}
+            src={selectedSupporter.logo}
             onClose={() => toggleModal(null)}
           />
         )}
       </div>
      </div>
-    <div className={selectedSupporter ? " blurred items-center text-white p-8 h-screen" : " items-center text-white p-8 h-screen"}>
+    <div className={selectedSupporter ? " blurred items-center text-white p-8 " : " items-center text-white p-8 "}>
       
       <h2 className="text-center text-4xl font-bold mb-4">OUR SUPPORTERS</h2>
       <h3 className="text-center text-xl font-bold mt-12 mb-4">SPONSORS & PARTNERS</h3>
