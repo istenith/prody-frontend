@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 interface CardProps {
   title:string;
@@ -8,6 +8,14 @@ interface CardProps {
 }
 
 const Card = ({ title, content, onClick ,src}: CardProps) => {
+  useEffect(() => {
+    console.log("src",src)
+  
+    return () => {
+      
+    }
+  }, [])
+  
   return (
       <div className="supportcard p-2 m-auto bg-gray-600 rounded-lg shadow-lg" onClick={onClick}>
         <img src={src} alt="supporter" className="card-img rounded m-auto h-2/3 w-5/6"/> 
