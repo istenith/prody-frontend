@@ -33,7 +33,7 @@
     animation: fadeOut 500ms ease-in-out;
   }
 
-/* @media (max-width: 640px) {
+@media (max-width: 640px) {
     .mobile-padding {
       padding: 0 1.5rem; 
     }
@@ -43,6 +43,6 @@
     .mobile-padding {
       padding: 0 2rem; 
     }
-  } */
+  } 
   
   
