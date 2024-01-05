@@ -87,7 +87,7 @@ function Earth(props) {
                     earthRef.current.userData.startAnimation = startAnimation;
                 }
             } else {
-                console.error('CameraAction animation not found in GLTF file.');
+                console.error('CameraAction animation not found in GLTF ');
             }
         });
     }, [scene, router]);
