@@ -6,8 +6,20 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ message }) => {
   return (
-    <header className="mx-auto mt-2 mb-4"> {/* Add margin-bottom to create space between header and navbar */}
-      <h1 className="text-2xl mt-8 md:text-4xl font-bold font-redhat text-rose-500 text-center mx-auto">
+    <header className="mx-auto mt-2 mb-4">
+      <h1
+        style={{
+          fontSize: '2rem',
+          marginTop: '2rem',
+          marginBottom: '1rem',
+          fontWeight: 'bold',
+          fontFamily: 'Tourner' , // 
+          color: '#ff007f', // 
+          textAlign: 'center',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        }}
+      >
         {message ? message : " WE'RE LAUNCHING SOON"}
       </h1>
     </header>
@@ -32,7 +44,7 @@ const App: React.FC = () => {
     <div>
       <Navbar />
       <Header message="We are Launching Soon" />
-      {/* Add more components or content below if needed */}
+      {/* needed */}
     </div>
   );
 };
