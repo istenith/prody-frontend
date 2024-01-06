@@ -35,8 +35,8 @@ const FormComponent = ({ isRegistered }: Props) => {
       username,
       email,
       password,
-      branch,
-      roll_no
+      // branch,
+      // roll_no
     };
     console.log("dataToApi",dataToApi)
     const apiUrl = isRegistered
