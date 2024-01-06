@@ -7,7 +7,7 @@ import { useSpring } from '@react-spring/three';
 
 function Earth(props) {
     // Load the texture for the Earth model
-    const earthTexture = useLoader(THREE.TextureLoader, '/images/earth.png');
+    const earthTexture = useLoader(THREE.TextureLoader, '/images/earth.webp');
 
     // Reference to the Earth mesh
     const earthRef = useRef();
