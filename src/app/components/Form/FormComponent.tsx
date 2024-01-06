@@ -134,7 +134,7 @@ const FormComponent = ({ isRegistered }: Props) => {
           className="input bg-transparent input-bordered w-full max-w-xs"
         />
 
-        <label className="label">
+{/*         <label className="label">
           <span className="label-text">Enter Roll No</span>
         </label>
         <input
@@ -168,7 +168,7 @@ const FormComponent = ({ isRegistered }: Props) => {
               <option value="Engineering Physics">Engineering Physics</option>
               <option value="Mathematics And Computing">Mathematics And Computing</option>
               <option value="Other">Other</option>
-            </select>
+            </select> */}
 
 
         <button className="btn btn-info m-5" onClick={handleSubmit} disabled={isLoading}>
