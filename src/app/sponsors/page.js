@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import "./supporter.css";
 import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 import Card from '../components/SponsorCard/Card.tsx';
+// import { url } from 'inspector';
 
 const Modal = ({ show, onClose, title,content,src }) => {
 
@@ -103,11 +105,10 @@ const SupportersComponent = () => {
         )}
       </div>
      </div>
-    <div className={selectedSupporter ? " blurred items-center text-white p-8 " : " items-center text-white p-8 "}>
+  <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white"} style= {{background :'url("../../../public/support.webp")'}}>
       
       <h2 className="text-center text-4xl font-bold mb-4">OUR SUPPORTERS</h2>
-      <h3 className="text-center text-xl font-bold mt-12 mb-4">SPONSORS & PARTNERS</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-20 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 mb-8">
         {sponsors.map(supporter => (
           <Card key={supporter.id} title={supporter.name} content={supporter.description} src={supporter.logo} onClick={() => toggleModal(supporter)} />
         ))}
@@ -126,7 +127,7 @@ const SupportersComponent = () => {
           <Card key={partner.id} title={partner.title} content={partner.content} src={partner.src} onClick={() => toggleModal(partner)}/>
         ))}     
       </div> */}
-      
+    <Footer />
     </div>
     </>
   );
