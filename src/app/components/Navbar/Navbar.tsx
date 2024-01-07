@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState ,useEffect} from 'react'
 import {motion} from 'framer-motion'
 import Link from "next/link"
 import { useWindowSize } from '@uidotdev/usehooks'
@@ -11,8 +11,19 @@ interface NavbarProps {
 
 
 const Navbar = ({isHomePage}: NavbarProps) => {
+  const [isLoggedIn ,setIsLoggedIn] = useState(false)
   const window = useWindowSize()
   const windowWidth = window.width!
+
+  useEffect(() => {
+    const token = localStorage.getItem('myJwtToken');
+    setIsLoggedIn(!!token);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('myJwtToken');
+    setIsLoggedIn(false);
+  };
 
   if (windowWidth > 880) {
     return(  
@@ -46,9 +57,14 @@ const Navbar = ({isHomePage}: NavbarProps) => {
               <li>
                 <Link href={"/timeline"}>Timeline</Link>
               </li>
+              
+              {!isLoggedIn ? (
               <li>
                 <Link href={"/participate"}>Participate &#129042;</Link>
               </li>
+            ) : (
+              <li onClick={handleLogout}><Link href={"/participate"}>Participate &#129042;</Link></li>
+            )}
             </> :
             <>
               {/* <li className='text-4xl  navBarShape'>&nbsp; Enter the Exoplanet</li>  */}
@@ -72,15 +88,20 @@ const Navbar = ({isHomePage}: NavbarProps) => {
         </div> 
         <div className="drawer-side">
           <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 min-h-full bg-base-300 flex flex-col items-center justify-center text-base-content">
+          <ul className="menu p-4 w-9/12 min-h-full bg-base-300 flex flex-col items-center justify-center text-base-content">
             {/* Sidebar content here */}
             <li><Link href={"/home"}>Home</Link></li>
             <li><Link href={"/events"}>Events</Link></li>
             <li><Link href={"/timeline"}>Timeline</Link></li>
             <li><Link href={"/sponsors"}>Sponsors</Link></li>
             <li><Link href={"/contacts"}>Contact</Link></li>
-            <li><Link href={"/participate"}>Participate</Link></li>
-            <li><Link href={"/me"}>Dashboard</Link></li>
+            {!isLoggedIn ? (
+              <li>
+                <Link href={"/participate"}>Participate &#129042;</Link>
+              </li>
+            ) : (
+              <li onClick={handleLogout}><Link href={"/participate"}>Participate &#129042;</Link></li>
+            )}            <li><Link href={"/me"}>Dashboard</Link></li>
             
           </ul>
         </div>
