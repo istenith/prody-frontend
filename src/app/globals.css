@@ -42,13 +42,11 @@
 }
 
 body {
-  overflow-x:hidden; ;
-
+  overflow-x: hidden;
 }
 .spaceFont {
   font-family: "nasa";
 }
-
 
 .lemonMilkFont {
   font-family: "lemonmilk";
@@ -118,9 +116,10 @@ body {
 }
 
 .waveBg {
-  background: url("../../public/images/wave-haikei.svg") no-repeat;
+  background: url("../../public/images/footer-01.png") no-repeat;
   background-size: cover;
-  background-position-y: 70%;
+  background-position-y: 60%;
+  background-position-x: -10%;
 }
 
 .modal-custom {

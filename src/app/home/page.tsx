@@ -4,7 +4,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import  {useEffect, useState}  from 'react'
 import  TimerContainer  from './components/Timer'
-import Footer  from './components/footer'
+import Footer from '../components/Footer/Footer'
 import  Header  from './components/header'
 import Navbar from '../components/Navbar/Navbar'  
 
@@ -102,8 +102,8 @@ const Home: NextPage = () => {
           />
         )}
 
-        <Footer />
     </div>
+        <Footer />
     </>
 
   ) 
