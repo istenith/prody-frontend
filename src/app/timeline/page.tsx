@@ -123,11 +123,12 @@ const Timeline = () => {
   return (
     <div className={styles.body}>
       <Navbar isHomePage={false} />
-      <div>
+      <div className="pt-5">
         <Chrono
           items={data}
           mode="VERTICAL_ALTERNATING"
           hideControls
+          // flipLayout="true"
           cardWidth="500"
           highlightCardsOnHover="true"
           theme={{
@@ -143,7 +144,7 @@ const Timeline = () => {
             cardSubtitle: "1rem",
             cardText: "1rem",
             cardTitle: "1.3rem",
-            title: "1.5rem",
+            title: "1.2rem",
           }}
         ></Chrono>
       </div>
