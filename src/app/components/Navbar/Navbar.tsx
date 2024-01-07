@@ -54,15 +54,17 @@ const Navbar = ({isHomePage}: NavbarProps) => {
               <li>
                 <Link href={"/timeline"}>Timeline</Link>
               </li>
-              <li>
-                <Link href={"/me"}>Dashboard</Link>
-              </li>
               {!isLoggedIn ? (
               <li>
                 <Link href={"/participate"}>Participate &#129042;</Link>
               </li>
             ) : (
+              <>
+              <li>
+                <Link href={"/me"}>Dashboard</Link>
+              </li>
               <li onClick={handleLogout}><Link href={"/participate"}>Log Out &#129042;</Link></li>
+              </>
             )}
               
               
@@ -102,8 +104,11 @@ const Navbar = ({isHomePage}: NavbarProps) => {
                 <Link href={"/participate"}>Participate &#129042;</Link>
               </li>
             ) : (
+              <>
+              <li><Link href={"/me"}>Dashboard</Link></li>
               <li onClick={handleLogout}><Link href={"/participate"}>Log Out &#129042;</Link></li>
-            )}            <li><Link href={"/me"}>Dashboard</Link></li>
+              </>
+            )} 
             
           </ul>
         </div>
