@@ -7,6 +7,7 @@ import  TimerContainer  from './components/Timer'
 import Footer from '../components/Footer/Footer'
 import  Header  from './components/header'
 import Navbar from '../components/Navbar/Navbar'
+import Link from 'next/link'
 
 
 const Home: NextPage = () => {
@@ -77,7 +78,7 @@ const Home: NextPage = () => {
 )}
 
 <div className="flex gap-4 mt-4">
-  {/* Add Events Button */}
+  <Link href="/events">
   <button
     className="py-2 px-4 border border-blue-500 text-blue-500 font-semibold rounded-full transition duration-300 hover:bg-blue-500 hover:text-white"
     onClick={() => {
@@ -87,17 +88,16 @@ const Home: NextPage = () => {
   >
     Events
   </button>
+  </Link>
 
   {/* Add Register Button */}
+  <Link href="/participate">
   <button
     className="py-2 px-4 border border-green-600 text-green-500 font-bold rounded-full transition duration-300 hover:bg-green-500 hover:text-white"
-    onClick={() => {
-      // Add functionality for the Register button here
-      console.log("Register button clicked");
-    }}
   >
     Register
   </button>
+  </Link>
 </div>
 <Footer />
     </div>
