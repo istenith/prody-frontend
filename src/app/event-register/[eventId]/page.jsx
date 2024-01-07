@@ -39,7 +39,7 @@ const EventRegisterPage = () => {
       const token = localStorage.getItem('myJwtToken');
       if (!token) {
         alert('Token not found: User Unauthenticated');
-        window.location.href = '/login';
+        window.location.href = '/participate';
         return;
       }
 
@@ -84,8 +84,8 @@ const EventRegisterPage = () => {
   return (
     <div>
       <Navbar isHomePage={false} />
-      <div className="registerEventsPage text-center pt-20 h-screen mobile-padding">
-        <h2 className="beyonderFont text-3xl mb-8">Register</h2>
+      <div className="registerEventsPage text-center pt-20 pb-10 mobile-padding">
+        <h2 className="beyonderFont text-3xl mb-8 m-auto w-auto">Register</h2>
 
         {event ? (
           <div className="text-left max-w-lg mx-auto event-register-form">

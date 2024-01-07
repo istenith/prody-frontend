@@ -127,7 +127,7 @@ const FormComponent = ({ isRegistered }: Props) => {
           className="input bg-transparent input-bordered w-full max-w-xs"
         />
 
-        <button className="btn btn-info m-5" type='submit' disabled={isLoading}>
+        <button className="btn btn-info m-5" onClick={handleSubmit} disabled={isLoading}>
           {isLoading ? <span>Taking you in...</span> : (isRegistered ? <span>Login &#8594;</span> : <span>Register</span>)}
         </button>
       </form>

@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect } from 'react';
 import Image from 'next/image'
-import Astronaut from '../../../../../public/images/Astronaut.png'
+import Astronaut from '../../../../../public/images/Astronaut.webp'
 import { TypeAnimation } from 'react-type-animation'
 import {  motion, useAnimate} from 'framer-motion'
 import { useWindowSize } from '@uidotdev/usehooks'

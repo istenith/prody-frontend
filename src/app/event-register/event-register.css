@@ -1,3 +1,8 @@
+.registerEventsPage {
+  min-height: 100vh; 
+  height: auto; 
+}
+
 .failed-registration-modal
 {
     background-color: rgb(255, 255, 255,0.1);
@@ -43,6 +48,6 @@
     .mobile-padding {
       padding: 0 2rem; 
     }
-  }
+  } 
   
   
