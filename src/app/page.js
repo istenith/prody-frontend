@@ -27,7 +27,7 @@ function App() {
     const newSize = window.innerWidth / 5000;
     setText(Math.max(0.12, newSize));
     setText2(Math.max(0.09, newSize/2));
-    setText3(Math.max(0.09, newSize/3));
+    setText3(Math.max(0.09, newSize/4));
 
 };
 
@@ -49,16 +49,16 @@ useEffect(() => {
   return (
     
     <>
-    <div>
+     <div>
       {loading && (
         <Loader />
-      )         /* Your main content goes here */
+      )    
         
       }
-    </div>
+    </div> 
     <Navbar isHomePage={true}/>
       <CanvasContainer>
-        <Canvas background="black" camera={{ position: [0, 0, 5], fov: 70 }}>
+        <Canvas background="black" camera={{ position: [0, 0, 8], fov: 50 }}>
           <Suspense fallback={null}>
             <ambientLight intensity={1} />
             <directionalLight position={[0, 0, 5]} intensity={0.5} />
@@ -72,28 +72,28 @@ useEffect(() => {
             
               font="/fonts/nasa/spaceAge.ttf"
               fontSize={text3}
-              position={[0, 1.18, 3]}>Enter The EXOPLANET</Text>
+              position={[0, 1.18, 5]}>Enter The EXOPLANET</Text>
             <Text className="prody-text"
               color="white"
               anchorX="center"
               anchorY="top"
               font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
               fontSize={text2}
-              position={[0, 0.65, 3]}>Announcing</Text>
+              position={[0, 0.65, 5]}>Announcing</Text>
               <Text
               color="whitesmoke"
               anchorX="center"
               anchorY="middle"
               fontSize={text}
               font="/fonts/beyonders/Beyonders.ttf"
-              position={[0, 0.03, 3]}>Prodyogiki</Text>
+              position={[0, 0.03, 5]}>Prodyogiki</Text>
               <Text
               color="white"
               anchorX="center"
               anchorY="bottom"
               fontSize={text2}
               font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
-              position={[0, -0.65, 3]}>ISTE NITH</Text>
+              position={[0, -0.65, 5]}>ISTE NITH</Text>
           </Suspense>
         </Canvas>
       </CanvasContainer>
