@@ -19,12 +19,16 @@ function App() {
 
   const [text, setText] = useState(0.43);
   const [text2, setText2] = useState(0.11);
+  const [text3, setText3] = useState(0.09);
+
   const [loading, setLoading] = useState(true);
 
   const updateTextSize = () => {
     const newSize = window.innerWidth / 5000;
     setText(Math.max(0.12, newSize));
     setText2(Math.max(0.09, newSize/2));
+    setText3(Math.max(0.09, newSize/3));
+
 };
 
 useEffect(() => {
@@ -61,6 +65,14 @@ useEffect(() => {
             <Earth />
             <OrbitControls />
             <Stars /> 
+            <Text className="spaceFont"
+              color="white"
+              anchorX="center"
+              anchorY="top"
+            
+              font="/fonts/nasa/spaceAge.ttf"
+              fontSize={text3}
+              position={[0, 1.18, 3]}>Enter The EXOPLANET</Text>
             <Text className="prody-text"
               color="white"
               anchorX="center"
@@ -81,7 +93,7 @@ useEffect(() => {
               anchorY="bottom"
               fontSize={text2}
               font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
-              position={[0, -0.65, 3]}>by ISTE@NITH</Text>
+              position={[0, -0.65, 3]}>ISTE NITH</Text>
           </Suspense>
         </Canvas>
       </CanvasContainer>

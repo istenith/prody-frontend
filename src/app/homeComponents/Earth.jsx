@@ -59,7 +59,7 @@ function Earth(props) {
     const setupAnimation = (gltf, animationClip) => {
         gltf.scene.visible = false;
         scene.add(gltf.scene);
-
+        console.log("deploy succes");
         mixerRef.current = new THREE.AnimationMixer(gltf.scene);
         const action = mixerRef.current.clipAction(animationClip);
         action.clampWhenFinished = true;
@@ -96,6 +96,7 @@ function Earth(props) {
     const onEarthClick = () => {
         if (earthRef.current && typeof earthRef.current.userData.startAnimation === 'function') {
             earthRef.current.userData.startAnimation();
+            console.log("deploy click succes");
         } else {
             console.error('Start animation function is not ready.');
         }
