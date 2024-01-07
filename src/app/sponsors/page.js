@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import "./supporter.css";
 import Navbar from '../components/Navbar/Navbar';
-import Navbar from '../components/Footer/Footer';
+import Footer from '../components/Footer/Footer';
 import Card from '../components/SponsorCard/Card.tsx';
 
 const Modal = ({ show, onClose, title,content,src }) => {
@@ -104,7 +104,7 @@ const SupportersComponent = () => {
         )}
       </div>
      </div>
-    <div className={selectedSupporter ? " blurred items-center text-white p-8 " : " items-center text-white p-8 "}>
+    <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white"}>
       
       <h2 className="text-center text-4xl font-bold mb-4">OUR SUPPORTERS</h2>
       <h3 className="text-center text-xl font-bold mt-12 mb-4">SPONSORS & PARTNERS</h3>
