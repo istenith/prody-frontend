@@ -5,7 +5,7 @@
       transform: rotateY(0deg);
     }
     to {
-      transform: rotateY(180deg);
+      transform: rotateX(180deg);
     }
   }
   

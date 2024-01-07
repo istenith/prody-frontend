@@ -3,15 +3,15 @@ import {motion} from 'framer-motion'
 import Image from "next/image"
 import Backdrop from '../Backdrop/backdrop'
 import { useRouter } from 'next/navigation';
+import "./modalStyles.css"
 
-
-const Modal = ({cardrecieved, handleClose}) => {
-
+const Modal = ({ cardrecieved, handleClose }) => {
   useEffect(() => {
-    console.log("cardrecieved",cardrecieved)
-    console.log(cardrecieved.poster)
-  }, [])
-  
+    console.log("cardrecieved", cardrecieved);
+    console.log(cardrecieved.poster);
+    console.log(cardrecieved.abstract_link);
+  }, []);
+
   const router = useRouter();
 
   const dropIn = {
@@ -33,70 +33,144 @@ const Modal = ({cardrecieved, handleClose}) => {
       y: 50,
       opacity: 0,
     },
-  }
+  };
 
   const handleRegister = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const eventId = cardrecieved.id;
-      console.log("eventId",eventId)
+      console.log("eventId", eventId);
       const registrationUrl = `/event-register/${eventId}`;
       router.push(registrationUrl);
     }
   };
 
-  console.log("card recieved in modal window", cardrecieved)
+  const handleAbstractLink = () => {
+    // console.log("abstract link triggered")
+    // console.log("cardrecieved.abstract_link",cardrecieved.abstract_link)
+    if (typeof window !== "undefined" && cardrecieved.abstract_link) {
+      window.open(cardrecieved.abstract_link, "_blank");
+    }
+    else{
+    window.open("http://istenith.com/")
+    }
+  };
+
+  console.log("card recieved in modal window", cardrecieved);
 
   return (
-      <Backdrop onClick={handleClose}>
-        <motion.div
-          onClick={(e)=>e.stopPropagation()}
-          variants={dropIn}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          className="modal-custom flex flex-col gap-10 md:flex-row border-slate-950"
-        >
-          <div>
-          {cardrecieved.poster ? (
-            <Image loader={()=>cardrecieved.poster} width={500} height={500} unoptimized={true} src={cardrecieved.poster} alt="thumbnail"/>
+    <Backdrop onClick={handleClose}>
+      <motion.div
+        onClick={(e) => e.stopPropagation()}
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="modal-custom flex flex-col gap-5 md:flex-row border-slate-950"
+      >
+        <div className="content-container">
+          <div className="image-container">
+            {cardrecieved.poster ? (
+              <Image
+                loader={() => cardrecieved.poster}
+                layout="responsive"
+                width={500}
+                height={500}
+                unoptimized={true}
+                src={cardrecieved.poster}
+                alt="thumbnail"
+              />
             ) : (
-            <Image loader={() => cardrecieved.poster} width={300} height={100} src="" alt='event-image' />
-          )}          
+              <Image
+                loader={() => cardrecieved.poster}
+                layout="responsive"
+                width={300}
+                height={100}
+                src=""
+                alt="event-image"
+              />
+            )}
           </div>
 
-
-          <div className='flex flex-col gap-4 justify-center items-center'>
-            <div role="tablist" className="tabs w-11/12 mx-auto h-4/5 tabs-lifted">
-              <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Event" defaultChecked/>
-              <div role="tabpanel" className="tab-content h-full bg-base-100 border-base-300 rounded-box p-6">
+          <div className="flex flex-col gap-4 justify-center items-center">
+            <div
+              role="tablist"
+              className="tabs w-11/12 mx-auto h-4/5 tabs-lifted"
+            >
+              <input
+                type="radio"
+                name="my_tabs_2"
+                role="tab"
+                className="tab"
+                aria-label="Event"
+                defaultChecked
+              />
+              <div
+                role="tabpanel"
+                className="tab-content h-full bg-base-100 border-base-300 rounded-box p-6"
+              >
                 <h2>{cardrecieved.name}</h2>
               </div>
 
-              <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Description"/>
-              <div role="tabpanel" className="h-full tab-content bg-base-100 border-base-300 rounded-box p-6">{cardrecieved.description}</div>
+              <input
+                type="radio"
+                name="my_tabs_2"
+                role="tab"
+                className="tab"
+                aria-label="Description"
+              />
+              <div
+                role="tabpanel"
+                className=" tab-content bg-base-100 border-base-300 rounded-box p-6"
+              >
+                {cardrecieved.description}
+              </div>
 
-              <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Date" />
-              <div role="tabpanel" className="h-full tab-content bg-base-100 border-base-300 rounded-box p-6">{cardrecieved.date}</div>
+              <input
+                type="radio"
+                name="my_tabs_2"
+                role="tab"
+                className="tab"
+                aria-label="Date"
+              />
+              <div
+                role="tabpanel"
+                className="h-full tab-content bg-base-100 border-base-300 rounded-box p-6"
+              >
+                {cardrecieved.date}
+              </div>
             </div>
+            <div className="flex gap-2">
               <motion.button
-              className='btn btn-primary max-w-xs'
-              onClick={handleRegister}
+                className="btn btn-primary max-w-xs"
+                onClick={handleRegister}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Register
+              </motion.button>
+              <motion.button
+                className="btn btn-secondary max-w-xs"
+                onClick={handleAbstractLink}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Abstract
+              </motion.button>
+            </div>
+
+            <motion.button
+              className="btn btn-accent max-w-xs"
+              onClick={handleClose}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-            > Register
-              </motion.button>
-            <motion.button 
-              className='btn btn-accent max-w-xs' 
-              onClick={handleClose}
-              whileHover={{scale: 1.1}}
-              whileTap={{scale: 0.95}}
             >
               Close
             </motion.button>
           </div>
-        </motion.div>
-      </Backdrop>
-  )
-}
+        </div>
+      </motion.div>
+    </Backdrop>
+  );
+};
 
 export default Modal

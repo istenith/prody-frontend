@@ -9,7 +9,7 @@ import { AnimatePresence } from 'framer-motion';
 import Modal from '../components/Modal/modal';
 import Skeleton from '../components/SkeletonCard/Skeleton';
 import Footer from '../components/Footer/Footer';
-
+ 
 interface Card{
   name:string;
   date_time :string;
@@ -97,7 +97,7 @@ const Page = () => {
     <div className='h-min'>
       <Navbar isHomePage={false}/>    
         <div className='mainEventsPage text-center pt-20'>
-          <h1 className='beyonderFont text-5xl'>
+          <h1 className='beyonderFont text-5xl events-main-text'>
             Events
           </h1>
 
@@ -112,36 +112,38 @@ const Page = () => {
               &nbsp;
             </h2>
 
-            <h2 className='spaceFont block lg:hidden text-3xl m-4'>
+            {/* <h2 className='spaceFont block lg:hidden text-3xl m-4'>
               &nbsp;
                 Prodyogiki
               &nbsp;
-            </h2>            
+            </h2>             */}
+            <br />
 
 
-          <div className="flex flex-row w-full flex-wrap p-10 gap-5 content-around h-full justify-around">
+            <div className="custom-flex-container">
             {isLoaded ? 
-                cardData.map(card => {   
-                  return(
-                    <div key={card.id} className="card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl card-custom-background">
-                      <figure className="relative h-60">
+              cardData.map(card => {   
+                return (
+                  <div key={card.id} className="custom-card">
+                    <figure className="custom-card-figure">
                         <ImageComponent poster={card.poster} />
-                        {/* <ImageComponent card={card} /> */}
-                      </figure>
-                      <div className="card-body items-center">
-                        <h2 className="card-title">{card.name}</h2>
-                        {/* <p>{card.description}</p> */}
-                        <p>{card.date}</p>
-                        <OpenDialogButton card={card} setModalOpenToTrue={openModal}/>
-                      </div>
-                    </div>  
-                  )
-                })
-                :
-                <Skeleton num={3} />
+                    </figure>
+                    <div className="custom-card-body">
+                      <h2 className="custom-card-title">{card.name}</h2>
+                      <p>{card.date}</p>
+                      <br />
+                      <OpenDialogButton card={card} setModalOpenToTrue={openModal}/>
+                    </div>
+                  </div>  
+                );
+              })
+              :
+              <Skeleton num={3} />
             }
           </div>
-        <Footer />
+
+
+
         </div>
         <AnimatePresence
           initial={false}
@@ -149,6 +151,7 @@ const Page = () => {
         >
           {modalOpen && <Modal cardrecieved={selectedCard} handleClose={closeModal} />}
         </AnimatePresence>
+        <Footer />
     </div>
   )
 }

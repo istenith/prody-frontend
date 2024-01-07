@@ -24,6 +24,7 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
   console.log("Event Listing events", events)
   const router = useRouter();
 
+  
   const isLoaded = true; 
   
   const handleRegisterNow = (event: MyEvent) => {
@@ -37,12 +38,13 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
   return (
     <div className={["flex justify-center flex-col items-center md:items-start mx-auto", styles.upComingEvents].join(" ")}>
       <div className=''>
-        <h1 className="beyonderFont text-3xl font-bold" style={{ lineHeight: "3rem" }}>
+        <h1 className="beyonderFont text-2xl font-bold" style={{ lineHeight: "3rem" }}>
           {upComingEvents ? `Upcoming Events` : `Participated Events`}
         </h1>
-        <h3 className='coolveticaFont text-2xl my-4'>
+        <h3 className='coolveticaFont text-xl my-4'>
           {upComingEvents ? `Exciting events coming up in the next few days that you can participate in!` : `Events you have participated in`}
         </h3>
+        <p className='text-red-300 text-xs swipe-text'>(Swipe to see the events)</p>
       </div>
       <div className="carousel carousel-center space-x-4 gap-6 rounded-box" style={{ width: "90vw" }}>
         {isLoaded ?
