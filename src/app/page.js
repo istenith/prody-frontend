@@ -19,15 +19,15 @@ function App() {
 
   const [text, setText] = useState(0.43);
   const [text2, setText2] = useState(0.11);
-  const [text3, setText3] = useState(0.09);
+  const [text3, setText3] = useState(0.05);
 
   const [loading, setLoading] = useState(true);
 
   const updateTextSize = () => {
     const newSize = window.innerWidth / 5000;
-    setText(Math.max(0.12, newSize));
+    setText(Math.max(0.11, newSize));
     setText2(Math.max(0.09, newSize/2));
-    setText3(Math.max(0.09, newSize/4));
+    setText3(Math.max(0.05, newSize/5));
 
 };
 
@@ -46,6 +46,8 @@ useEffect(() => {
       window.removeEventListener('resize', updateTextSize);
   };
 }, []);
+
+
   return (
     
     <>
@@ -63,7 +65,7 @@ useEffect(() => {
             <ambientLight intensity={1} />
             <directionalLight position={[0, 0, 5]} intensity={0.5} />
             <Earth />
-            <OrbitControls />
+            <OrbitControls enablePan={false} enableRotate={false} />
             <Stars /> 
             <Text className="spaceFont"
               color="white"
@@ -72,7 +74,7 @@ useEffect(() => {
             
               font="/fonts/nasa/spaceAge.ttf"
               fontSize={text3}
-              position={[0, 1.18, 5]}>Enter The EXOPLANET</Text>
+              position={[0, 1.18, 5]}>Click to Enter The EXOPLANET</Text>
             <Text className="prody-text"
               color="white"
               anchorX="center"
