@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 import FormComponent from '../components/Form/FormComponent';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import './participatePage.css'; // Use the correct path to your global CSS file
-
+import './participatePage.css'; 
 const Participate = () => {
   const [wantsLogin, setwantsLogin] = useState(false);
   const [animationDirection, setAnimationDirection] = useState<'left' | 'right'>('left');

@@ -7,6 +7,7 @@ import {  motion, useAnimate} from 'framer-motion'
 import { useWindowSize } from '@uidotdev/usehooks'
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import "./dashboard.css"
 
 interface LandingPageProps {
   user: any;
@@ -156,7 +157,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
                 </div>
               </div>
 
-              <div className="flex m-auto flex-col w-11/12 md:w-80 lg:w-40 md:flex-row gap-4 mt-12">
+              <div className="flex m-auto flex-col w-11/12 md:w-80 lg:w-40 md:flex-row gap-4 mt-12 logout-button">
                 {/* <button className="btn btn-outline">Your Events</button> */}
                 <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
               </div>

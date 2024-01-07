@@ -1,0 +1,22 @@
+.swipe-text{
+    visibility: hidden;
+}
+@media(max-width : 768px)
+{
+    .swipe-text{
+        visibility: visible;
+    }
+    .randomBlobBackground3
+    {
+        padding: 0;
+        padding-top: 100px;
+    }
+}
+
+@media (max-width: 1022px)  {
+    .logout-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
