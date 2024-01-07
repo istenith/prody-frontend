@@ -52,9 +52,10 @@
   .members-container {
     grid-template-columns: repeat(1, 1fr); /* Display in a single column for small screens */
   }
-
+  .cardHeading{font-size: 1.5rem}
   .contact-card {
     width: 100%; /* Set width to 100% for mobile view */
+    
   }
 }
 
@@ -62,4 +63,6 @@
   .members-container {
     grid-template-columns: repeat(3, 1fr); /* 3x3 grid for larger screens */
   }
+
+
 }

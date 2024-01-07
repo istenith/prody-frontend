@@ -116,7 +116,7 @@ body {
 }
 
 .waveBg {
-  background: url("../../public/images/footer-01.png") no-repeat;
+  background: url("../../public/images/footer-01.webp") no-repeat;
   background-size: cover;
   background-position-y: 60%;
   background-position-x: -10%;
