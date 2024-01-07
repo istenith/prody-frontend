@@ -1,6 +1,7 @@
 "use client"
 import { Chrono } from "react-chrono";
 import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import styles from "./page.module.css";
 
 const Timeline = () => {
@@ -86,6 +87,7 @@ const Timeline = () => {
           }}
         ></Chrono>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 import LandingPage from './components/LandingPage';
 import EventsListing from './components/EventsListing';
 import axios from 'axios';
@@ -121,6 +122,7 @@ const Dashboard: React.FC = () => {
           <div className='spaceThemeBackground'>
             <EventsListing upComingEvents={false} user={user} events = {registeredEvents}/>
             <EventsListing upComingEvents={true} user={user} events = {nonRegisteredEvents} />
+            <Footer />
           </div>
         </>
       ) : (
@@ -131,6 +133,7 @@ const Dashboard: React.FC = () => {
             Loading User Data ...
           </h1>
         </div>
+        <Footer />
       </div>      
       )}
     </div>

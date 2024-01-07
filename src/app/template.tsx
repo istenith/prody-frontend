@@ -15,11 +15,11 @@ const Template = ({children}: {children: React.ReactNode})  => {
         variants={{
           before:{
             opacity: 0,
-            clipPath: "polygon(50% 0%, 50% 0, 50% 100%, 50% 100%)",
+            clipPath: 'circle(0% at 50% 50%)',
           },
           animate: {
             opacity: 1,
-            clipPath: "polygon(0% 0%, 100% 0, 100% 100%, 0% 100%)",
+            clipPath: 'circle(75% at 50% 50%)',
           },
           afterr: {
             opacity: 0,

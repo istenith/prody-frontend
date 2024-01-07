@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar/Navbar.tsx';
+import Footer from '../components/Footer/Footer';
 import Card from '../components/ContactCard/Card.tsx';
 import "../contacts/contact.css";
 
@@ -30,7 +31,11 @@ function Contact() {
           <Card contact={contact} key={contact.id} />
         ))}
       </div>
+  
     </div>
+   
+   
+  </div> 
   );
 }
 

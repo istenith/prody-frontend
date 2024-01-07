@@ -1,3 +1,4 @@
+
 'use client' 
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -6,6 +7,8 @@ import TimerContainer from './components/Timer';
 import Footer from './components/footer';
 import Header from './components/header';
 import Navbar from '../components/Navbar/Navbar';
+
+
 
 const Home: NextPage = () => {
   const [time, setTime] = useState<number>(7);
@@ -52,6 +55,7 @@ const Home: NextPage = () => {
   }, [time]);
 
   return (
+
     <>
       <Navbar isHomePage={false} />
 
@@ -100,6 +104,7 @@ const Home: NextPage = () => {
 
 <Footer />
 </div>
+
 
 
 
