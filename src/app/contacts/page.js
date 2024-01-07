@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar/Navbar.tsx';
+import Footer from '../components/Footer/Footer';
 import Card from '../components/ContactCard/Card.tsx';
 import "../contacts/contact.css";
 
@@ -18,19 +19,30 @@ function Contact() {
   }, []);
 
   return (
-    <div className="contact-container">
-      <div className="background-image" style={{ background: 'url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSIzNTgxIiB2aWV3Qm94PSIwIDAgMTQ0MCAzNTgxIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBjbGlwLXBhdGg9InVybCgjY2xpcDBfNjQ3XzEwOTQpIj4KPHJlY3Qgd2lkdGg9IjE0NDAiIGhlaWdodD0iMzU4MSIgZmlsbD0iYmxhY2siLz4KPHJlY3QgeD0iLTEyOSIgeT0iLTc0IiB3aWR0aD0iMTY5OCIgaGVpZ2h0PSIzNjcwIiBmaWxsPSIjMEIwQTBGIi8+CjxwYXRoIGQ9Ik05NC4xNDM2IDc2OS4zMThDNTcuODk0IDgyMC40MTkgNDIuMzAzNSA4NjcuMzU2IDQ5LjQwNzQgOTAzLjUyMUM1Ni40OTc2IDkzOS42MiA4NS44ODE4IDk2My4zMTEgMTMzLjYyNSA5NzEuMTU3QzE4MS4zODQgOTc5LjAwNiAyNDUuMDE2IDk3MC41NzYgMzE1LjUzOSA5NDcuMDExQzM4Ni4wNTQgOTIzLjQ0OSA0NTkuODUzIDg4NS45NjEgNTI2LjUgODM5Ljg0M0M1OTMuMTQ4IDc5My43MjYgNjQ5LjI1OCA3NDEuMzIzIDY4Ni45MDYgNjkwLjA0OEM3MjQuNTY0IDYzOC43NjEgNzQxLjc5NSA1OTEuMjY3IDczNi4zMTcgNTU0LjI2NEM3MzMuNTc3IDUzNS43ODMgNzI1LjI0MiA1MjAuMzY4IDcxMS43OTYgNTA4LjQ1NEM2OTguMzQ1IDQ5Ni41MzUgNjc5Ljc2IDQ4OC4wOTQgNjU2LjUxMyA0ODMuNTg1QzYxMCA0NzQuNTggNTQ3LjI0NiA0ODEuODIgNDc3LjEwNCA1MDQuMzM2TTEwMi4zNzEgNjg1LjI5NEM1Ljc1NjM1IDc2My40NTcgLTYwLjA5MzggODQyLjk1MyAtODMuNDAyNyA5MDkuNDUyQy05NS4wNTMzIDk0Mi42OTIgLTk1LjY3NyA5NzEuNTUgLTg1LjgxOTQgOTk0Ljk1NUMtNzUuOTY0MyAxMDE4LjM1IC01NS42MDIzIDEwMzYuMzggLTI1LjEyMDYgMTA0Ny44OUMzNS44NzYzIDEwNzAuOTQgMTMzLjI1MyAxMDY2LjM2IDI0OS41MjggMTAzNC44NkMzNjUuNzgxIDEwMDMuMzggNDkzLjIwNCA5NDcuMDg1IDYwOC44NDcgODc2LjExOEM3MjQuNDk0IDgwNS4xNDggODIwLjczNCA3MjQuMTg0IDg4MC4yNTcgNjQ3LjgxMkM5MTAuMDE2IDYwOS42MjkgOTI5LjYwNiA1NzMuODYzIDkzOC42MjIgNTQyLjAyNkM5NDcuNjM5IDUxMC4xODkgOTQ2LjA3OCA0ODIuMzEyIDkzMy41OTIgNDU5Ljg0NkM5MjEuMTA2IDQzNy4zNzkgODk4LjA2NSA0MjAuOTg3IDg2NS45MDkgNDExLjE2MkM4MzMuNzQxIDQwMS4zNTMgNzkyLjQ5MSAzOTguMTE5IDc0My42NTEgNDAxLjk2NUM2NDUuOTY3IDQwOS42NjYgNTI0LjQ1NyA0NDUuMTQgNDAwLjk4OCA1MDIuMDQxTS0zMTQuMTM5IDExOTIuMjVDLTIzMC44MTUgMTMzNC42MyAxNjUuOTQ3IDEyNjIuNTMgNTcyLjA1NiAxMDMxLjIyQzk3OC4xNjMgNzk5Ljg5OSAxMjM5LjgzIDQ5Ni45NTggMTE1Ni41MSAzNTQuNTc5QzEwNzMuMTggMjEyLjE5NSA2NzYuNDI1IDI4NC4yODUgMjcwLjMxNCA1MTUuNjA0Qy0xMzUuNzk0IDc0Ni45MjEgLTM5Ny40NjMgMTA0OS44NiAtMzE0LjEzOSAxMTkyLjI1WiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMTUiIHN0cm9rZS13aWR0aD0iMC45MjI1NDYiLz4KPHBhdGggZD0iTTM4NS45MzIgMzUyLjcyMkMzNTkuODQ0IDMxMi44NTMgMzcxLjQ1OCAyNTkuNjY4IDQxMS44NzEgMjMzLjkzMkM0NTIuMjg1IDIwOC4xOTUgNTA2LjE5NSAyMTkuNjUyIDUzMi4yODQgMjU5LjUyMUM1NTguMzcyIDI5OS4zOTEgNTQ2Ljc1OCAzNTIuNTc1IDUwNi4zNDQgMzc4LjMxMkM0NjUuOTMxIDQwNC4wNDkgNDEyLjAyIDM5Mi41OTIgMzg1LjkzMiAzNTIuNzIyWiIgZmlsbD0idXJsKCNwYWludDBfcmFkaWFsXzY0N18xMDk0KSIvPgo8cGF0aCBkPSJNMTQ0MS4yNiAzNDguMDU1QzE0NzYuMzggMzY2Ljc3OCAxNDg5LjQ3IDQxMC4wNDMgMTQ3MC40OSA0NDQuNjkxQzE0NTEuNTEgNDc5LjMzOCAxNDA3LjY1IDQ5Mi4yNDggMTM3Mi41NCA0NzMuNTI1QzEzMzcuNDEgNDU0LjgwMiAxMzI0LjMzIDQxMS41MzYgMTM0My4zMSAzNzYuODg5QzEzNjIuMjkgMzQyLjI0MiAxNDA2LjE0IDMyOS4zMzIgMTQ0MS4yNiAzNDguMDU1WiIgZmlsbD0idXJsKCNwYWludDFfcmFkaWFsXzY0N18xMDk0KSIvPgo8L2c+CjxkZWZzPgo8cmFkaWFsR3JhZGllbnQgaWQ9InBhaW50MF9yYWRpYWxfNjQ3XzEwOTQiIGN4PSIwIiBjeT0iMCIgcj0iMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTIwLjc1NSAyMjAuMTgzKSByb3RhdGUoMTI2LjcwMSkgc2NhbGUoMTg2LjQ4OCAxODcuMjI4KSI+CjxzdG9wLz4KPHN0b3Agb2Zmc2V0PSIwLjU2NzMzNyIgc3RvcC1jb2xvcj0iIzE2MDgxNSIvPgo8c3RvcCBvZmZzZXQ9IjAuODQwOTM2IiBzdG9wLWNvbG9yPSIjNDYwRDEzIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzlDNEYyRSIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8cmFkaWFsR3JhZGllbnQgaWQ9InBhaW50MV9yYWRpYWxfNjQ3XzEwOTQiIGN4PSIwIiBjeT0iMCIgcj0iMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQ3Ny42MSAzOTMuMjYpIHJvdGF0ZSgxNjUuMzg4KSBzY2FsZSgxNTIuOTA1IDE1MS4xMSkiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMDkwOTA5Ii8+CjxzdG9wIG9mZnNldD0iMC43NSIgc3RvcC1jb2xvcj0iIzE0MEQxNyIvPgo8c3RvcCBvZmZzZXQ9IjAuODgwMjA4IiBzdG9wLWNvbG9yPSIjNDUwRjE1Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzYyNEIxMCIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzY0N18xMDk0Ij4KPHJlY3Qgd2lkdGg9IjE0NDAiIGhlaWdodD0iMzU4MSIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K")' }} />
-      
-      <Navbar isHomePage={false} />
+  <div className='w-screen'>   
+    <div className="contact-container w-screen">
+      <Navbar isHomePage={false}/>
+      {/* <div className="planet-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="175" height="173" viewBox="0 0 175 173" fill="none">
+          <path d="M13.9323 132.722C-12.1557 92.8527 -0.542496 39.6684 39.8712 13.9317C80.2849 -11.805 134.195 -0.3482 160.284 39.5213C186.372 79.3908 174.758 132.575 134.344 158.312C93.9306 184.049 40.0204 172.592 13.9323 132.722Z" fill="url(#paint0_radial_647_1097)"/>
+          <defs>
+            <radialGradient id="paint0_radial_647_1097" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(148.755 0.183391) rotate(126.701) scale(186.488 187.228)">
+              <stop/>
+              <stop offset="0.567337" stop-color="#160815"/>
+              <stop offset="0.840936" stop-color="#460D13"/>
+              <stop offset="1" stop-color="#9C4F2E"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div> */}
 
-      <h1 className="contact-heading">Contact Us</h1>
-
-      <div className="members-container">
-        {contactData.map((contact) => (
-          <Card contact={contact} key={contact.id} />
+      {contactData.map((contact) => (
+        <Card contact={contact} key={contact.id} />
         ))}
-      </div>
     </div>
+   
+   
+  </div> 
   );
 }
 
