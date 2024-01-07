@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import "./supporter.css";
 import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Footer/Footer';
 import Card from '../components/SponsorCard/Card.tsx';
 
 const Modal = ({ show, onClose, title,content,src }) => {
@@ -126,7 +127,7 @@ const SupportersComponent = () => {
           <Card key={partner.id} title={partner.title} content={partner.content} src={partner.src} onClick={() => toggleModal(partner)}/>
         ))}     
       </div> */}
-      
+    <Footer />
     </div>
     </>
   );
