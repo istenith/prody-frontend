@@ -9,13 +9,8 @@ body,
 
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
+   background: linear-gradient(0deg, #000000 0%, rgb(49, 49, 49) 50%, #000000 100%);
+   color: white;
   }
 
 

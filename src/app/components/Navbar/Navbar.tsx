@@ -51,7 +51,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
               </li>
             </> :
             <>
-              <li className='text-4xl  navBarShape'>&nbsp; Enter the Exoplanet</li> 
+              {/* <li className='text-4xl  navBarShape'>&nbsp; Enter the Exoplanet</li>  */}
             </>
               }
         </ul>
@@ -62,7 +62,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
       <div className="drawer fixed top-0 left-0" style={{zIndex: 100}}>
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content bg-base-300 flex flex-row justify-around">
-          <span className='spaceFont text-2xl p-4'>PRODYOGIKI</span>
+          <span className='spaceFont text-2xl p-2'>Prodyogiki</span>
           <span className='p-3 my-auto'>
             <label htmlFor="my-drawer" className="text-2xl m-auto drawer-button">
               ☰
@@ -74,7 +74,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
           <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
           <ul className="menu p-4 w-9/12 min-h-full bg-base-300 flex flex-col items-center justify-center text-base-content">
             {/* Sidebar content here */}
-            <li><Link href={"/"}>Home</Link></li>
+            <li><Link href={"/home"}>Home</Link></li>
             <li><Link href={"/events"}>Events</Link></li>
             <li><Link href={"/timeline"}>Timeline</Link></li>
             <li><Link href={"/sponsors"}>Sponsors</Link></li>
