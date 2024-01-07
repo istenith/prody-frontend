@@ -65,7 +65,7 @@ useEffect(() => {
             <ambientLight intensity={1} />
             <directionalLight position={[0, 0, 5]} intensity={0.5} />
             <Earth />
-            <OrbitControls enablePan={false} enableRotate={false} />
+            <OrbitControls  enableRotate={false} />
             <Stars /> 
             <Text className="spaceFont"
               color="white"
