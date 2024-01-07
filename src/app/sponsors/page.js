@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import "./supporter.css";
 import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
 import Card from '../components/SponsorCard/Card.tsx';
 // import { url } from 'inspector';
 
@@ -104,7 +105,7 @@ const SupportersComponent = () => {
         )}
       </div>
      </div>
-  <div className={selectedSupporter ? " blurred items-center text-white p-8 " : " items-center text-white p-8 "} style= {{background :'url("../../../public/support.webp")'}}>
+  <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white"} style= {{background :'url("../../../public/support.webp")'}}>
       
       <h2 className="text-center text-4xl font-bold mb-4">OUR SUPPORTERS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 mb-8">
@@ -126,7 +127,7 @@ const SupportersComponent = () => {
           <Card key={partner.id} title={partner.title} content={partner.content} src={partner.src} onClick={() => toggleModal(partner)}/>
         ))}     
       </div> */}
-      
+    <Footer />
     </div>
     </>
   );

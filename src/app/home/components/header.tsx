@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface HeaderProps {
   message: string;
@@ -6,22 +7,18 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ message }) => {
   return (
-    <header className="mx-auto mt-2 mb-4">
-      <h1
-        style={{
-          fontSize: '2rem',
-          marginTop: '2rem',
-          marginBottom: '1rem',
-          fontWeight: 'bold',
-          fontFamily: 'Tourner' , // 
-          color: '#ff007f', // 
-          textAlign: 'center',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-        }}
-      >
-        {message ? message : " WE'RE LAUNCHING SOON"}
-      </h1>
+    <header className="mx-auto mt-4 mb-4 items-center">
+
+      <div style={{ textAlign: 'center' }}>
+        {/* Add your SVG logo here */}
+        
+
+ 
+<Image loader={()=>"/images/prodykkk-01.webp"} src = "/images/prodykkk-01.webp" alt = "logo" width = "500" height = "500" />
+
+
+        
+      </div>
     </header>
   );
 };
@@ -34,7 +31,6 @@ const Navbar: React.FC<NavbarProps> = () => {
   return (
     <nav className="bg-gray-800 p-4">
       {/* Your navbar content goes here */}
-      
     </nav>
   );
 };
