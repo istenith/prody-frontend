@@ -1,3 +1,5 @@
+// Timer.tsx
+
 import React, { useEffect, useState } from 'react';
 import NumberBox from './NumberBox';  
 
@@ -8,7 +10,7 @@ interface TimeProps {
   seconds: number | string;
 }
 
-const targetDate = new Date('February 2, 2024 00:00:00 GMT+0000').getTime();
+const targetDate = new Date('Febuary 2, 2024 00:00:00 GMT+0000').getTime();
 
 const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
   const [countdownOver, setCountdownOver] = useState(false);
@@ -18,7 +20,7 @@ const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
     return Math.max(targetDate - currentTime, 0);
   };
 
-  const formatTimeUnit = (value: number) => (value < 10 ? `0${value}` : value);
+  const formatTimeUnit = (value: number) => (value < 10 ? `0${value}` : value.toString()); // Convert value to string
 
   const updateCountdown = () => {
     const timeRemaining = calculateTimeRemaining();
@@ -26,9 +28,7 @@ const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
   };
 
   useEffect(() => {
-    
     const intervalId = setInterval(updateCountdown, 1000);
-
     return () => clearInterval(intervalId);
   }, []);
 
@@ -45,31 +45,32 @@ const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
         {!countdownOver ? (
           <>
             {/* Use the NumberBox component */}
-            <NumberBox num={updatedDays} unit="Days" flip={false} />
+            <NumberBox num={updatedDays} unit="Days" flip={false} countdownOver={countdownOver} />
             <span className="hidden text-5xl -mt-8 md:inline-block md:text-7xl font-normal text-gray-50">:</span>
-            <NumberBox num={updatedHours} unit="Hours" flip={false} />
+            <NumberBox num={updatedHours} unit="Hours" flip={false} countdownOver={countdownOver} />
             <span className="hidden text-5xl -mt-8 md:inline-block md:text-7xl font-normal text-gray-50">:</span>
-            <NumberBox num={updatedMinutes} unit="Minutes" flip={false} />
+            <NumberBox num={updatedMinutes} unit="Minutes" flip={false} countdownOver={countdownOver} />
             <span className="hidden text-5xl -mt-8 md:inline-block md:text-7xl font-normal text-gray-50">:</span>
-            <NumberBox num={updatedSeconds} unit="Seconds" flip={true} />
+            <NumberBox num={updatedSeconds} unit="Seconds" flip={true} countdownOver={countdownOver} />
           </>
         ) : (
-<p
-  style={{
-    textAlign: 'center',
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
-    color: '#ffffff',
-    backgroundColor: '#000000',
-    padding: '20px',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-    margin: '10px 0',
-  }}
-  className={countdownOver ? 'countdown-over' : ''}
->
-  We are in space!
-</p>        )}
+          <p
+            style={{
+              textAlign: 'center',
+              fontSize: '2.5rem',
+              fontWeight: 'bold',
+              color: '#ffffff',
+              backgroundColor: '#000000',
+              padding: '20px',
+              borderRadius: '8px',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+              margin: '10px 0',
+            }}
+            className={countdownOver ? 'countdown-over' : ''}
+          >
+            We are in space!
+          </p>
+        )}
       </div>
     </div>
   );
