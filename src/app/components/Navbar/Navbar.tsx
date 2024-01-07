@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState ,useEffect} from 'react'
 import {motion} from 'framer-motion'
 import Link from "next/link"
 import { useWindowSize } from '@uidotdev/usehooks'
@@ -11,8 +11,19 @@ interface NavbarProps {
 
 
 const Navbar = ({isHomePage}: NavbarProps) => {
+  const [isLoggedIn ,setIsLoggedIn] = useState(false)
   const window = useWindowSize()
   const windowWidth = window.width!
+
+  useEffect(() => {
+    const token = localStorage.getItem('myJwtToken');
+    setIsLoggedIn(!!token);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('myJwtToken');
+    setIsLoggedIn(false);
+  };
 
   if (windowWidth > 880) {
     return(  
@@ -46,9 +57,14 @@ const Navbar = ({isHomePage}: NavbarProps) => {
               <li>
                 <Link href={"/timeline"}>Timeline</Link>
               </li>
+              
+              {!isLoggedIn ? (
               <li>
                 <Link href={"/participate"}>Participate &#129042;</Link>
               </li>
+            ) : (
+              <li onClick={handleLogout}><Link href={"/participate"}>Participate &#129042;</Link></li>
+            )}
             </> :
             <>
               {/* <li className='text-4xl  navBarShape'>&nbsp; Enter the Exoplanet</li>  */}
