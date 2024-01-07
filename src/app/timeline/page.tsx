@@ -9,7 +9,7 @@ const Timeline = () => {
     {
       title: "Pre-Prody",
       cardTitle: "Abhedya 3.0",
-      cardSubtitle: "All 15 Rounds",
+      cardSubtitle: "",
       cardDetailedText:
         "Embark on a cosmic adventure with Abhedya, an interstellar cryptic hunt challenging your logical, technical, and creative thinking. Join participants from across the galaxy as they log in to our cosmic system and traverse a series of celestial levels. May the constellations align in your favor as you reach for the stars and strive to become the ultimate cosmic conqueror!",
     },
@@ -35,7 +35,7 @@ const Timeline = () => {
         "This competition aims to provide students with an opportunity to design and construct a small chemically powered rocket and test the ability of participants to safely control and harness the energy of a chemical reaction by launching the rocket and allowing it to traverse to a certain distance.",
     },
     {
-      title: "Day-3",
+      title: "Day-1",
       cardTitle: "Float-Yo-Boat",
       cardSubtitle: "Round 1",
       cardDetailedText:
@@ -127,7 +127,9 @@ const Timeline = () => {
         <Chrono
           items={data}
           mode="VERTICAL_ALTERNATING"
-          disableNavOnKey
+          hideControls
+          cardWidth="500"
+          highlightCardsOnHover="true"
           theme={{
             primary: "#90E0EF",
             secondary: "#90E0EF",

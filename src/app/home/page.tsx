@@ -6,7 +6,7 @@ import  {useEffect, useState}  from 'react'
 import  TimerContainer  from './components/Timer'
 import Footer from '../components/Footer/Footer'
 import  Header  from './components/header'
-import Navbar from '../components/Navbar/Navbar'  
+import Navbar from '../components/Navbar/Navbar'
 
 
 const Home: NextPage = () => {

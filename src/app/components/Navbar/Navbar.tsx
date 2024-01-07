@@ -95,8 +95,13 @@ const Navbar = ({isHomePage}: NavbarProps) => {
             <li><Link href={"/timeline"}>Timeline</Link></li>
             <li><Link href={"/sponsors"}>Sponsors</Link></li>
             <li><Link href={"/contacts"}>Contact</Link></li>
-            <li><Link href={"/participate"}>Participate</Link></li>
-            <li><Link href={"/me"}>Dashboard</Link></li>
+            {!isLoggedIn ? (
+              <li>
+                <Link href={"/participate"}>Participate &#129042;</Link>
+              </li>
+            ) : (
+              <li onClick={handleLogout}><Link href={"/participate"}>Participate &#129042;</Link></li>
+            )}            <li><Link href={"/me"}>Dashboard</Link></li>
             
           </ul>
         </div>
