@@ -10,7 +10,7 @@ interface TimeProps {
   seconds: number | string;
 }
 
-const targetDate = new Date('Febuary 2, 2024 00:00:00 GMT+0000').getTime();
+const targetDate = new Date('Feb  uary 2, 2024 00:00:00 GMT+0000').getTime();
 
 const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
   const [countdownOver, setCountdownOver] = useState(false);
@@ -41,7 +41,7 @@ const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
 
   return (
     <div className="mt-2 md:mt-20 rounded-xl">
-      <div className="grid grid-cols-2 gap-4 py-6 px-10 md:flex md:items-center md:justify-between md:mt-2 rounded-xl md:px-6 md:py-8">
+      <div className="grid grid-cols-2 gap-4 py-6 px-10 md:flex md:items-center md:justify-between md:mt-2 rounded-xl md:px-6 md:py-8 " style={{marginTop:-170}} > 
         {!countdownOver ? (
           <>
             {/* Use the NumberBox component */}

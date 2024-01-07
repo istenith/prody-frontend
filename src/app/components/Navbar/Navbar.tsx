@@ -2,7 +2,7 @@ import React , {useState ,useEffect} from 'react'
 import {motion} from 'framer-motion'
 import Link from "next/link"
 import { useWindowSize } from '@uidotdev/usehooks'
-import img from "../../../../public/images/menu-bar.png"
+import img from "../../../../public/images/prodykkk-01.webp"
 import Image from 'next/image'
 
 interface NavbarProps {
@@ -88,8 +88,9 @@ const Navbar = ({isHomePage}: NavbarProps) => {
         </div> 
         <div className="drawer-side">
           <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+         
           <ul className="menu p-4 w-9/12 min-h-full bg-base-300 flex flex-col items-center justify-center text-base-content">
-            {/* Sidebar content here */}
+          <Image src={img} alt="menu bar" className="drawer-overlay" />
             <li><Link href={"/home"}>Home</Link></li>
             <li><Link href={"/events"}>Events</Link></li>
             <li><Link href={"/timeline"}>Timeline</Link></li>

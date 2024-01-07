@@ -10,7 +10,7 @@ const Header: React.FC<HeaderProps> = ({ message }) => {
     <header className="mx-auto mt-4 mb-4 items-center">
 
       <div style={{ textAlign: 'center' }}>
-        {/* Add your SVG logo here */}
+       
         
 
  
@@ -24,13 +24,13 @@ const Header: React.FC<HeaderProps> = ({ message }) => {
 };
 
 interface NavbarProps {
-  // Define your NavbarProps if needed
+  
 }
 
 const Navbar: React.FC<NavbarProps> = () => {
   return (
     <nav className="bg-gray-800 p-4">
-      {/* Your navbar content goes here */}
+      
     </nav>
   );
 };
@@ -40,7 +40,7 @@ const App: React.FC = () => {
     <div>
       <Navbar />
       <Header message="We are Launching Soon" />
-      {/* needed */}
+      
     </div>
   );
 };

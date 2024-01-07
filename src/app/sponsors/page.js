@@ -15,7 +15,7 @@ const Modal = ({ show, onClose, title,content,src }) => {
     <div className="modal-backdrop">        
       <div className="modal-content">
       <button className="close-modal"  onClick={onClose}>&times;</button>
-        <img src={src} alt="supporter" className="modal-img"/> 
+        <img src={src} alt="supporter"  className="modal-img" /> 
       <h3 className="text-center p-2 text-white text-5xl font-semibold truncate">{title}</h3>
       <p className="text-center text-white text-2xl overflow-ellipsis overflow-hidden">{content}</p>
       </div>
@@ -107,7 +107,7 @@ const SupportersComponent = () => {
      </div>
   <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white"} style= {{background :'url("../../../public/support.webp")'}}>
       
-      <h2 className="text-center text-4xl font-bold mb-4">OUR SUPPORTERS</h2>
+      <h2 className="beyonderFont  text-center text-2xl font-bold mb-9 mt-11">OUR SUPPORTERS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 mb-8">
         {sponsors.map(supporter => (
           <Card key={supporter.id} title={supporter.name} content={supporter.description} src={supporter.logo} onClick={() => toggleModal(supporter)} />
