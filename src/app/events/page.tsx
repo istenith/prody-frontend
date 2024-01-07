@@ -97,7 +97,7 @@ const Page = () => {
     <div className='h-min'>
       <Navbar isHomePage={false}/>    
         <div className='mainEventsPage text-center pt-20'>
-          <h1 className='beyonderFont text-5xl'>
+          <h1 className='beyonderFont text-5xl events-main-text'>
             Events
           </h1>
 
@@ -112,11 +112,11 @@ const Page = () => {
               &nbsp;
             </h2>
 
-            <h2 className='spaceFont block lg:hidden text-3xl m-4'>
+            {/* <h2 className='spaceFont block lg:hidden text-3xl m-4'>
               &nbsp;
                 Prodyogiki
               &nbsp;
-            </h2>            
+            </h2>             */}
             <br />
 
 
