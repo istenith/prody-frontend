@@ -70,6 +70,13 @@ body {
   font-family: "vogue";
 }
 
+.patternBackground {
+  background: rgba(92, 12, 121, 0.4);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(92, 12, 121, 0.375);
+}
+
 .mainEventsPage {
   background-image: url("../../public/homepagetheme.svg");
   background-size: cover;
@@ -88,6 +95,22 @@ body {
   color: whitesmoke;
 }
 
+.custom-shape-divider-top-1704258614 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1704258614 svg {
+  position: relative;
+  display: block;
+  width: calc(130% + 1.3px);
+  height: 207px;
+}
+
 .card-custom-background {
   background: rgb(3, 2, 28);
   background: radial-gradient(
@@ -96,6 +119,12 @@ body {
     rgba(5, 5, 83, 0.5) 100%
   );
   backdrop-filter: blur(5px);
+}
+
+.waveBg {
+  background: url("../../public/images/wave-haikei.svg") no-repeat;
+  background-size: cover;
+  background-position-y: 70%;
 }
 
 .modal-custom {

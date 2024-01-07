@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar/Navbar';
 import { AnimatePresence } from 'framer-motion';
 import Modal from '../components/Modal/modal';
 import Skeleton from '../components/SkeletonCard/Skeleton';
+import Footer from '../components/Footer/Footer';
 
 interface Card{
   name:string;
@@ -93,8 +94,8 @@ const Page = () => {
 
 
   return (
-    <div className=''>
-        <Navbar isHomePage={false}/>    
+    <div className='h-min'>
+      <Navbar isHomePage={false}/>    
         <div className='mainEventsPage text-center pt-20'>
           <h1 className='beyonderFont text-5xl'>
             Events
@@ -137,9 +138,10 @@ const Page = () => {
                   )
                 })
                 :
-                <Skeleton num={6} />
+                <Skeleton num={3} />
             }
           </div>
+        <Footer />
         </div>
         <AnimatePresence
           initial={false}
