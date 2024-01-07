@@ -105,38 +105,10 @@ const FormComponent = ({ isRegistered }: Props) => {
               }}
               className="input bg-transparent input-bordered w-full max-w-xs"
             />
-          </>
-        )}
-
-        <label className="label">
-          <span className="label-text">Enter email</span>
-        </label>
-        <input
-          type="email"
-          placeholder="Your email here"
-          name="email"
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            setEmail(e.currentTarget.value);
-          }}
-          className="input bg-transparent input-bordered w-full max-w-xs"
-        />
-
-        <label className="label">
-          <span className="label-text">Enter password</span>
-        </label>
-        <input
-          type="password"
-          placeholder="Top-Secret password"
-          name="password"
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            setPassword(e.currentTarget.value);
-          }}
-          className="input bg-transparent input-bordered w-full max-w-xs"
-        />
-
-         <label className="label">
+                  <label className="label">
           <span className="label-text">Enter Roll No</span>
         </label>
+        
         <input
           type="text"
           placeholder="Roll No"
@@ -169,6 +141,37 @@ const FormComponent = ({ isRegistered }: Props) => {
               <option value="Mathematics And Computing">Mathematics And Computing</option>
               <option value="Other">Other</option>
             </select> 
+
+
+          </>
+        )}
+
+        <label className="label">
+          <span className="label-text">Enter email</span>
+        </label>
+        <input
+          type="email"
+          placeholder="Your email here"
+          name="email"
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setEmail(e.currentTarget.value);
+          }}
+          className="input bg-transparent input-bordered w-full max-w-xs"
+        />
+
+        <label className="label">
+          <span className="label-text">Enter password</span>
+        </label>
+        <input
+          type="password"
+          placeholder="Top-Secret password"
+          name="password"
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setPassword(e.currentTarget.value);
+          }}
+          className="input bg-transparent input-bordered w-full max-w-xs"
+        />
+
 
 
         <button className="btn btn-info m-5" onClick={handleSubmit} disabled={isLoading}>
