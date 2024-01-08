@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar/Navbar';
-import Card from '../components/ContacttCard/Card';
+import Card from '../components/ContactCard/Card';
 import Footer from '../components/Footer/Footer';
 import '../contacts/contact.css';
 
