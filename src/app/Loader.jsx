@@ -20,7 +20,7 @@ useEffect(()=>{
            ${started?"opacity-0":"opacity-100"}`}
            >
 
-        <div className="text-4xl md:text-9xl font-bold text-white relative">
+        <div className="text-4xl md:text-9xl font-bold text-black relative">
             <div 
             className="absolute left-0 top-0 overflow-hidden truncate text-clip transition-all duration-500"
             style={{
