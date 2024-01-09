@@ -15,7 +15,7 @@ useEffect(()=>{
 },[progress,total,loaded,item])
     return(
         
-           <div className={`bg-black fixed top-0 left-0 w-full h-full z-50 transition-opacity duration-1000 pointer-events-none
+           <div className={`bg-blue-800 fixed top-0 left-0 w-full h-full z-50 transition-opacity duration-1000 pointer-events-none
            flex items-center justify-center bg-indigo-50
            ${started?"opacity-0":"opacity-100"}`}
            >
