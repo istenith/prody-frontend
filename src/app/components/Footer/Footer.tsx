@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Footer = () => {
   return (
-    <div className='relative waveBg text-white'>
+    <div className='relative w-screen waveBg text-white'>
       <footer className="footer footer-center h-auto p-10" style={{minHeight: '20rem'}}>
         <aside>
           <div className="w-full flex-wrap items-center justify-center gap-5 pt-12 flex flex-row border-white">

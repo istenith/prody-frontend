@@ -110,7 +110,7 @@ const SupportersComponent = () => {
         )}
       </div>
      </div>
-  <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white"} style= {{background :'url("../../../public/support.webp")'}}>
+  <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white"} style= {{background :'url("../../../public/support.webp")', backgroundPosition: '50% 50%'}}>
       
       <h2 className="beyonderFont  text-center text-2xl font-bold mb-9 mt-11">OUR SUPPORTERS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 mb-8 sponsor-card-div">
