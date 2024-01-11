@@ -140,6 +140,15 @@ body {
   border-right: 3px solid rgba(100, 99, 102, 0.15);
 }
 
+/* Timeline minor css */
+.IeTsX{
+  width: 20% !important;
+}
+
+.bxrLkM{
+  border-radius: 19px !important;
+}
+
 @media (max-width: 600px) {
   .custom-card {
     max-width: 16.5rem;
@@ -182,6 +191,11 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
+
+.IeTsX{
+  width: 20% !important;
+}
+
 
 .waveBg {
   background: url("../../public/images/footer-01.webp") no-repeat;
