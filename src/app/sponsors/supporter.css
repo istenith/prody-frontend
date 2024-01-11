@@ -51,6 +51,15 @@ body {
 
 }
 
+.sponserPage{
+  background-image: url("../../../public/homepagetheme.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 10% -50%;
+  color: whitesmoke;
+}
+
+
 .modal-content{
   line-spacing: 1.5;
  width: 100%;
