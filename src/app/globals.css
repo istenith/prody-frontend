@@ -140,15 +140,6 @@ body {
   border-right: 3px solid rgba(100, 99, 102, 0.15);
 }
 
-/* Timeline minor css */
-.IeTsX{
-  width: 20% !important;
-}
-
-.bxrLkM{
-  border-radius: 19px !important;
-}
-
 @media (max-width: 600px) {
   .custom-card {
     max-width: 16.5rem;
