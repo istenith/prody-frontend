@@ -34,6 +34,20 @@
     }
   } */
 
+  .modal-custom {
+    /* existing styles */
+    position: relative !important; /* Set the position context for absolute positioning */
+  }
+  
+  .btns {
+    /* existing styles */
+    position: absolute !important; /* Position the buttons absolutely within the modal */
+    bottom: 0; /* Align to the bottom */
+    right: 0; /* Align to the right */
+    padding: 1rem; /* Add some padding if needed */
+  }
+  
+
   @media (max-width: 1024px) {
     .content-container {
       flex-direction: column;
