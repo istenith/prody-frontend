@@ -9,7 +9,7 @@
   
   .image-container {
     padding-right: 5rem;
-    padding-left: 0.3rem;
+    padding-left: 5.3rem;
     flex-shrink: 0;
     width: 100%;
     /* border-radius: 10%; */
@@ -64,6 +64,12 @@
       overflow-y: auto; 
       overflow-x: hidden;
       /* height: 100rem; */
+    }
+
+    .modal-custom{
+      height: 85%;
+      /* margin-top: 3rem; */
+      padding-top: 1vh;
     }
 
     .image-container {
