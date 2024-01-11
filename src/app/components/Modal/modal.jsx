@@ -10,6 +10,19 @@ const Modal = ({ cardrecieved, handleClose }) => {
     console.log('cardrecieved', cardrecieved);
   }, [cardrecieved]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        handleClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    // Remove event listener on cleanup
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleClose]);
+
   const router = useRouter();
 
   const dropIn = {
@@ -59,6 +72,7 @@ const Modal = ({ cardrecieved, handleClose }) => {
         exit='exit'
         className='modal-custom flex flex-col md:flex-row border-slate-950'
       >
+        <button className="close-button" onClick={handleClose}>&times;</button>
         <div className='image-container' style={{ maxWidth: '500px', flexShrink: 0 }}>
           {cardrecieved.poster ? (
             <Image

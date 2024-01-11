@@ -35,18 +35,28 @@
   } */
 
   .modal-custom {
-    /* existing styles */
-    position: relative !important; /* Set the position context for absolute positioning */
+    position: relative !important; 
   }
   
   .btns {
     /* existing styles */
-    position: absolute !important; /* Position the buttons absolutely within the modal */
-    bottom: 0; /* Align to the bottom */
-    right: 0; /* Align to the right */
-    padding: 1rem; /* Add some padding if needed */
+    position: absolute !important; 
+    bottom: 0; 
+    right: 0;
+    padding: 1rem; 
   }
   
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #fff; 
+    font-size: 1.5rem; 
+    cursor: pointer;
+    padding: 0.5rem;
+  }
 
   @media (max-width: 1024px) {
     .content-container {
