@@ -5,9 +5,11 @@ import Backdrop from '../Backdrop/backdrop';
 import { useRouter } from 'next/navigation';
 import './modalStyles.css';
 
-const Modal = ({ cardrecieved, handleClose }) => {
+const Modal = ({ cardrecieved, handleClose,isRegisteredEvent }) => {
   useEffect(() => {
     console.log('cardrecieved', cardrecieved);
+    console.log('isRegisteredEvent', isRegisteredEvent);
+
   }, [cardrecieved]);
 
   useEffect(() => {
@@ -115,14 +117,35 @@ const Modal = ({ cardrecieved, handleClose }) => {
             </div>
           </div>
         <div className='flex gap-3 btns'>
-            <motion.button
+            {/* <motion.button
               className='btn btn-primary max-w-xs'
               onClick={handleRegister}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
               Register
+            </motion.button> */}
+
+            {isRegisteredEvent ? (
+            <motion.button
+              className='btn btn-disabled max-w-xs'
+              whileHover={{ scale: 1 }}
+              whileTap={{ scale: 0.95 }}
+              disabled
+            >
+              Registered
             </motion.button>
+          ) : (
+              <motion.button
+                className='btn btn-primary max-w-xs'
+                onClick={handleRegister}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Register
+              </motion.button>
+              )}
+
             <motion.button
               className='btn btn-secondary max-w-xs'
               onClick={handleAbstractLink}

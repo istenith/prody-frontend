@@ -7,6 +7,7 @@ import EventsListing from './components/EventsListing';
 import axios from 'axios';
 import "./page.module.css"
 import { useRouter } from 'next/navigation';
+import fetchUserData from '../../components/fetchUserData';
 
 
 
@@ -31,7 +32,6 @@ interface User {
   username : string;
   user_id : string;
   email : string;
-
 }
 
 const Dashboard: React.FC = () => {
@@ -74,23 +74,9 @@ const Dashboard: React.FC = () => {
 
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const storedToken = localStorage.getItem('myJwtToken');
-        const response = await axios.get('https://api-dev.prody.istenith.com/api/auth/user/', {
-          headers: {
-            Authorization: `${storedToken}`,
-          },
-        });
-        setUser(response.data.user);
-      } catch (error:any) {
-        alert(`Need to login to see your profile`);
-        // console.error(`Error fetching user data: ${error.message}`);
-        router.push("/participate");
-      }
-    };
+    const userFound = fetchUserData(setUser)
 
-    fetchUserData();
+    if (!userFound) router.push('/participate')
   }, []);
 
 
@@ -100,10 +86,11 @@ const Dashboard: React.FC = () => {
     if (user) {
       const { is_live_events, is_completed_events, is_upcoming_events } = user.registered_events;
       const userRegisteredEvents = [...is_live_events, ...is_completed_events, ...is_upcoming_events];
-      
+      console.log("dashboard page user", user)
       const userRegisteredEventsAlternate = events.filter(event => {
         return userRegisteredEvents.some(registeredEvent => registeredEvent.id === event.id);
       });
+      console.log("userRegisteredEventsAlternate",userRegisteredEventsAlternate)
       setRegisteredEvents(userRegisteredEventsAlternate);
 
       const userNonRegisteredEvents = events.filter(event => {

@@ -58,8 +58,13 @@ const EventRegisterPage = () => {
       );
 
       setErrorMessage(response.data.message);
+
       setShowModal(true);
       setIsErrorModal(false);
+      if(response.data.message ==="User registered for the event successfully" || response.data.message === "Team created and user added successfully" || response.data.message === "User joined the team successfully")
+      {
+        window.location.href = '/events'
+      }
 
     } catch (error) {
 
@@ -103,7 +108,7 @@ const EventRegisterPage = () => {
                 <h5 className="text-m mb-4 text-red-500">This is a team event you need to create a team or join one.</h5>
                 <h3 className="text-2xl mb-4">Create Team</h3>
                 <label htmlFor="teamName" className="block mb-2">
-                  Team Name:
+                  Team Name(Become the Leader):
                 </label>
                 <input
                   type="text"
@@ -115,7 +120,7 @@ const EventRegisterPage = () => {
                 <h2 className="text-xl mb-4 text-center">OR</h2>
                 <h3 className="text-2xl mb-4">Join Team</h3>
                 <label htmlFor="teamId" className="block mb-2">
-                  Team ID (Optional):
+                  Team ID (Join your friends):
                 </label>
                 <input
                   type="text"
