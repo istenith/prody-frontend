@@ -1,67 +1,37 @@
-// Loader.js
-import React from 'react';
+import { useProgress } from "@react-three/drei";
+import { useEffect, useState } from "react";
+export const LoadingScreen=(props)=>{
 
-const Loader = () => {
-  return (
-    <div
-      className="loader-container"
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-      }}
-    >
-      <svg
-        viewBox="0 0 800 800"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{
-          animation: 'spin2 1.5s ease-in-out infinite, spin 2s linear infinite',
-          animationDirection: 'alternate',
-          transformOrigin: 'center',
-          width: '100px', // Adjust the size as needed
-          height: '100px', // Adjust the size as needed
-          margin: 'auto',
-          display: 'block',
-        }}
-      >
-        <circle
-          cx="400"
-          cy="400"
-          fill="none"
-          r="200"
-          strokeWidth="39"
-          stroke="#E387FF"
-          strokeDasharray="700 1400"
-          strokeLinecap="round"
-        />
-      </svg>
-      <style>
-        {`
-          @keyframes spin {
-            to {
-              transform: rotate(360deg);
-            }
-          }
+    const [started,setStarted]=useState(false)
+    const {progress,total,loaded,item}=useProgress();
 
-          @keyframes spin2 {
-            0% {
-              stroke-dasharray: 1, 800;
-              stroke-dashoffset: 0;
-            }
-            50% {
-              stroke-dasharray: 400, 400;
-              stroke-dashoffset: -200px;
-            }
-            100% {
-              stroke-dasharray: 800, 1;
-              stroke-dashoffset: -800px;
-            }
-          }
-        `}
-      </style>
-    </div>
-  );
+useEffect(()=>{
+    if(progress===100){
+        setTimeout (()=>{
+            setStarted(true);
+        },2000);
+        
+    }
+},[progress,total,loaded,item])
+    return(
+        
+           <div className={`bg-blue-800 fixed top-0 left-0 w-full h-full z-50 transition-opacity duration-1000 pointer-events-none
+           flex items-center justify-center bg-indigo-50
+           ${started?"opacity-0":"opacity-100"}`}
+           >
+
+        <div className="text-4xl md:text-9xl font-bold text-black relative">
+            <div 
+            className="absolute left-0 top-0 overflow-hidden truncate text-clip transition-all duration-500"
+            style={{
+                width:`${progress}%`,
+            }}>
+            PRODYOGIKI
+            </div>
+            <div className="opacity-20">PRODYOGIKI</div>
+        </div>
+        </div>
+    )
 };
 
-export default Loader;
+export default LoadingScreen

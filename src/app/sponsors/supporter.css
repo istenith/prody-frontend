@@ -1,5 +1,5 @@
 body {
-  background-image:url("../../../public/support.webp");
+  /* background-image:url("../../../public/support.webp"); */
   align-items: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -50,6 +50,15 @@ body {
  display: block;
 
 }
+
+.sponserPage{
+  background-image: url("../../../public/homepagetheme.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 10% -50%;
+  color: whitesmoke;
+}
+
 
 .modal-content{
   line-spacing: 1.5;

@@ -144,6 +144,7 @@ const Page = () => {
 
 
 
+        <Footer />
         </div>
         <AnimatePresence
           initial={false}
@@ -151,7 +152,6 @@ const Page = () => {
         >
           {modalOpen && <Modal cardrecieved={selectedCard} handleClose={closeModal} />}
         </AnimatePresence>
-        <Footer />
     </div>
   )
 }

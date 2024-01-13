@@ -13,11 +13,10 @@ const Header: React.FC<HeaderProps> = ({ message }) => {
        
         
 
+
+<Image  src = "/images/prodykkk-01.webp" alt = "logo" width = "500" height = "500" />
  
-<Image loader={()=>"/images/prodykkk-01.webp"} src = "/images/prodykkk-01.webp" alt = "logo" width = "500" height = "500" />
-
-
-        
+  
       </div>
     </header>
   );

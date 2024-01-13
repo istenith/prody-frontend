@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar/Navbar';
-import Card from '../components/ContacttCard/Card';
+import Card from '../components/ContactCard/Card';
 import Footer from '../components/Footer/Footer';
 import '../contacts/contact.css';
 
@@ -30,7 +30,7 @@ const Contact = () => {
     <div className="h-min">
       <Navbar isHomePage={false} />
       <div className="mainEventsPage text-center pt-20 bg">
-        <h1 className="beyonderFont text-5xl cardHeading">Contact Us</h1>
+        <h2 className="beyonderFont  text-center text-2xl font-bold">Contact Us</h2>
         <div className="flex flex-row w-full flex-wrap p-10 gap-5 content-around h-full justify-around">
           {isLoaded &&
             contactData.map((contact) => (
