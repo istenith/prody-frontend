@@ -19,12 +19,13 @@
   border-radius: 0 0 50% 50% / 0 0 40% 40%;
   z-index: -1;
 }
-.card {
+
+/* .card {
   position: relative;
   width: 250px;
   margin-bottom: 20px;
   height: 250px;
-}
+} */
 
 .image {
   width: 100%;
