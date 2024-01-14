@@ -72,7 +72,7 @@ useEffect(() => {
               anchorX="center"
               anchorY="top"
             
-              font="/fonts/nasa/spaceAge.ttf"
+              font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
               fontSize={text3}
               position={[0, 1.18, 5]}>Click to Enter The EXOPLANET</Text>
             <Text className="prody-text"
