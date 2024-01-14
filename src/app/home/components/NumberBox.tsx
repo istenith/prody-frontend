@@ -18,7 +18,7 @@ const NumberBox = ({ num, unit, flip, countdownOver }: numProp) => {
       <div className={`relative bg-transparent flex flex-col items-center justify-center rounded-lg w-32 h-32 text-2xl md:text-4xl mt-4 ${shouldFlip ? 'flip' : ''}`}>
         <div className={`rounded-t-lg rounded-b-lg bg-[#343650] w-full h-1/2 ${shouldFlip ? 'flip' : ''}`}></div>
   
-        <div className={`text-5xl absolute ${shouldFlip ? 'text-blue-500 flip' : countdownOver ? 'text-blue-500' : 'text-blue-500'} z-10 font-bold font-redhat md:text-7xl font-mono`}>
+        <div className={`text-5xl absolute ${shouldFlip ? 'text-white flip' : countdownOver ? 'text-white' : 'text-white'} z-10 font-bold font-redhat md:text-7xl font-mono`}>
           {num}
         </div>
   
@@ -29,7 +29,7 @@ const NumberBox = ({ num, unit, flip, countdownOver }: numProp) => {
         <div className="absolute -right-1 top-[60px] rounded-full w-[12px] h-[12px] bg-[#1e1f29]"></div>
         <div className="absolute -left-1 top-[60px] rounded-full w-[12px] h-[12px] bg-[#1e1f29]" ></div>
       </div>
-      <p className="text-lg mt-3 font-semibold text-rose-200 md:text-2xl ">
+      <p className="text-lg mt-3 font-semibold text-white md:text-2xl ">
         {unit}
       </p>
     </div>

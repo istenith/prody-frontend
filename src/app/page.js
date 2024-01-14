@@ -27,7 +27,8 @@ function App() {
     const newSize = window.innerWidth / 5000;
     setText(Math.max(0.11, newSize));
     setText2(Math.max(0.09, newSize/2));
-    setText3(Math.max(0.05, newSize/5));
+    setText3(Math.min(0.1, newSize/1.5));
+
 
 };
 

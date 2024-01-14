@@ -1,6 +1,7 @@
 import React, { useEffect, FormEvent, useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import "./form.css";
 
 interface Props {
   isRegistered: boolean;
@@ -125,7 +126,7 @@ const FormComponent = ({ isRegistered }: Props) => {
             <select
               value={branch}
               onChange={(e: ChangeEvent<HTMLSelectElement>) => setBranch(e.currentTarget.value)}
-              className="select select-bordered w-full max-w-xs"
+              className="select bg-transparent select-bordered w-full max-w-xs"
             >
               <option value="" disabled>Select your branch</option>
               <option value="Civil Engineering">Civil Engineering</option>

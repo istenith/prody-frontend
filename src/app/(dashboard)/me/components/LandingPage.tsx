@@ -51,7 +51,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
   return (
     <div className=''>
       <div className="hero randomBlobBackground3 m-auto min-h-screen pt-20 px-10">
-        <div className="hero-content w-11/12 flex-col lg:flex-row">
+        <div className="hero-content w-11/12 flex-col lg:flex-row items-start">
           <div ref={scope} className="hidden lg:block" style={{translate: '-100px', opacity: 0}}>
             <Image 
             height={200}
