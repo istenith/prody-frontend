@@ -63,7 +63,8 @@ const EventRegisterPage = () => {
       setIsErrorModal(false);
       if(response.data.message ==="User registered for the event successfully" || response.data.message === "Team created and user added successfully" || response.data.message === "User joined the team successfully")
       {
-        window.location.href = '/events'
+        // window.alert("Registered successfully!");
+        window.location.href = '/events';
       }
 
     } catch (error) {
@@ -95,7 +96,7 @@ const EventRegisterPage = () => {
         <h2 className="beyonderFont text-3xl mb-8 m-auto w-auto">Register</h2>
 
         {event ? (
-          <div className="text-left max-w-lg mx-auto event-register-form">
+          <div className="text-left card max-w-lg mx-auto event-register-form">
             <p className="mb-4">
               <span className="font-bold">Event Name:</span><br /> {event.name}
             </p>

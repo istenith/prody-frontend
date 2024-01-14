@@ -156,7 +156,7 @@ body {
 .custom-card-figure {
   position: relative;
   height: 10rem;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .custom-card-image-wrapper {
@@ -182,11 +182,6 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
-
-.IeTsX{
-  width: 20% !important;
-}
-
 
 .waveBg {
   background: url("../../public/images/footer-01.webp") no-repeat;

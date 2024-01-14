@@ -196,7 +196,7 @@ const Page = () => {
                         <ImageComponent poster={card.poster} />
                     </figure>
                     <div className="custom-card-body">
-                      <h2 className="custom-card-title">{card.name}</h2>
+                      <h2 className="custom-card-title mt-2">{card.name}</h2>
                       <p>{card.date}</p>
                       <br />
                       <OpenDialogButton card={card} setModalOpenToTrue={openModal}/>
