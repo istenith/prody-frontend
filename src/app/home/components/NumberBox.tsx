@@ -6,10 +6,11 @@ import './NumberBox.css'; // Import the CSS file for animations
 interface numProp {
   num: string,
   unit: string,
+  flip: boolean,
   countdownOver: boolean,
 }
 
-const NumberBox = ({ num, unit, countdownOver }: numProp) => {
+const NumberBox = ({ num, unit, flip, countdownOver }: numProp) => {
   const shouldFlip = countdownOver || num === '00';
 
   return (
