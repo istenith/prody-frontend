@@ -58,7 +58,7 @@ const Home: NextPage = () => {
     <div className='h-full'>
       <Navbar isHomePage={false} />
 
- <div className="flex min-h-full w-screen flex-col items-center" style= {{background : 'url("/image.svg")' }}>    
+ <div className="flex min-h-full w-screen flex-col items-center bg-cover" style= {{background : 'url("/image.svg")' }}>    
          <Head>
  
   <link rel="icon" href="/favicon.ico" />
