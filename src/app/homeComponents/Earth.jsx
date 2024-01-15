@@ -5,7 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useRouter } from 'next/navigation';
 
 function Earth(props) {
-    const earthTexture = useLoader(THREE.TextureLoader, '/images/earth.webp');
+    const earthTexture = useLoader(THREE.TextureLoader, '/images/earth1.webp');
     const earthRef = useRef();
     const mixerRef = useRef();
     const [sphereSize, setSphereSize] = useState(4);
@@ -95,7 +95,7 @@ function Earth(props) {
 
     return (
         <>
-            <ambientLight intensity={1.0} color={"#ffffff"} />
+            <ambientLight intensity={0.9} color={"#0000000"} />
             <mesh ref={earthRef} onClick={onEarthClick}>
                 <sphereGeometry args={[sphereSize, 32, 32]} />
                 <meshPhongMaterial specular={"#555555"} shininess={30} map={earthTexture} />
@@ -104,4 +104,4 @@ function Earth(props) {
     );
 }
 
-export default Earth;
+export default Earth

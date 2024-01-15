@@ -80,9 +80,8 @@ const Home: NextPage = () => {
 <div className="flex gap-4 mt-4">
   <Link href="/events">
   <button
-    className="py-2 px-4 border border-blue-500 text-blue-500 font-semibold rounded-full transition duration-300 hover:bg-blue-500 hover:text-white"
+    className=" spaceFont py-2 px-4 border border-blue-500 text-blue-400 font-bold transition duration-300 hover:bg-blue-500 hover:text-white"
     onClick={() => {
-      // Add functionality for the Events button here
       console.log("Events button clicked");
     }}
   >
@@ -93,7 +92,7 @@ const Home: NextPage = () => {
   {/* Add Register Button */}
   <Link href="/participate">
   <button
-    className="py-2 px-4 border border-green-600 text-green-500 font-bold rounded-full transition duration-300 hover:bg-green-500 hover:text-white"
+    className="spaceFont py-2 px-4 border border-green-600 text-green-500 font-bold transition duration-300 hover:bg-green-500 hover:text-white"
   >
     Register
   </button>
