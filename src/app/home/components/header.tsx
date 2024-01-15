@@ -19,6 +19,7 @@ const Header: React.FC<HeaderProps> = ({ message }) => {
         <p className='spaceFont text-sm'><span className='text-warning'>2<sup>nd</sup>-4<sup>th</sup></span> February, 2024</p>
         <br />
         <br />
+        <br />
       </div>
     </header>
   );

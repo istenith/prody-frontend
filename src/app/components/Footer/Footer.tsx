@@ -8,7 +8,7 @@ const Footer = () => {
         <aside>
           <div className="w-full flex-wrap items-center justify-center gap-5 pt-12 flex flex-row border-white">
             <a href='https://www.istenith.com/' target='_blank'><Image src={"/logos/isteWhite.webp"} loader={()=>"/logos/isteWhite.webp"} width={100} height={0} alt="ISTE"/></a>
-            <Image src={"/logos/prodyWhite.webp"} loader={()=>"/logos/prodyWhite.webp"} width={70} height={100} alt="ISTE"/>
+            <Image src={"/logos/ProdyLogo.png"} loader={()=>"/logos/ProdyLogo.png"} width={70} height={100} alt="ISTE"/>
           </div>
           <p className="font-bold">
             Prodyogiki 2024 @ NIT Hamirpur
