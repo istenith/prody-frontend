@@ -95,7 +95,7 @@ const Page = () => {
 
   useEffect(()=>{
     const fetchUser = async () => {
-      const res = await fetch('https://api-dev.prody.istenith.com/api/events/')
+      const res = await fetch('https://api-dev.prody.istenith.com/api/events/', { next: { revalidate: 3600 } })
       const events = await res.json()
       console.log("events in the fetchuse: ", events)
       const storedToken = localStorage.getItem('myJwtToken');
