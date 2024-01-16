@@ -52,7 +52,7 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://api-dev.prody.istenith.com/api/events/', { next: { revalidate: 3600 } });
+        const res = await fetch('https://api-dev.prody.istenith.com/api/events/', { next: { revalidate: 60 } });
         const resJson = await res.json();
         const formattedData = resJson.map((event: Event) => {
           const eventDate = new Date(event.date_time);

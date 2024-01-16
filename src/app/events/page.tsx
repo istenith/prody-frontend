@@ -95,7 +95,7 @@ const Page = () => {
 
   useEffect(()=>{
     const fetchUser = async () => {
-      const res = await fetch('https://api-dev.prody.istenith.com/api/events/', { next: { revalidate: 3600 } })
+      const res = await fetch('https://api-dev.prody.istenith.com/api/events/', { next: { revalidate: 60 } })
       const events = await res.json()
       console.log("events in the fetchuse: ", events)
       const storedToken = localStorage.getItem('myJwtToken');
@@ -110,24 +110,17 @@ const Page = () => {
       
       const { is_live_events, is_completed_events, is_upcoming_events } = user.registered_events;
       const userRegisteredEvents = [...is_live_events, ...is_completed_events, ...is_upcoming_events];
-      console.log("dashboard page user", user)
       const userRegisteredEventsAlternate = events.filter((event: any) => {
         return userRegisteredEvents.some(registeredEvent => registeredEvent.id === event.id);
       });
       console.log("userRegisteredEventsAlternate",userRegisteredEventsAlternate)
 
       setRegisteredEvents(userRegisteredEventsAlternate);
-      
-      console.log("registeredEvents" , registeredEvents)
-
+  
       const userNonRegisteredEvents = events.filter((event: any) => {
         return !userRegisteredEvents.some(registeredEvent => registeredEvent.id === event.id);
       });
       setNonRegisteredEvents(userNonRegisteredEvents);
-
-
-      console.log("NonRegisteredEvents" , nonRegisteredEvents)
-
     }
     fetchUser()
   
