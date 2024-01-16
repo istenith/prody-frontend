@@ -95,7 +95,7 @@ function Earth(props) {
 
     return (
         <>
-            <ambientLight intensity={0.9} color={"#0000000"} />
+            <ambientLight intensity={0.7} color={"#0000000"} />
             <mesh ref={earthRef} onClick={onEarthClick}>
                 <sphereGeometry args={[sphereSize, 32, 32]} />
                 <meshPhongMaterial specular={"#555555"} shininess={30} map={earthTexture} />
