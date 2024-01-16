@@ -9,7 +9,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ message }) => {
   return (
-    <header className="mx-auto mt-4 mb-4 items-center">
+    <header className="mx-auto mt-9 mb-4 items-center">
       <div style={{ textAlign: 'center' }} className='mb-20' >
         <Tilt>
           <Image src={prodyLogo} alt='prodyLogo' width = "150" style={{ display: 'inline-block' }}/>
