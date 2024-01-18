@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Footer = () => {
   return (
     <div className='relative w-screen text-white'>
-      <footer className="footer footer-center h-auto" style={{minHeight: '20rem'}}>
+      <footer className="footer footer-center h-auto" style={{minHeight: '5rem', paddingBottom:'1rem', position:'sticky', bottom:'0'}}>
         <aside>
           <div className="w-full flex-wrap items-center justify-center gap-2 pt-12 flex flex-row border-white">
             <a href='https://www.istenith.com/' target='_blank'><Image src={"/logos/isteWhite.webp"} loader={()=>"/logos/isteWhite.webp"} width={50} height={10} alt="ISTE"/></a>
