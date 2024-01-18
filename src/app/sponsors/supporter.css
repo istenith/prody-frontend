@@ -53,8 +53,10 @@ body {
   background-image: url("../../../public/homepagetheme.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 10% -50%;
+  /* background-position: 10% -50%; */
   color: whitesmoke;
+  background-attachment: fixed;
+
 }
 
 

@@ -159,7 +159,7 @@ const Page = () => {
             Events
           </h1>
 
-            <h2 className='spaceFont hidden lg:block text-3xl m-4'>
+            <h2 className='spaceFont hidden lg:block text-l m-4'>
               &nbsp;
               <TypeAnimation
                 sequence={['PRODYOGIKI', 500, 'by iste', 500]}
