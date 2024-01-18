@@ -49,7 +49,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
                 <Link href={"/events"}>Events</Link>
               </li>
               <li>
-                <Link href={"/"} className='spaceFont text-xl'>PRODYOGIKI</Link>
+                <Link href={"/home"} className='spaceFont text-xl'>PRODYOGIKI</Link>
               </li>
               <li>
                 <Link href={"/timeline"}>Timeline</Link>

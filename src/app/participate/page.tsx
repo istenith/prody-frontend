@@ -13,7 +13,7 @@ const Participate = () => {
     <>
       <Navbar isHomePage={false} />
       <div className={`min-h-screen pt-24 spaceThemeBackground participateContainer`}>
-        <div className="card card-custom-background w-11/12 md:w-1/2 lg:w-1/3 shadow-2xl m-auto align-middle">
+        <div className="formCard card-custom-background w-11/12 md:w-1/2 lg:w-1/3 shadow-2xl m-auto align-middle">
           <div className= {`card-body`}>
             <h2 className="card-title">{wantsLogin ? <span>Login</span> : <span>Register</span>} to continue</h2>
             <div className="form-control w-full max-w-xs">
