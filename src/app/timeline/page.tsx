@@ -167,7 +167,7 @@ const Timeline = () => {
             cardSubtitle: "1rem",
             cardText: "1rem",
             cardTitle: "1.3rem",
-            title: "1.1rem",
+            title: "1.2rem",
           }}
         ></Chrono>
       </div>
