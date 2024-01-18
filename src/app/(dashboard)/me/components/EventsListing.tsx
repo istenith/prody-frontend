@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageComponent from '@/src/app/events/components/imageComponent';
 import styles from '../page.module.css';
+import './dashboard.css';
 import { useRouter } from 'next/navigation';
 
 interface MyEvent {
@@ -51,19 +52,21 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
           events.map((event) => (
             <div key={event.id} className="carousel-item">
               <div className={["card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl", styles.upComingEventCard].join(" ")}>
+                {event.is_live && (
+                    <div className="cardT">
+                      <div className="live-triangle"  ></div>
+                      <div className="live-text">LIVE</div>
+                  </div>
+                )}
                 <figure className="relative h-60">
                   <ImageComponent poster={event.poster} />
-
                 </figure>
                 <div className="card-body items-center">
                   <h2 className="card-title">{event.name}</h2>
                   {upComingEvents && (
-                    <button className="register-button" onClick={() => handleRegisterNow(event)}>
+                    <button className="register-button btn btn-primary" onClick={() => handleRegisterNow(event)}>
                       Register Now
                     </button>
-                  )}
-                  {event.is_live && (
-                    <span className='text-red-500'>Event is Live!!</span>
                   )}
                 </div>
               </div>
