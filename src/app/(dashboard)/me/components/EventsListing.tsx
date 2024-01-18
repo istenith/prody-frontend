@@ -49,7 +49,7 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
       <div className="carousel carousel-center space-x-4 gap-6 rounded-box" style={{ width: "90vw" }}>
         {isLoaded ?
           events.map((event) => (
-            <div key={event.id} className="carousel-item">
+            <div key={event.id} className="carousel-item relative">
               <div className={["card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl", styles.upComingEventCard].join(" ")}>
                 <figure className="relative h-60">
                   <ImageComponent poster={event.poster} />
@@ -58,15 +58,19 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
                 <div className="card-body items-center">
                   <h2 className="card-title">{event.name}</h2>
                   {upComingEvents && (
-                    <button className="register-button" onClick={() => handleRegisterNow(event)}>
+                    <button className="register-button btn-secondary p-3" onClick={() => handleRegisterNow(event)}>
                       Register Now
                     </button>
                   )}
                   {event.is_live && (
-                    <span className='text-red-500'>Event is Live!!</span>
+                    <span className='text-red-500'>Event is Live</span>
                   )}
                 </div>
               </div>
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <a href="#slide4" className="btn btn-circle">❮</a> 
+              <a href="#slide2" className="btn btn-circle">❯</a>
+            </div>
             </div>
           ))
           :
