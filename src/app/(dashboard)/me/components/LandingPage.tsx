@@ -7,6 +7,7 @@ import {  motion, useAnimate} from 'framer-motion'
 import { useWindowSize } from '@uidotdev/usehooks'
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import "./dashboard.css"
 
 interface LandingPageProps {
   user: any;
@@ -50,7 +51,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
   return (
     <div className=''>
       <div className="hero randomBlobBackground3 m-auto min-h-screen pt-20 px-10">
-        <div className="hero-content w-11/12 flex-col lg:flex-row">
+        <div className="hero-content w-11/12 flex-col lg:flex-row items-start">
           <div ref={scope} className="hidden lg:block" style={{translate: '-100px', opacity: 0}}>
             <Image 
             height={200}
@@ -156,7 +157,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
                 </div>
               </div>
 
-              <div className="flex m-auto flex-col w-11/12 md:w-80 lg:w-40 md:flex-row gap-4 mt-12">
+              <div className="flex m-auto flex-col w-11/12 md:w-80 lg:w-40 md:flex-row gap-4 mt-12 logout-button">
                 {/* <button className="btn btn-outline">Your Events</button> */}
                 <button className="btn btn-primary" onClick={handleLogout}>Logout</button>
               </div>

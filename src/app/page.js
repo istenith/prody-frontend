@@ -5,7 +5,7 @@ import "./homeComponents/animation.css";
 import { Canvas } from "@react-three/fiber";
 import Navbar from "./components/Navbar/Navbar"
 import Earth from "./homeComponents/Earth.jsx";
-import Loader from "./Loader.jsx";
+import Loader from "./LoaderEvent.jsx";
 
 import styled from "styled-components";
 import { OrbitControls, Stars ,Text } from "@react-three/drei";
@@ -27,7 +27,8 @@ function App() {
     const newSize = window.innerWidth / 5000;
     setText(Math.max(0.11, newSize));
     setText2(Math.max(0.09, newSize/2));
-    setText3(Math.max(0.05, newSize/5));
+    setText3(Math.min(0.1, newSize/1.5));
+
 
 };
 
@@ -58,7 +59,7 @@ useEffect(() => {
         
       }
     </div> 
-    <Navbar isHomePage={true}/>
+    
       <CanvasContainer>
         <Canvas background="black" camera={{ position: [0, 0, 8], fov: 50 }}>
           <Suspense fallback={null}>
@@ -72,7 +73,7 @@ useEffect(() => {
               anchorX="center"
               anchorY="top"
             
-              font="/fonts/nasa/spaceAge.ttf"
+              font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
               fontSize={text3}
               position={[0, 1.18, 5]}>Click to Enter The EXOPLANET</Text>
             <Text className="prody-text"

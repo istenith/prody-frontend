@@ -1,6 +1,6 @@
 // @ts-ignore
 "use client"
-import React, {useEffect, useState} from 'react'
+import React, {use, useEffect, useState} from 'react'
 import ImageComponent from './components/imageComponent';
 import OpenDialogButton from './components/OpenDialogButton';
 import { TypeAnimation } from 'react-type-animation';
@@ -9,6 +9,10 @@ import { AnimatePresence } from 'framer-motion';
 import Modal from '../components/Modal/modal';
 import Skeleton from '../components/SkeletonCard/Skeleton';
 import Footer from '../components/Footer/Footer';
+import fetchUserData from '../components/fetchUserData';
+import axios from 'axios';
+import Loader from "../LoaderEvent"
+
 
 interface Card{
   name:string;
@@ -24,7 +28,19 @@ interface Card{
   images: Array<string>;
 }
 
-interface MyEvent {
+interface User {
+  registered_events: {
+    is_live_events: Event[];
+    is_completed_events: Event[];
+    is_upcoming_events: Event[];
+  };
+  username : string;
+  user_id : string;
+  email : string;
+}
+
+
+interface Event {
   id: number;
   date_time: string;
   date: string;
@@ -39,7 +55,13 @@ interface MyEvent {
 const Page = () => {
   const [cardData, setCardData] = useState<Card[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
-
+  const [registeredEventIds, setRegisteredEventIds] = useState([])
+  const [events, setEvents] = useState<Event[]>([]);
+  const [registeredEvents, setRegisteredEvents] = useState<Event[]>([]);
+  const [nonRegisteredEvents, setNonRegisteredEvents] = useState<Event[]>([]);
+  const [user, setUser] = useState<User | null>(null)
+  
+  const [loading, setLoading] = useState(true);
   function getMonthName(monthIndex:any) {
     const months = [
       'January', 'February', 'March', 'April', 'May', 'June',
@@ -47,33 +69,84 @@ const Page = () => {
     ];
     return months[monthIndex];
   }
+  
 
-  const fetchData = async () => {
-    try{
-      const res = await fetch('https://api-dev.prody.istenith.com/api/events/')
-      const resJson = await res.json()
-      const formattedData = resJson.map((event:MyEvent) => {
-        const eventDate = new Date(event.date_time);
-        
-        const formattedDate = `${eventDate.getDate()} ${getMonthName(eventDate.getMonth())} ${eventDate.getFullYear()}`;
-        return {
-          ...event,
-          date: formattedDate,
-        };
-      });
-      
-      
-      console.log(formattedData)
-      setCardData(formattedData)
-      setIsLoaded(true)
-    } catch {
-      console.log('error')
-    }
+  useEffect(() => {
+    // Simulate an asynchronous task
+    const fetchData = async () => {
+      // Your asynchronous task goes here
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+
+    fetchData();
   }
-
+  , []);
+  
+  
   useEffect(()=>{
+    const fetchData = async () => {
+      try{
+        const res = await fetch('https://api-dev.prody.istenith.com/api/events/')
+        const resJson = await res.json()
+        const formattedData = resJson.map((event:Event) => {
+          const eventDate = new Date(event.date_time);
+          
+          const formattedDate = `${eventDate.getDate()} ${getMonthName(eventDate.getMonth())} ${eventDate.getFullYear()}`;
+          return {
+            ...event,
+            date: formattedDate,
+          };
+        });
+        // console.log(formattedData)
+        setCardData(formattedData)
+        setIsLoaded(true)
+      } catch (error) {
+        console.log('error', error)
+      }
+    }
     fetchData()
   }, [])
+
+  useEffect(()=>{
+    const fetchUser = async () => {
+      const res = await fetch('https://api-dev.prody.istenith.com/api/events/', { next: { revalidate: 60 } })
+      const events = await res.json()
+      console.log("events in the fetchuse: ", events)
+      const storedToken = localStorage.getItem('myJwtToken');
+      const response = await axios.get('https://api-dev.prody.istenith.com/api/auth/user/', {
+        headers: {
+          Authorization: `${storedToken}`,
+        },
+      });
+
+      console.log("response.data.user2",response.data.user)
+      const user = response.data.user
+      
+      const { is_live_events, is_completed_events, is_upcoming_events } = user.registered_events;
+      const userRegisteredEvents = [...is_live_events, ...is_completed_events, ...is_upcoming_events];
+      const userRegisteredEventsAlternate = events.filter((event: any) => {
+        return userRegisteredEvents.some(registeredEvent => registeredEvent.id === event.id);
+      });
+      console.log("userRegisteredEventsAlternate",userRegisteredEventsAlternate)
+
+      setRegisteredEvents(userRegisteredEventsAlternate);
+  
+      const userNonRegisteredEvents = events.filter((event: any) => {
+        return !userRegisteredEvents.some(registeredEvent => registeredEvent.id === event.id);
+      });
+      setNonRegisteredEvents(userNonRegisteredEvents);
+    }
+    fetchUser()
+  
+  },[])
+
+  useEffect(() => {
+
+    console.log('Registered Events:', registeredEvents);
+    console.log('Non-Registered Events:', nonRegisteredEvents);
+  }, [registeredEvents, nonRegisteredEvents]);
+
 
   const [modalOpen, setModalOpen] = useState(false)
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
@@ -95,13 +168,20 @@ const Page = () => {
 
   return (
     <div className='h-min'>
+      <div>
+      {loading && (
+        <Loader />
+      )    
+        
+      }
+    </div> 
       <Navbar isHomePage={false}/>    
         <div className='mainEventsPage text-center pt-20'>
-          <h1 className='beyonderFont text-5xl'>
+          <h1 className='beyonderFont text-5xl events-main-text'>
             Events
           </h1>
 
-            <h2 className='spaceFont hidden lg:block text-3xl m-4'>
+            <h2 className='spaceFont hidden lg:block text-l m-4'>
               &nbsp;
               <TypeAnimation
                 sequence={['PRODYOGIKI', 500, 'by iste', 500]}
@@ -112,42 +192,54 @@ const Page = () => {
               &nbsp;
             </h2>
 
-            <h2 className='spaceFont block lg:hidden text-3xl m-4'>
+            {/* <h2 className='spaceFont block lg:hidden text-3xl m-4'>
               &nbsp;
                 Prodyogiki
               &nbsp;
-            </h2>            
+            </h2>             */}
+            <br />
 
 
-          <div className="flex flex-row w-full flex-wrap p-10 gap-5 content-around h-full justify-around">
+            <div className="custom-flex-container">
             {isLoaded ? 
-                cardData.map(card => {   
-                  return(
-                    <div key={card.id} className="card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl card-custom-background">
-                      <figure className="relative h-60">
+              cardData.map(card => {   
+                // const isEventRegistered = registeredEvents.some(registeredEvent => registeredEvent.id === card.id);
+
+                return (
+                  <div key={card.id} className="custom-card">
+                    <figure className="custom-card-figure">
                         <ImageComponent poster={card.poster} />
-                        {/* <ImageComponent card={card} /> */}
-                      </figure>
-                      <div className="card-body items-center">
-                        <h2 className="card-title">{card.name}</h2>
-                        {/* <p>{card.description}</p> */}
-                        <p>{card.date}</p>
-                        <OpenDialogButton card={card} setModalOpenToTrue={openModal}/>
-                      </div>
-                    </div>  
-                  )
-                })
-                :
-                <Skeleton num={3} />
+                    </figure>
+                    <div className="custom-card-body">
+                      <h2 className="custom-card-title mt-2">{card.name}</h2>
+                      {/* <p>{card.date}</p> */}
+                      <br />
+                      <OpenDialogButton card={card} setModalOpenToTrue={openModal}/>
+                    </div>
+                  </div>  
+                );
+              })
+              :
+              <Skeleton num={3} />
             }
           </div>
+
+
+
         <Footer />
         </div>
         <AnimatePresence
           initial={false}
           mode='wait'
         >
-          {modalOpen && <Modal cardrecieved={selectedCard} handleClose={closeModal} />}
+        {modalOpen && (
+            <Modal
+              cardrecieved={selectedCard}
+              handleClose={closeModal}
+              isRegisteredEvent={registeredEvents.some(registeredEvent => registeredEvent.id === selectedCard?.id)}
+            />
+          )}
+
         </AnimatePresence>
     </div>
   )

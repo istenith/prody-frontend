@@ -1,6 +1,7 @@
 import React, { useEffect, FormEvent, useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import "./form.css";
 
 interface Props {
   isRegistered: boolean;
@@ -105,6 +106,44 @@ const FormComponent = ({ isRegistered }: Props) => {
               }}
               className="input bg-transparent input-bordered w-full max-w-xs"
             />
+                  <label className="label">
+          <span className="label-text">Enter Roll No</span>
+        </label>
+        
+        <input
+          type="text"
+          placeholder="Roll No"
+          name="roll_no"
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setRollNo(e.currentTarget.value);
+          }}
+          className="input bg-transparent input-bordered w-full max-w-xs"
+        />
+
+            <label className="label">
+              <span className="label-text">Select branch</span>
+            </label>
+            <select
+              value={branch}
+              onChange={(e: ChangeEvent<HTMLSelectElement>) => setBranch(e.currentTarget.value)}
+              className="select bg-transparent select-bordered w-full max-w-xs"
+            >
+              <option value="" disabled>Select your branch</option>
+              <option value="Civil Engineering">Civil Engineering</option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Electrical Engineering">Electrical Engineering</option>
+              <option value="Electronics And Communication Engineering">Electronics And Communication Engineering</option>
+              <option value="ECE Dual">ECE Dual</option>
+              <option value="Chemical Engineering">Chemical Engineering</option>
+              <option value="Computer Science Engineering">Computer Science Engineering</option>
+              <option value="CSE Dual">CSE Dual</option>
+              <option value="Material Science">Material Science</option>
+              <option value="Engineering Physics">Engineering Physics</option>
+              <option value="Mathematics And Computing">Mathematics And Computing</option>
+              <option value="Other">Other</option>
+            </select> 
+
+
           </>
         )}
 
@@ -134,41 +173,6 @@ const FormComponent = ({ isRegistered }: Props) => {
           className="input bg-transparent input-bordered w-full max-w-xs"
         />
 
-         <label className="label">
-          <span className="label-text">Enter Roll No</span>
-        </label>
-        <input
-          type="text"
-          placeholder="Roll No"
-          name="roll_no"
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            setRollNo(e.currentTarget.value);
-          }}
-          className="input bg-transparent input-bordered w-full max-w-xs"
-        />
-
-            <label className="label">
-              <span className="label-text">Select branch</span>
-            </label>
-            <select
-              value={branch}
-              onChange={(e: ChangeEvent<HTMLSelectElement>) => setBranch(e.currentTarget.value)}
-              className="select select-bordered w-full max-w-xs"
-            >
-              <option value="" disabled>Select your branch</option>
-              <option value="Civil Engineering">Civil Engineering</option>
-              <option value="Mechanical Engineering">Mechanical Engineering</option>
-              <option value="Electrical Engineering">Electrical Engineering</option>
-              <option value="Electronics And Communication Engineering">Electronics And Communication Engineering</option>
-              <option value="ECE Dual">ECE Dual</option>
-              <option value="Chemical Engineering">Chemical Engineering</option>
-              <option value="Computer Science Engineering">Computer Science Engineering</option>
-              <option value="CSE Dual">CSE Dual</option>
-              <option value="Material Science">Material Science</option>
-              <option value="Engineering Physics">Engineering Physics</option>
-              <option value="Mathematics And Computing">Mathematics And Computing</option>
-              <option value="Other">Other</option>
-            </select> 
 
 
         <button className="btn btn-info m-5" onClick={handleSubmit} disabled={isLoading}>

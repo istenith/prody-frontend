@@ -10,7 +10,7 @@ const ImageComponent: FunctionComponent<ImageProps> = ({poster}) => {
 
   
   return (
-    <div>
+    <div className="custom-card-image-wrapper">
 
       {poster ? (
         <Image  layout='fill' objectFit='contain' className='rounded-md mx-auto my-4' unoptimized={true} src={poster} alt="thumbnail"/>

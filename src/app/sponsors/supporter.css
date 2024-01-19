@@ -1,5 +1,5 @@
 body {
-  background-image:url("../../../public/support.webp");
+  /* background-image:url("../../../public/support.webp"); */
   align-items: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -40,8 +40,7 @@ body {
   font-size: xxx-large;
 }
 .modal-img{
- width: 40%;
- height: 80%;
+  /* padding-top: 5rem; */
  border-radius: 2vh;
   position: relative;
  object-position: center;
@@ -50,14 +49,35 @@ body {
 
 }
 
+.sponserPage{
+  background-image: url("../../../public/homepagetheme.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position: 10% -50%; */
+  color: whitesmoke;
+  background-attachment: fixed;
+
+}
+
+
 .modal-content{
- width: 100%;
- height: 100%;
+  line-spacing: 1.5;
+  width: 100%;
+  height: 100%;
 }
 
 .blurred {
  filter: blur(4px);
 }
+
+@media screen and (min-width: 500px) {
+  .modal-img{
+    width: 60%;
+    height: 60%;
+  }
+}
+
+
 @media screen and (max-width: 500px) {
  .modal-backdrop {
     margin: auto !important;
@@ -75,11 +95,26 @@ body {
   }
 
 .modal-img{
- width:fit-content;
+  /* width: 100%;
+  height: 50%; */
+  margin: 0;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+
 }
+
 .modal-content{
  width: 95%;
  padding: 2vh;
+ /* height: 0 !important; */
+}
+/* .sponsor-card-div{
+  padding: 10px;
+} */
+.supportcard{
+  width: 18rem;
+  height: 16rem;
 }
  
 }

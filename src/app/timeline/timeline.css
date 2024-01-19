@@ -1,0 +1,11 @@
+/* Used for Responsiveness in Mobile Mode  */
+/* Custom Class is used named `customTitle`   */
+.customTitle{
+    margin-left: -16px !important;
+}
+
+@media (max-width: 600px){
+    .customTitle{
+        margin-left: -18px !important;
+    }
+}

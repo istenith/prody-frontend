@@ -1,6 +1,7 @@
 import React from 'react';
 import ImageComponent from '@/src/app/events/components/imageComponent';
 import styles from '../page.module.css';
+import './dashboard.css';
 import { useRouter } from 'next/navigation';
 
 interface MyEvent {
@@ -24,6 +25,7 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
   console.log("Event Listing events", events)
   const router = useRouter();
 
+  
   const isLoaded = true; 
   
   const handleRegisterNow = (event: MyEvent) => {
@@ -37,31 +39,34 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
   return (
     <div className={["flex justify-center flex-col items-center md:items-start mx-auto", styles.upComingEvents].join(" ")}>
       <div className=''>
-        <h1 className="beyonderFont text-3xl font-bold" style={{ lineHeight: "3rem" }}>
+        <h1 className="beyonderFont text-2xl font-bold" style={{ lineHeight: "3rem" }}>
           {upComingEvents ? `Upcoming Events` : `Participated Events`}
         </h1>
-        <h3 className='coolveticaFont text-2xl my-4'>
+        <h3 className='coolveticaFont text-xl my-4'>
           {upComingEvents ? `Exciting events coming up in the next few days that you can participate in!` : `Events you have participated in`}
         </h3>
+        <p className='text-red-300 text-xs swipe-text'>(Swipe to see the events)</p>
       </div>
       <div className="carousel carousel-center space-x-4 gap-6 rounded-box" style={{ width: "90vw" }}>
         {isLoaded ?
           events.map((event) => (
             <div key={event.id} className="carousel-item">
               <div className={["card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl", styles.upComingEventCard].join(" ")}>
+                {event.is_live && (
+                    <div className="cardT">
+                      <div className="live-triangle"  ></div>
+                      <div className="live-text">LIVE</div>
+                  </div>
+                )}
                 <figure className="relative h-60">
                   <ImageComponent poster={event.poster} />
-
                 </figure>
                 <div className="card-body items-center">
                   <h2 className="card-title">{event.name}</h2>
                   {upComingEvents && (
-                    <button className="register-button" onClick={() => handleRegisterNow(event)}>
+                    <button className="register-button btn btn-primary" onClick={() => handleRegisterNow(event)}>
                       Register Now
                     </button>
-                  )}
-                  {event.is_live && (
-                    <span className='text-red-500'>Event is Live!!</span>
                   )}
                 </div>
               </div>

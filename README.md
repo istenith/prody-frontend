@@ -1,9 +1,7 @@
-[![Build and deploy Node.js app to Azure Web App - dev-prody](https://github.com/istenith/prody-frontend/actions/workflows/master_dev-prody.yml/badge.svg)](https://github.com/istenith/prody-frontend/actions/workflows/master_dev-prody.yml)
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+<p align="center"><img src="public/logos/prodyWhite.webp" height="auto" width="120px"> <img src="public/logos/isteWhite.webp" width="150px" height="auto"><h1 align="center"> Prodyogiki | ISTE-NITH </h1> </p>
 
 ## Getting Started
+
 
 First, run the development server:
 

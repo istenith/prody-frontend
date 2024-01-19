@@ -1,0 +1,85 @@
+.content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+  
+  .image-container {
+    padding-right: 5rem;
+    padding-left: 5.3rem;
+    flex-shrink: 0;
+    width: 100%;
+    /* border-radius: 10%; */
+    max-width: 500px; 
+    overflow: hidden;
+  }
+
+  /* @media(max-width:1024px)
+  {
+    .content-container{
+        flex-direction: column;
+        overflow-y: auto;   
+        overflow-x: hidden;
+
+    }
+
+    .image-container {
+        width: 14rem;
+        padding-right: 0;
+        padding-left: 0;
+        margin: 1rem;
+    }
+  } */
+
+  .modal-custom {
+    position: relative !important; 
+  }
+  
+  .btns {
+    /* existing styles */
+    position: absolute !important; 
+    bottom: 0; 
+    right: 0;
+    padding: 1rem; 
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+    color: #fff; 
+    font-size: 1.5rem; 
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .content-container {
+      flex-direction: column;
+      overflow-y: auto; 
+      overflow-x: hidden;
+      /* height: 100rem; */
+    }
+
+    .modal-custom{
+      height: 85%;
+      /* margin-top: 3rem; */
+      padding-top: 1vh;
+    }
+
+    .image-container {
+        width: 14rem;
+        padding-right: 0;
+        padding-left: 0;
+        margin: 1rem;
+    }
+  }
+  
+
+  
+  
