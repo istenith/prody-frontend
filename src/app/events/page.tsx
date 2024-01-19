@@ -1,6 +1,6 @@
 // @ts-ignore
 "use client"
-import React, {useEffect, useState} from 'react'
+import React, {use, useEffect, useState} from 'react'
 import ImageComponent from './components/imageComponent';
 import OpenDialogButton from './components/OpenDialogButton';
 import { TypeAnimation } from 'react-type-animation';
@@ -11,6 +11,8 @@ import Skeleton from '../components/SkeletonCard/Skeleton';
 import Footer from '../components/Footer/Footer';
 import fetchUserData from '../components/fetchUserData';
 import axios from 'axios';
+import Loader from "../LoaderEvent"
+
 
 interface Card{
   name:string;
@@ -59,7 +61,7 @@ const Page = () => {
   const [nonRegisteredEvents, setNonRegisteredEvents] = useState<Event[]>([]);
   const [user, setUser] = useState<User | null>(null)
   
-  
+  const [loading, setLoading] = useState(true);
   function getMonthName(monthIndex:any) {
     const months = [
       'January', 'February', 'March', 'April', 'May', 'June',
@@ -67,6 +69,19 @@ const Page = () => {
     ];
     return months[monthIndex];
   }
+  
+
+  useEffect(() => {
+    // Simulate an asynchronous task
+    const fetchData = async () => {
+      // Your asynchronous task goes here
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+
+    fetchData();
+  }
+  , []);
   
   
   useEffect(()=>{
@@ -153,6 +168,13 @@ const Page = () => {
 
   return (
     <div className='h-min'>
+      <div>
+      {loading && (
+        <Loader />
+      )    
+        
+      }
+    </div> 
       <Navbar isHomePage={false}/>    
         <div className='mainEventsPage text-center pt-20'>
           <h1 className='beyonderFont text-5xl events-main-text'>
@@ -190,7 +212,7 @@ const Page = () => {
                     </figure>
                     <div className="custom-card-body">
                       <h2 className="custom-card-title mt-2">{card.name}</h2>
-                      <p>{card.date}</p>
+                      {/* <p>{card.date}</p> */}
                       <br />
                       <OpenDialogButton card={card} setModalOpenToTrue={openModal}/>
                     </div>

@@ -5,9 +5,12 @@ import "./supporter.css";
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import Card from '../components/SponsorCard/Card.tsx';
+import Loader from '../LoaderEvent';
 
 
 const Modal = ({ show, onClose, title,content,src }) => {
+
+  
 
   if (!show) return null;
 
@@ -32,6 +35,21 @@ const Modal = ({ show, onClose, title,content,src }) => {
 const SupportersComponent = () => {
 
   const [sponsors, setSponsors] = useState([])
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an asynchronous task
+    const fetchData = async () => {
+      // Your asynchronous task goes here
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+
+    fetchData();
+  }
+  , []);
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -73,6 +91,9 @@ const SupportersComponent = () => {
 
   return (
     <>
+    {loading && (
+        <Loader />
+      )}
       <Navbar isHomePage={false}/>
      <div>
         {selectedSupporter && (

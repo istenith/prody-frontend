@@ -8,7 +8,7 @@ import axios from 'axios';
 import "./page.module.css"
 import { useRouter } from 'next/navigation';
 import fetchUserData from '../../components/fetchUserData';
-
+import Loader from "../../LoaderEvent"
 
 
 interface Event {
@@ -40,6 +40,7 @@ const Dashboard: React.FC = () => {
   const [registeredEvents, setRegisteredEvents] = useState<Event[]>([]);
   const [nonRegisteredEvents, setNonRegisteredEvents] = useState<Event[]>([]);
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
 
   function getMonthName(monthIndex: number): string {
     const months = [
@@ -79,6 +80,18 @@ const Dashboard: React.FC = () => {
     if (!userFound) router.push('/participate')
   }, []);
 
+  useEffect(() => {
+    // Simulate an asynchronous task
+    const fetchData = async () => {
+      // Your asynchronous task goes here
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+
+    fetchData();
+  }
+    , []);
+
 
 
   useEffect(() => {
@@ -102,6 +115,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <div>
+      {loading && <Loader />}
       <Navbar isHomePage={false} />
       {user ? (
         <>
