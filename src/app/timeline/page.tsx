@@ -9,18 +9,16 @@ import Loader from "../LoaderEvent";
 
 const Timeline = () => {
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    // Simulate an asynchronous task
-    const fetchData = async () => {
-      // Your asynchronous task goes here
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setLoading(false);
-    };
+    if (typeof window !== "undefined") {
+      const fetchData = async () => {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        setLoading(false);
+      };
 
-    fetchData();
-  }
-  , []);
+      fetchData();
+    }
+  }, []);
 
 
   const data = [

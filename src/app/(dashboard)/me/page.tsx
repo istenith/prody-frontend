@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import LandingPage from './components/LandingPage';
 import EventsListing from './components/EventsListing';
-import axios from 'axios';
 import "./page.module.css"
 import { useRouter } from 'next/navigation';
 import fetchUserData from '../../components/fetchUserData';
