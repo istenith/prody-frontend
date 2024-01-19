@@ -51,7 +51,7 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
         {isLoaded ?
           events.map((event) => (
             <div key={event.id} className="carousel-item">
-              <div className={["card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl", styles.upComingEventCard].join(" ")}>
+              <div className={["cardEventL w-72 max-h-96 md:w-80 lg:w-80 shadow-xl", styles.upComingEventCard].join(" ")}>
                 {event.is_live && (
                     <div className="cardT">
                       <div className="live-triangle"  ></div>
@@ -64,9 +64,12 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
                 <div className="card-body items-center">
                   <h2 className="card-title">{event.name}</h2>
                   {upComingEvents && (
-                    <button className="register-button btn btn-primary" onClick={() => handleRegisterNow(event)}>
-                      Register Now
-                    </button>
+                    // Uncomment below line when Registrations begin!
+                    // <button className="register-button btn btn-primary" onClick={() => handleRegisterNow(event)}>
+                    //   Register Now
+                    // </button>
+                    <button className='btn btn-primary'>Coming Soon</button>
+
                   )}
                 </div>
               </div>
