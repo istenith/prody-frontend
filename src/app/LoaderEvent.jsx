@@ -2,8 +2,8 @@ import React from 'react';
 
 const Loader = () => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize:"30px" }}>
-      <div className="rocket" style={{ fontSize: '40px' }}>🚀</div>
+    <div style={{fontFamily:"nasa", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize:"15px" }}>
+      <div className="rocket " style={{ fontSize: '40px' }}>🚀</div>
       Loading<span style={{ fontSize: '50px' }} className="dots">
         <span>.</span><span>.</span><span>.</span>
       </span>
