@@ -56,9 +56,7 @@ const Home: NextPage = () => {
   }, [time]);
 
   useEffect(() => {
-    // Simulate an asynchronous task
     const fetchData = async () => {
-      // Your asynchronous task goes here
       await new Promise(resolve => setTimeout(resolve, 2000));
       setLoading(false);
     };
