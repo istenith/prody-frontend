@@ -41,8 +41,6 @@ body {
 }
 .modal-img{
   /* padding-top: 5rem; */
- width: 60%;
- height: 60%;
  border-radius: 2vh;
   position: relative;
  object-position: center;
@@ -55,20 +53,31 @@ body {
   background-image: url("../../../public/homepagetheme.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 10% -50%;
+  /* background-position: 10% -50%; */
   color: whitesmoke;
+  background-attachment: fixed;
+
 }
 
 
 .modal-content{
   line-spacing: 1.5;
- width: 100%;
- height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .blurred {
  filter: blur(4px);
 }
+
+@media screen and (min-width: 500px) {
+  .modal-img{
+    width: 60%;
+    height: 60%;
+  }
+}
+
+
 @media screen and (max-width: 500px) {
  .modal-backdrop {
     margin: auto !important;
@@ -86,17 +95,19 @@ body {
   }
 
 .modal-img{
-  width: 100%;
-  height: 50%;
+  /* width: 100%;
+  height: 50%; */
   margin: 0;
   margin-top: 1rem;
   margin-left: auto;
   margin-right: auto;
 
 }
+
 .modal-content{
  width: 95%;
  padding: 2vh;
+ /* height: 0 !important; */
 }
 /* .sponsor-card-div{
   padding: 10px;

@@ -1,10 +1,28 @@
 "use client";
+import React, {useState, useEffect } from "react";
 import { Chrono } from "react-chrono";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import styles from "./page.module.css";
-import "./timeline.css"
+import "./timeline.css";
+import Loader from "../LoaderEvent";
+
 const Timeline = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an asynchronous task
+    const fetchData = async () => {
+      // Your asynchronous task goes here
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+
+    fetchData();
+  }
+  , []);
+
+
   const data = [
     {
       title: "Pre-Prody",
@@ -122,12 +140,17 @@ const Timeline = () => {
 
   return (
     <div className={styles.body}>
+      {loading && <Loader />}
       <Navbar isHomePage={false} />
       <div className="pt-5">
         <Chrono
           items={data}
           mode="VERTICAL_ALTERNATING"
           hideControls
+          classNames={{
+            title: 'customTitle',
+            cardDetailedText: 'cdText',
+          }}
           // flipLayout="true"
           cardWidth="500"
           highlightCardsOnHover="true"

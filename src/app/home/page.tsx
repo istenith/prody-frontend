@@ -2,13 +2,13 @@
 import type { NextPage } from 'next'
 
 import Head from 'next/head'
-import  {useEffect, useState}  from 'react'
+import  {use, useEffect, useState}  from 'react'
 import  TimerContainer  from './components/Timer'
 import Footer from '../components/Footer/Footer'
 import  Header  from './components/header'
 import Navbar from '../components/Navbar/Navbar'
 import Link from 'next/link'
-
+import Loader from '../LoaderEvent'
 
 const Home: NextPage = () => {
   const [time, setTime] = useState<number>(7);
@@ -19,6 +19,7 @@ const Home: NextPage = () => {
   const [seconds, setSeconds] = useState<number>(0);
   const [message, setMessage] = useState<string>("");
   const [countdownEnded, setCountdownEnded] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
 
   const timeToDays = time * 60 * 60 * 24 * 1000;
   let countDownDate = new Date().getTime() + timeToDays;
@@ -54,11 +55,27 @@ const Home: NextPage = () => {
     };
   }, [time]);
 
+  useEffect(() => {
+    // Simulate an asynchronous task
+    const fetchData = async () => {
+      // Your asynchronous task goes here
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+
+    fetchData();
+  }
+  , []);
+  
+
   return (
     <div className='h-full'>
+      {loading && (
+        <Loader />
+      ) }
       <Navbar isHomePage={false} />
 
- <div className="flex min-h-full w-screen flex-col items-center" style= {{background : 'url("/image.svg")' }}>    
+    <div className=" flex min-h-full w-screen flex-col items-center" style={{background : 'url("/image.svg")', backgroundAttachment:'fixed', backgroundSize:'cover' }}>    
          <Head>
  
   <link rel="icon" href="/favicon.ico" />
@@ -80,9 +97,8 @@ const Home: NextPage = () => {
 <div className="flex gap-4 mt-4">
   <Link href="/events">
   <button
-    className="py-2 px-4 border border-blue-500 text-blue-500 font-semibold rounded-full transition duration-300 hover:bg-blue-500 hover:text-white"
+    className=" spaceFont py-2 px-4 border border-blue-500 text-blue-400 font-bold rounded-full transition duration-300 hover:bg-blue-500 hover:text-white"
     onClick={() => {
-      // Add functionality for the Events button here
       console.log("Events button clicked");
     }}
   >
@@ -93,11 +109,15 @@ const Home: NextPage = () => {
   {/* Add Register Button */}
   <Link href="/participate">
   <button
-    className="py-2 px-4 border border-green-600 text-green-500 font-bold rounded-full transition duration-300 hover:bg-green-500 hover:text-white"
+    className="spaceFont py-2 px-4 border border-green-500 text-green-400 font-bold rounded-full transition duration-300 hover:bg-green-400 hover:text-white"
   >
     Register
   </button>
   </Link>
+  <br />
+  <br />
+  <br />
+  <br />
 </div>
 <Footer />
     </div>

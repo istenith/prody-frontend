@@ -5,7 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useRouter } from 'next/navigation';
 
 function Earth(props) {
-    const earthTexture = useLoader(THREE.TextureLoader, '/images/earth.webp');
+    const earthTexture = useLoader(THREE.TextureLoader, "/images/test.png");
     const earthRef = useRef();
     const mixerRef = useRef();
     const [sphereSize, setSphereSize] = useState(4);
@@ -85,17 +85,17 @@ function Earth(props) {
                 router.push('/home');
             }, 1500);        }
          else {
-            console.error('Start animation function is not ready.');
+            console.error('not ready.');
         }
 
-        setCameraTarget(new THREE.Vector3(0, 0, -1)); // New target for zoom
+        setCameraTarget(new THREE.Vector3(0, 0, -1)); 
         setAnimateCamera(true);
         
     };
 
     return (
         <>
-            <ambientLight intensity={1.0} color={"#ffffff"} />
+            <ambientLight intensity={0.7} color={"#0000000"} />
             <mesh ref={earthRef} onClick={onEarthClick}>
                 <sphereGeometry args={[sphereSize, 32, 32]} />
                 <meshPhongMaterial specular={"#555555"} shininess={30} map={earthTexture} />
@@ -104,4 +104,4 @@ function Earth(props) {
     );
 }
 
-export default Earth;
+export default Earth

@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "nasa";
-  src: url("../../public/fonts/nasa/spaceAge.ttf");
+  src: url("../../public/fonts/beyonders/Beyonders.ttf");
 }
 
 @font-face {
@@ -75,9 +75,11 @@ body {
   background-image: url("../../public/homepagetheme.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 10% -50%;
+  /* background-position: 10% -50%; */
   background-color: #030f1b;
   color: whitesmoke;
+  background-attachment: fixed;
+
 }
 
 .registerEventsPage {
@@ -156,7 +158,7 @@ body {
 .custom-card-figure {
   position: relative;
   height: 10rem;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .custom-card-image-wrapper {
@@ -182,11 +184,6 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
-
-.IeTsX{
-  width: 20% !important;
-}
-
 
 .waveBg {
   background: url("../../public/images/footer-01.webp") no-repeat;
@@ -229,14 +226,16 @@ body {
 
 .navBarShape {
   clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
-  background-color: #010a4a;
+  background-color: rgba(255, 255, 255, 0.658);
   font-size: 0.6rem;
+  color: rgb(75, 5, 141);
 }
 
 .spaceThemeBackground {
   background-image: url("../../public/homepagetheme.svg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .cornerBlobBackground {

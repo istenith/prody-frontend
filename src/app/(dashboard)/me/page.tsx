@@ -7,7 +7,8 @@ import EventsListing from './components/EventsListing';
 import axios from 'axios';
 import "./page.module.css"
 import { useRouter } from 'next/navigation';
-
+import fetchUserData from '../../components/fetchUserData';
+import Loader from "../../LoaderEvent"
 
 
 interface Event {
@@ -31,7 +32,6 @@ interface User {
   username : string;
   user_id : string;
   email : string;
-
 }
 
 const Dashboard: React.FC = () => {
@@ -40,6 +40,7 @@ const Dashboard: React.FC = () => {
   const [registeredEvents, setRegisteredEvents] = useState<Event[]>([]);
   const [nonRegisteredEvents, setNonRegisteredEvents] = useState<Event[]>([]);
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
 
   function getMonthName(monthIndex: number): string {
     const months = [
@@ -52,7 +53,7 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://api-dev.prody.istenith.com/api/events/');
+        const res = await fetch('https://api-dev.prody.istenith.com/api/events/', { next: { revalidate: 60 } });
         const resJson = await res.json();
         const formattedData = resJson.map((event: Event) => {
           const eventDate = new Date(event.date_time);
@@ -74,24 +75,22 @@ const Dashboard: React.FC = () => {
 
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const storedToken = localStorage.getItem('myJwtToken');
-        const response = await axios.get('https://api-dev.prody.istenith.com/api/auth/user/', {
-          headers: {
-            Authorization: `${storedToken}`,
-          },
-        });
-        setUser(response.data.user);
-      } catch (error:any) {
-        alert(`Need to login to see your profile`);
-        // console.error(`Error fetching user data: ${error.message}`);
-        router.push("/participate");
-      }
+    const userFound = fetchUserData(setUser)
+
+    if (!userFound) router.push('/participate')
+  }, []);
+
+  useEffect(() => {
+    // Simulate an asynchronous task
+    const fetchData = async () => {
+      // Your asynchronous task goes here
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false);
     };
 
-    fetchUserData();
-  }, []);
+    fetchData();
+  }
+    , []);
 
 
 
@@ -100,10 +99,11 @@ const Dashboard: React.FC = () => {
     if (user) {
       const { is_live_events, is_completed_events, is_upcoming_events } = user.registered_events;
       const userRegisteredEvents = [...is_live_events, ...is_completed_events, ...is_upcoming_events];
-      
+      console.log("dashboard page user", user)
       const userRegisteredEventsAlternate = events.filter(event => {
         return userRegisteredEvents.some(registeredEvent => registeredEvent.id === event.id);
       });
+      console.log("userRegisteredEventsAlternate",userRegisteredEventsAlternate)
       setRegisteredEvents(userRegisteredEventsAlternate);
 
       const userNonRegisteredEvents = events.filter(event => {
@@ -115,6 +115,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <div>
+      {loading && <Loader />}
       <Navbar isHomePage={false} />
       {user ? (
         <>
