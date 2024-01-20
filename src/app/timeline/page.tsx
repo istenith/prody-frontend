@@ -176,8 +176,9 @@ const Timeline = () => {
             title: "1.2rem",
           }}
         ></Chrono>
-      </div> */}
-      <Footer />
+      </div> */} 
+      <br></br> <br></br> <br></br> <br></br> <br></br> 
+       <Footer />
     </div>
   );
 };

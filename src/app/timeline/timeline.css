@@ -12,6 +12,16 @@
     margin-bottom: 2rem;
     color: white;
     font-family: spacefont;
+    text-align: center;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-bottom: 140px;
+    margin-top: 140px;
+    align-items: center;
+    place-items: center;
+    left: 50%;
+    top: 50%;
+   
   
   }
   .heading{
