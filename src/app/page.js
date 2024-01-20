@@ -17,20 +17,31 @@ const CanvasContainer = styled.div`
 
 function App() {
 
-  const [text, setText] = useState(0.43);
-  const [text2, setText2] = useState(0.11);
-  const [text3, setText3] = useState(0.05);
-
+  const [text, setText] = useState(0.11);
+  const [text2, setText2] = useState(0.09);
+  const [text3, setText3] = useState(0.1);
   const [loading, setLoading] = useState(true);
 
-  const updateTextSize = () => {
-    const newSize = window.innerWidth / 5000;
-    setText(Math.max(0.11, newSize));
-    setText2(Math.max(0.09, newSize/2));
-    setText3(Math.min(0.1, newSize/1.5));
+  useEffect(() => {
+    // Ensure window is defined (i.e., running on the client)
+    if (typeof window !== 'undefined') {
+      const handleResize = () => {
+        const newSize = window.innerWidth / 5000;
+        setText(Math.max(0.11, newSize));
+        setText2(Math.max(0.09, newSize / 2));
+        setText3(Math.min(0.1, newSize / 1.5));
+      };
 
+      // Call the function to set the initial size
+      handleResize();
 
-};
+      // Set up the event listener
+      window.addEventListener('resize', handleResize);
+
+      // Clean up the event listener when the component unmounts
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
 
 useEffect(() => {
     // Simulate an asynchronous task
@@ -41,11 +52,6 @@ useEffect(() => {
     };
 
     fetchData();
-  updateTextSize();
-  window.addEventListener('resize', updateTextSize);
-  return () => {
-      window.removeEventListener('resize', updateTextSize);
-  };
 }, []);
 
 

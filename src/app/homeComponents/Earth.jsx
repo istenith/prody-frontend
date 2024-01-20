@@ -8,24 +8,41 @@ function Earth(props) {
     const earthTexture = useLoader(THREE.TextureLoader, "/images/testTexture.png");
     const earthRef = useRef();
     const mixerRef = useRef();
-    const [sphereSize, setSphereSize] = useState(4);
     const { scene, camera } = useThree();
     const router = useRouter();
 
     const [cameraTarget, setCameraTarget] = useState(new THREE.Vector3(0, 0, 5));
     const [animateCamera, setAnimateCamera] = useState(false);
+    const [sphereSize, setSphereSize] = useState(1.3);
 
-    const updateSphereSize = () => {
-        const newSize = window.innerWidth / 700;
-        setSphereSize(Math.max(1.3, newSize));
-    };
     useEffect(() => {
-        updateSphereSize();
-        window.addEventListener('resize', updateSphereSize);
-        return () => {
-            window.removeEventListener('resize', updateSphereSize);
-        };
+      const updateSphereSize = () => {
+        if (typeof window !== 'undefined') {
+          const newSize = window.innerWidth / 700;
+          setSphereSize(Math.max(1.3, newSize));
+        }
+      };
+  
+      // Initialize sphere size
+      updateSphereSize();
+  
+      // Set up the event listener
+      window.addEventListener('resize', updateSphereSize);
+  
+      // Clean up the event listener when the component unmounts
+      return () => window.removeEventListener('resize', updateSphereSize);
     }, []);
+    // const updateSphereSize = () => {
+    //     const newSize = window.innerWidth / 700;
+    //     setSphereSize(Math.max(1.3, newSize));
+    // };
+    // useEffect(() => {
+    //     updateSphereSize();
+    //     window.addEventListener('resize', updateSphereSize);
+    //     return () => {
+    //         window.removeEventListener('resize', updateSphereSize);
+    //     };
+    // }, []);
 
     useFrame(() => {
         if (earthRef.current) {
