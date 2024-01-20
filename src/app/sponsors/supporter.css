@@ -4,6 +4,7 @@ body {
   background-repeat: no-repeat !important;
   background-size: cover !important;
   overflow-x: hidden !important;
+
  }
  
 .supportcard{
@@ -34,29 +35,49 @@ body {
   font-weight: 600;
   text-align: center;
   height: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 8rem;
   color: white;
   font-family: spacefont;
+  left: 50%;
+  top: 50%;
 
 }
 .heading{
   padding:10%;
   height: 100%;
+  margin-top: 20rem;
+  margin-left: 9px;
+    margin-right: 9px;
+    margin-bottom: 2px;
+    margin-top: 5px;
+   height: 100%;
+    
+    left: 50%;
+    top: 50%;
 }
 @media screen and (max-width: 500px) {
   .heading-come{
     font-size: 2rem;
+    padding: 20%;
     font-weight: 600;
     text-align: center;
     height: 100%;
-    
+   text-align: center;
+   align-items: center;
+   margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-left: 9px;
+    margin-right: 9px;
     color: white;
     font-family: spacefont;
   
   }
   .heading{
-    padding-top: 45%;
+    
     height: 100%;
+    margin-bottom: 27rem;
+    margin-top: 2rem;
   }
 }
 
@@ -103,6 +124,7 @@ body {
   .modal-img{
     width: 60%;
     height: 60%;
+   
   }
 }
 

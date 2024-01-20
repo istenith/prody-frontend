@@ -87,7 +87,7 @@ const Page = () => {
   useEffect(()=>{
     const fetchData = async () => {
       try{
-        const res = await fetch('https://api-dev.prody.istenith.com/api/events/')
+        const res = await fetch('https://api.prody.istenith.com/api/events/')
         const resJson = await res.json()
         const formattedData = resJson.map((event:Event) => {
           const eventDate = new Date(event.date_time);
@@ -110,11 +110,11 @@ const Page = () => {
 
   useEffect(()=>{
     const fetchUser = async () => {
-      const res = await fetch('https://api-dev.prody.istenith.com/api/events/', { next: { revalidate: 60 } })
+      const res = await fetch('https://api.prody.istenith.com/api/events/', { next: { revalidate: 60 } })
       const events = await res.json()
       console.log("events in the fetchuse: ", events)
       const storedToken = localStorage.getItem('myJwtToken');
-      const response = await axios.get('https://api-dev.prody.istenith.com/api/auth/user/', {
+      const response = await axios.get('https://api.prody.istenith.com/api/auth/user/', {
         headers: {
           Authorization: `${storedToken}`,
         },

@@ -53,7 +53,7 @@ const SupportersComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://api-dev.prody.istenith.com/api/sponsors/');
+        const res = await fetch('https://api.prody.istenith.com/api/sponsors/');
         const resJson = await res.json();
         
         console.log(resJson);
