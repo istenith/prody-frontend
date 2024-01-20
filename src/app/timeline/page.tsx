@@ -142,7 +142,11 @@ const Timeline = () => {
     <div className={styles.body}>
       {loading && <Loader />}
       <Navbar isHomePage={false} />
-      <div className="pt-5">
+
+      <div className="heading-come">
+        COMING SOON!!
+      </div>
+      {/* <div className="pt-5">
         <Chrono
           items={data}
           mode="VERTICAL_ALTERNATING"
@@ -170,7 +174,7 @@ const Timeline = () => {
             title: "1.2rem",
           }}
         ></Chrono>
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

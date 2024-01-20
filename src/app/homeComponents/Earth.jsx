@@ -83,7 +83,7 @@ function Earth(props) {
             earthRef.current.userData.startAnimation();
             setTimeout(() => {
                 router.push('/home');
-            }, 1250);        }
+            }, 1300);        }
          else {
             console.error('not ready.');
         }
