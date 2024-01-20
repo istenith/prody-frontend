@@ -41,8 +41,8 @@ const FormComponent = ({ isRegistered }: Props) => {
     };
     console.log("dataToApi",dataToApi)
     const apiUrl = isRegistered
-      ? "https://api-dev.prody.istenith.com/api/auth/login/"
-      : "https://api-dev.prody.istenith.com/api/auth/register/";
+      ? "https://api.prody.istenith.com/api/auth/login/"
+      : "https://api.prody.istenith.com/api/auth/register/";
 
     axios(apiUrl, {
       method: "POST",

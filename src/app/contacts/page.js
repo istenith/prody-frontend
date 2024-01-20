@@ -15,7 +15,7 @@ const Contact = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch('https://api-dev.prody.istenith.com/api/contactus/', { next: { revalidate: 60 } });
+      const res = await fetch('https://api.prody.istenith.com/api/contactus/', { next: { revalidate: 60 } });
       const resJson = await res.json();
       setContactData(resJson);
       setIsLoaded(true);

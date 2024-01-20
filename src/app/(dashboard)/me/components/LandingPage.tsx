@@ -29,7 +29,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
 
   const handleLogout = async () => {
     try {
-      await axios.post('https://api-dev.prody.istenith.com/api/auth/logout/');
+      await axios.post('https://api.prody.istenith.com/api/auth/logout/');
 
       localStorage.removeItem('myJwtToken');
       alert("Logout Successful")
