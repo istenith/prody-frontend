@@ -7,10 +7,12 @@ import styles from "./page.module.css";
 import "./timeline.css";
 import Loader from "../LoaderEvent";
 
+const isBrowser = typeof window !== "undefined";
+
 const Timeline = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (isBrowser) {
       const fetchData = async () => {
         await new Promise(resolve => setTimeout(resolve, 2000));
         setLoading(false);

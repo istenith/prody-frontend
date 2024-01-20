@@ -2,7 +2,7 @@
 import type { NextPage } from 'next'
 
 import Head from 'next/head'
-import  {use, useEffect, useState}  from 'react'
+import  { useEffect, useState}  from 'react'
 import  TimerContainer  from './components/Timer'
 import Footer from '../components/Footer/Footer'
 import  Header  from './components/header'
@@ -56,9 +56,7 @@ const Home: NextPage = () => {
   }, [time]);
 
   useEffect(() => {
-    // Simulate an asynchronous task
     const fetchData = async () => {
-      // Your asynchronous task goes here
       await new Promise(resolve => setTimeout(resolve, 2000));
       setLoading(false);
     };

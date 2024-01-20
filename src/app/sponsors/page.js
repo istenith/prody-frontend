@@ -95,7 +95,10 @@ const SupportersComponent = () => {
         <Loader />
       )}
       <Navbar isHomePage={false}/>
-     <div>
+      <div className="heading-come">
+        COMING SOON!!
+      </div>
+     {/* <div>
         {selectedSupporter && (
           <Modal
             show={!!selectedSupporter}
@@ -105,18 +108,18 @@ const SupportersComponent = () => {
             onClose={() => toggleModal(null)}
           />
         )}
-      </div>
-  <div className='h-min'>
+      </div> */}
+  {/* <div className='h-min'>
   <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white sponserPage bg"}>
       <h2 className="beyonderFont  text-center text-2xl font-bold mb-9 mt-11 pt-12">OUR SUPPORTERS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 mb-8 sponsor-card-div">
         {sponsors.map(supporter => (
           <Card key={supporter.id} title={supporter.name} content={supporter.description} src={supporter.logo} onClick={() => toggleModal(supporter)} />
         ))}
-      </div>
+      </div> */}
     <Footer />
-  </div>
-  </div>
+  {/* </div> */}
+  {/* </div> */}
     </>
   );
 };
