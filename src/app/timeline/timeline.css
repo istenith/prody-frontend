@@ -3,3 +3,29 @@
 .customTitle{
     margin-left: -16px !important;
 }
+.heading-come{
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 2rem;
+    color: white;
+    font-family: spacefont;
+    text-align: center;
+    margin-left: 9px;
+    margin-right: 9px;
+    margin-bottom: 140px;
+    margin-top: 140px;
+    align-items: center;
+    place-items: center;
+    left: 50%;
+    top: 50%;
+   
+  
+  }
+
+@media (max-width: 600px){
+    .customTitle{
+        margin-left: -18px !important;
+    }
+}

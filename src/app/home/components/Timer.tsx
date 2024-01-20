@@ -10,7 +10,7 @@ interface TimeProps {
   seconds: number | string;
 }
 
-const targetDate = new Date('February 2, 2024 00:00:00 GMT+0000').getTime();
+const targetDate = new Date('February 9, 2024 00:00:00 GMT+0000').getTime();
 
 const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
   const [countdownOver, setCountdownOver] = useState(false);

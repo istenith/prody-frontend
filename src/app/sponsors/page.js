@@ -5,9 +5,12 @@ import "./supporter.css";
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import Card from '../components/SponsorCard/Card.tsx';
+import Loader from '../LoaderEvent';
 
 
 const Modal = ({ show, onClose, title,content,src }) => {
+
+  
 
   if (!show) return null;
 
@@ -32,6 +35,21 @@ const Modal = ({ show, onClose, title,content,src }) => {
 const SupportersComponent = () => {
 
   const [sponsors, setSponsors] = useState([])
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an asynchronous task
+    const fetchData = async () => {
+      // Your asynchronous task goes here
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+
+    fetchData();
+  }
+  , []);
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -73,8 +91,14 @@ const SupportersComponent = () => {
 
   return (
     <>
+    {loading && (
+        <Loader />
+      )}
       <Navbar isHomePage={false}/>
-     <div>
+      <div className="heading-come">
+        COMING SOON!!
+      </div>
+     {/* <div>
         {selectedSupporter && (
           <Modal
             show={!!selectedSupporter}
@@ -84,18 +108,18 @@ const SupportersComponent = () => {
             onClose={() => toggleModal(null)}
           />
         )}
-      </div>
-  <div className='h-min'>
+      </div> */}
+  {/* <div className='h-min'>
   <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white sponserPage bg"}>
       <h2 className="beyonderFont  text-center text-2xl font-bold mb-9 mt-11 pt-12">OUR SUPPORTERS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 mb-8 sponsor-card-div">
         {sponsors.map(supporter => (
           <Card key={supporter.id} title={supporter.name} content={supporter.description} src={supporter.logo} onClick={() => toggleModal(supporter)} />
         ))}
-      </div>
+      </div> */}
     <Footer />
-  </div>
-  </div>
+  {/* </div> */}
+  {/* </div> */}
     </>
   );
 };

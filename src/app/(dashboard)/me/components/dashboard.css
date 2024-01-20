@@ -1,6 +1,62 @@
 .swipe-text{
     visibility: hidden;
 }
+
+
+.cardT {
+    position: relative;
+    width: 316px;
+    height: 80px;
+    /* background-color: #333; */
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+.cardEventL{
+    background: rgba(255, 255, 255, 0.1);
+    /* backdrop-filter: blur(10px); */
+    border-radius: 15px;
+    /* padding: 20px; */
+    /* text-align: center; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    /* margin: 10px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+  }
+
+.live-triangle {
+    width: 343px;
+    height: 112px;
+    /* border-top: 60px solid red;  */
+    border-left: 60px solid transparent;
+    position: absolute;
+    top: 0;
+    right: -152px;
+    transform: translate(50%, -50%) rotate(45deg);
+    transform-origin: 0 0;
+    background-color: #e679c0;
+}
+
+.live-text {
+        position: absolute;
+        top: 17px; 
+        right: 20px; 
+        font-weight: bold;
+        /* transform: rotate(45deg); */
+        /* transform-origin: bottom right; */
+        /* background: #FFE5B4; */
+        /* transform: translate(50%, -50%) rotate(45deg); */
+        /* padding: 5px 10px; */
+        border-radius: 5px;
+        /* box-shadow: 0 2px 5px rgba(0,0,0,0.2); */
+}
+
+
 @media(max-width : 768px)
 {
     .swipe-text{

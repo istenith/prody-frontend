@@ -82,7 +82,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
       <div className="drawer fixed top-0 left-0" style={{zIndex: 100}}>
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content bg-base-300 flex flex-row justify-around">
-          <span className='spaceFont  p-2'>Prodyogiki</span>
+          <span className='spaceFont my-auto p-3'>Prodyogiki</span>
           <span className='p-3 my-auto'>
             <label htmlFor="my-drawer" className="text-2xl m-auto drawer-button">
               ☰
@@ -117,5 +117,4 @@ const Navbar = ({isHomePage}: NavbarProps) => {
     )
   }   
 }
-
-export default Navbar
+export default Navbar;

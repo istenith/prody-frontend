@@ -1,19 +1,36 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import FormComponent from '../components/Form/FormComponent';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import './participatePage.css'; 
+import Loader from '../LoaderEvent';
+
+
 const Participate = () => {
   const [wantsLogin, setwantsLogin] = useState(false);
+  const [loading, setLoading] = useState(true);
   // const [animationDirection, setAnimationDirection] = useState<'left' | 'right'>('left');
+  useEffect(() => {
+    // Simulate an asynchronous task
+    const fetchData = async () => {
+      // Your asynchronous task goes here
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
+
+    fetchData();
+  }
+  , []);
+  
 
   return (
     <>
+      {loading && <Loader />}
       <Navbar isHomePage={false} />
       <div className={`min-h-screen pt-24 spaceThemeBackground participateContainer`}>
-        <div className="card card-custom-background w-11/12 md:w-1/2 lg:w-1/3 shadow-2xl m-auto align-middle">
+        <div className="formCard card-custom-background w-11/12 md:w-1/2 lg:w-1/3 shadow-2xl m-auto align-middle">
           <div className= {`card-body`}>
             <h2 className="card-title">{wantsLogin ? <span>Login</span> : <span>Register</span>} to continue</h2>
             <div className="form-control w-full max-w-xs">

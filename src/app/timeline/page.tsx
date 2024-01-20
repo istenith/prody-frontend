@@ -1,11 +1,28 @@
 "use client";
+import React, {useState, useEffect } from "react";
 import { Chrono } from "react-chrono";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import styles from "./page.module.css";
 import "./timeline.css";
+import Loader from "../LoaderEvent";
+
+const isBrowser = typeof window !== "undefined";
 
 const Timeline = () => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (isBrowser) {
+      const fetchData = async () => {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        setLoading(false);
+      };
+
+      fetchData();
+    }
+  }, []);
+
+
   const data = [
     {
       title: "Pre-Prody",
@@ -123,8 +140,13 @@ const Timeline = () => {
 
   return (
     <div className={styles.body}>
+      {loading && <Loader />}
       <Navbar isHomePage={false} />
-      <div className="pt-5">
+
+      <div className="heading-come">
+        COMING SOON!!
+      </div>
+      {/* <div className="pt-5">
         <Chrono
           items={data}
           mode="VERTICAL_ALTERNATING"
@@ -152,8 +174,9 @@ const Timeline = () => {
             title: "1.2rem",
           }}
         ></Chrono>
-      </div>
-      <Footer />
+      </div> */} 
+      <br></br> <br></br> <br></br> <br></br> <br></br> 
+       <Footer />
     </div>
   );
 };

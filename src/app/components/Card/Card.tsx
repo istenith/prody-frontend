@@ -48,7 +48,7 @@ const Card = ({ card }: CardProps) => {
       <div className="card-body items-center">
         <h2 className="card-title">{card.name}</h2>
         <p>{card.description}</p>
-        <p>{card.date_time}</p>
+        {/* <p>{card.date_time}</p> */}
         <OpenDialogButton card={card} setModalOpenToTrue={openModal} />
       </div>
     </div>

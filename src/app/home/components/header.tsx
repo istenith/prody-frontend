@@ -14,9 +14,9 @@ const Header: React.FC<HeaderProps> = ({ message }) => {
         <Tilt>
           <Image src={prodyLogo} alt='prodyLogo' width = "150" style={{ display: 'inline-block' }}/>
         </Tilt>
-        <p className='tagLine spaceFont text-0.8 mt-5'>IGNITING THE COSMIC CURIOSITY</p>
+        <p className='tagLine spaceFont text-xs mt-5'>IGNITING THE COSMIC CURIOSITY</p>
         <br />
-        <p className='spaceFont text-sm'><span className='text-warning'>2<sup>nd</sup>-4<sup>th</sup></span> February, 2024</p>
+        <p className='lemonMilk text-xl'><span className='text-warning'>9<sup>th</sup> - 11<sup>th</sup></span> February, 2024</p>
         <br />
         <br />
         <br />
