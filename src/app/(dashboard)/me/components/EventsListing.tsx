@@ -32,7 +32,7 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
     const eventId = event.id;
     router.push(`/event-register/${eventId}`);
 
-    console.log(`Registering for event: ${event.name}`);
+    console.log(`Registering.. for event:${event.name}`);
   };
 
 
