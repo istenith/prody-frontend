@@ -82,10 +82,10 @@ const SupportersComponent = () => {
       }
     };
     if (selectedSupporter) {
-      window.addEventListener('keydown', handleEscKeyPress);
+      document.addEventListener('keydown', handleEscKeyPress);
     }
     return () => {
-      window.removeEventListener('keydown', handleEscKeyPress);
+      document.removeEventListener('keydown', handleEscKeyPress);
     };
   },[selectedSupporter]);
 

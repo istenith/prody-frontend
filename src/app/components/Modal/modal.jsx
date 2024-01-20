@@ -19,10 +19,10 @@ const Modal = ({ cardrecieved, handleClose,isRegisteredEvent }) => {
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown);
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [handleClose]);
 
   const router = useRouter();
