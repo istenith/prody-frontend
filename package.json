@@ -11,7 +11,7 @@
   "dependencies": {
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.90.0",
-    "@react-three/fiber": "^8.15.12",
+    "@react-three/fiber": "^8.15.14",
     "@uidotdev/usehooks": "github:uidotdev/usehooks",
     "axios": "^1.6.3",
     "daisyui": "^4.4.19",

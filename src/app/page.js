@@ -38,7 +38,6 @@ function App() {
       setText3(Math.min(0.1, newSize / 1.5));
     };
   
-    // Set the initial size
     handleResize();
   
     // Set up the event listener
