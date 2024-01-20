@@ -23,24 +23,27 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Ensure window is defined (i.e., running on the client)
-    if (typeof window !== 'undefined') {
-      const handleResize = () => {
-        const newSize = window.innerWidth / 5000;
-        setText(Math.max(0.11, newSize));
-        setText2(Math.max(0.09, newSize / 2));
-        setText3(Math.min(0.1, newSize / 1.5));
-      };
-
-      // Call the function to set the initial size
-      handleResize();
-
-      // Set up the event listener
-      window.addEventListener('resize', handleResize);
-
-      // Clean up the event listener when the component unmounts
-      return () => window.removeEventListener('resize', handleResize);
+    if (typeof window === "undefined") {
+      setText(0.11);
+      return;
     }
+  
+    // Rest of your client-side logic
+    const handleResize = () => {
+      const newSize = window.innerWidth / 5000;
+      setText(Math.max(0.11, newSize));
+      setText2(Math.max(0.09, newSize / 2));
+      setText3(Math.min(0.1, newSize / 1.5));
+    };
+  
+    // Set the initial size
+    handleResize();
+  
+    // Set up the event listener
+    window.addEventListener('resize', handleResize);
+  
+    // Clean up the event listener when the component unmounts
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
 useEffect(() => {

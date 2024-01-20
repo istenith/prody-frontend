@@ -60,7 +60,7 @@ const Modal = ({ cardrecieved, handleClose,isRegisteredEvent }) => {
     if (typeof window !== 'undefined' && cardrecieved.abstract_link) {
       window.open(cardrecieved.abstract_link, '_blank');
     } else {
-      window.open('http://istenith.com/');
+      router.push('http://istenith.com/');
     }
   };
 
