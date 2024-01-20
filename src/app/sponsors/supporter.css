@@ -6,7 +6,16 @@ body {
   overflow-x: hidden !important;
  }
  
- 
+.heading-come{
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 15%;
+  margin-bottom: 2rem;
+  color: white;
+  font-family: spacefont;
+
+}
 .supportcard{
   opacity: 0.8;
   width: 20rem;
