@@ -96,7 +96,7 @@ const SupportersComponent = () => {
       )}
       <Navbar isHomePage={false}/>
       <div className="heading-come">
-        COMING SOON!!
+      <h1 className='heading'> COMING SOON!!</h1> 
       </div>
      {/* <div>
         {selectedSupporter && (
