@@ -28,7 +28,7 @@ useEffect(()=>{
             }}>
             PRODYOGIKI
             </div>
-            <div className="opacity-20">PRODYOGIKI</div>
+            <div className="opacity-10">PRODYOGIKI</div>
         </div>
         </div>
     )
