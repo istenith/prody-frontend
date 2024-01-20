@@ -6,6 +6,8 @@ import { Canvas } from "@react-three/fiber";
 import Navbar from "./components/Navbar/Navbar"
 import Earth from "./homeComponents/Earth.jsx";
 import Loader from "./LoaderEvent.jsx";
+import { useWindowSize } from '@uidotdev/usehooks'
+
 
 import styled from "styled-components";
 import { OrbitControls, Stars ,Text } from "@react-three/drei";
@@ -21,16 +23,16 @@ function App() {
   const [text2, setText2] = useState(0.09);
   const [text3, setText3] = useState(0.1);
   const [loading, setLoading] = useState(true);
+  const window = useWindowSize()
+
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      setText(0.11);
-      return;
-    }
+    const windowWidth = window.width
+
   
     // Rest of your client-side logic
     const handleResize = () => {
-      const newSize = window.innerWidth / 5000;
+      const newSize = windowWidth / 5000;
       setText(Math.max(0.11, newSize));
       setText2(Math.max(0.09, newSize / 2));
       setText3(Math.min(0.1, newSize / 1.5));
@@ -40,10 +42,8 @@ function App() {
     handleResize();
   
     // Set up the event listener
-    window.addEventListener('resize', handleResize);
   
     // Clean up the event listener when the component unmounts
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
 useEffect(() => {

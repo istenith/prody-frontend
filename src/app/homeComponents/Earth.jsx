@@ -3,32 +3,34 @@ import { useFrame, useLoader, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useRouter } from 'next/navigation';
+import { useWindowSize } from '@uidotdev/usehooks'
 
 function Earth(props) {
     const earthTexture = useLoader(THREE.TextureLoader, "/images/testTexture.png");
     const earthRef = useRef();
     const mixerRef = useRef();
-    const [sphereSize, setSphereSize] = useState(1.3);
     const { scene, camera } = useThree();
     const router = useRouter();
 
     const [cameraTarget, setCameraTarget] = useState(new THREE.Vector3(0, 0, 5));
     const [animateCamera, setAnimateCamera] = useState(false);
-    
-
-    
+    const [sphereSize, setSphereSize] = useState(1.3);
+    const window = useWindowSize()
+    const windowWidth = window.width
+    useEffect(() => {
       const updateSphereSize = () => {
-    
-          const newSize = window.innerWidth / 700;
+        
+          const newSize = windowWidth / 700;
           setSphereSize(Math.max(1.3, newSize));
         
       };
-      useEffect(() => {
-        updateSphereSize();
-        window.addEventListener('resize', updateSphereSize);
-        return () => {
-            window.removeEventListener('resize', updateSphereSize);
-        };
+  
+      // Initialize sphere size
+      updateSphereSize();
+  
+      // Set up the event listener
+  
+      // Clean up the event listener when the component unmounts
     }, []);
     // const updateSphereSize = () => {
     //     const newSize = window.innerWidth / 700;
@@ -110,7 +112,7 @@ function Earth(props) {
 
     return (
         <>
-            <ambientLight intensity={6.9} color={"#0000000"} />
+            <ambientLight intensity={6.7} color={"#0000000"} />
             <mesh ref={earthRef} onClick={onEarthClick}>
                 <sphereGeometry args={[sphereSize, 32, 32]} />
                 <meshPhongMaterial specular={"#555555"} shininess={30} map={earthTexture} />
