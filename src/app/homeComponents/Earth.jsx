@@ -4,6 +4,9 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useRouter } from 'next/navigation';
 
+export let window;
+
+
 function Earth(props) {
     const earthTexture = useLoader(THREE.TextureLoader, "/images/testTexture.png");
     const earthRef = useRef();
