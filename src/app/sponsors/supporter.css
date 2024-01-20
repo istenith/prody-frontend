@@ -6,16 +6,6 @@ body {
   overflow-x: hidden !important;
  }
  
-.heading-come{
-  font-size: 3rem;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 15%;
-  margin-bottom: 2rem;
-  color: white;
-  font-family: spacefont;
-
-}
 .supportcard{
   opacity: 0.8;
   width: 20rem;
@@ -38,6 +28,36 @@ body {
  align-items: center;
  border-radius:2vh ;
  z-index: 1000;
+}
+.heading-come{
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  height: 100%;
+  margin-bottom: 2rem;
+  color: white;
+  font-family: spacefont;
+
+}
+.heading{
+  padding:10%;
+  height: 100%;
+}
+@media screen and (max-width: 500px) {
+  .heading-come{
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    height: 100%;
+    
+    color: white;
+    font-family: spacefont;
+  
+  }
+  .heading{
+    padding-top: 45%;
+    height: 100%;
+  }
 }
 
 .close-modal{
