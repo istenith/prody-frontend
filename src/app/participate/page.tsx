@@ -64,7 +64,6 @@ const Participate = () => {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     </>
   );

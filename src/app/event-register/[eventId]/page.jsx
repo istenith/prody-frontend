@@ -162,7 +162,6 @@ const EventRegisterPage = () => {
         ) : (
           <p>Loading event data...</p>
           )}
-    <Footer />
       </div>           
     </div>
   </>

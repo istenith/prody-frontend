@@ -78,13 +78,13 @@ export const Modal = ({ cardrecieved, handleClose, isRegisteredEvent }) => {
                     className='modal-custom flex flex-col md:flex-row border-slate-950'
                >
                     <button className="close-button" onClick={handleClose}>&times;</button>
-                    <div className='image-container' style={{ maxWidth: '500px', flexShrink: 0 }}>
+                    <div className='image-container' style={{ maxWidth: '400px', flexShrink: 0 }}>
                          {cardrecieved.poster ? (
                               <Image
                                    loader={() => cardrecieved.poster}
                                    layout='responsive'
-                                   width={500}
-                                   height={500}
+                                   width={100}
+                                   height={100}
                                    unoptimized={true}
                                    src={cardrecieved.poster}
                                    alt='thumbnail'
@@ -93,71 +93,51 @@ export const Modal = ({ cardrecieved, handleClose, isRegisteredEvent }) => {
                               <Image
                                    loader={() => cardrecieved.poster}
                                    layout="responsive"
-                                   width={300}
-                                   height={100}
+                                   width={200}
+                                   height={500}
                                    src=""
                                    alt="event-image"
                               />
                          )}
                     </div>
-
-                    <div className='flex-grow flex-col gap-4 justify-center items-center'>
-                         <div role='tablist' className='tabs w-11/12 mx-auto h-4/5 tabs-lifted'>
-
-                              <input type='radio' name='my_tabs_2' role='tab' className='tab' aria-label='Event' defaultChecked />
-                              <div role='tabpanel' className='tab-content h-full bg-base-100 border-base-300 rounded-box p-6'>
-                                   <h2>{cardrecieved.name}</h2>
-                              </div>
-
-                              <input type='radio' name='my_tabs_2' role='tab' className='tab' aria-label='Description' />
-                              <div role='tabpanel' className='tab-content bg-base-100 border-base-300 rounded-box p-6'>
-                                   {cardrecieved.description}
-                              </div>
-
-                              <input type='radio' name='my_tabs_2' role='tab' className='tab' aria-label='Date' />
-                              <div role='tabpanel' className='h-full tab-content bg-base-100 border-base-300 rounded-box p-6'>
-                                   {cardrecieved.date}
-                              </div>
+                    <div className='' style={{ maxWidth: "600px", margin: "10px" }}>
+                         <div className='flex justify-between spaceFont pb-4' style={{borderBottom:"2px solid "}}>
+                              <span>{cardrecieved.name}</span>
+                              <span className={'text-right'}>{cardrecieved.date}</span>
                          </div>
-                         <div className='flex gap-3 btns'>
-                              {/* <motion.button
-              className='btn btn-primary max-w-xs'
-              onClick={handleRegister}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Register
-            </motion.button> */}
-
-                              {isRegisteredEvent ? (
-                                   <motion.button
-                                        className='btn btn-disabled max-w-xs'
-                                        whileHover={{ scale: 1 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        disabled
-                                   >
-                                        Registered
-                                   </motion.button>
-                              ) : (
-                                   <motion.button
-                                        className='btn btn-primary max-w-xs'
-                                        onClick={handleRegister}
-                                        whileHover={{ scale: 1.1 }}
-                                        whileTap={{ scale: 0.95 }}
-                                   >
-                                        Register
-                                   </motion.button>
-                              )}
-
+                         <div className='text-justify mt-5 text-lg'>
+                              {cardrecieved.description}
+                         </div>
+                    </div>
+                    <div className='flex gap-3 btns'>
+                         {isRegisteredEvent ? (
                               <motion.button
-                                   className='btn btn-secondary max-w-xs'
-                                   onClick={handleAbstractLink}
+                                   className='btn btn-disabled max-w-xs'
+                                   whileHover={{ scale: 1 }}
+                                   whileTap={{ scale: 0.95 }}
+                                   disabled
+                              >
+                                   Registered
+                              </motion.button>
+                         ) : (
+                              <motion.button
+                                   className='btn btn-primary max-w-xs'
+                                   onClick={handleRegister}
                                    whileHover={{ scale: 1.1 }}
                                    whileTap={{ scale: 0.95 }}
                               >
-                                   Abstract
+                                   Register
                               </motion.button>
-                         </div>
+                         )}
+
+                         <motion.button
+                              className='btn btn-secondary max-w-xs'
+                              onClick={handleAbstractLink}
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                         >
+                              Abstract
+                         </motion.button>
                     </div>
                </motion.div>
           </Backdrop>

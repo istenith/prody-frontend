@@ -8,7 +8,6 @@ import Navbar from '../components/Navbar/Navbar';
 import { AnimatePresence } from 'framer-motion';
 import {Modal} from '../components/Modal/modal';
 import Skeleton from '../components/SkeletonCard/Skeleton';
-import Footer from '../components/Footer/Footer';
 import fetchUserData from '../components/fetchUserData';
 import axios from 'axios';
 import Loader from "../LoaderEvent"
@@ -223,10 +222,6 @@ const Page = () => {
                               <Skeleton num={3} />
                          }
                     </div>
-
-
-
-                    <Footer />
                </div>
                <AnimatePresence
                     initial={false}

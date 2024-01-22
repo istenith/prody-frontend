@@ -3,7 +3,6 @@
 }
 
 .bg {
-  background-image: url("../../../public/redbg.svg");
   background-size: contain;
   background-repeat: repeat;
   background-position: 120% -10%;

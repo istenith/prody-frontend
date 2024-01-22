@@ -99,7 +99,6 @@ body {
 }
 
 .sponserPage{
-  background-image: url("../../../public/homepagetheme.svg");
   background-size: cover;
   background-repeat: no-repeat;
   /* background-position: 10% -50%; */
@@ -163,8 +162,8 @@ body {
   padding: 10px;
 } */
 .supportcard{
-  width: 18rem;
-  height: 16rem;
+  width: 180px;
+  height: 160px;
 }
  
 }
