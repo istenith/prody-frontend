@@ -48,6 +48,16 @@ function App() {
 
   const [loading, setLoading] = useState(true);
 
+  const overlayTextStyle = {
+    zIndex: "1",
+    fontFamily: "nasa",
+    position: 'fixed',
+    top: window.innerWidth > 768 ? "50%" : "54%",  // Change 768 to the breakpoint you need,
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    fontSize: window.innerWidth > 768 ? "4rem" : "1.5rem"  // Change 768 to the breakpoint you need
+};
+
 
 
 useEffect(() => {
@@ -89,13 +99,23 @@ useEffect(() => {
     </div> 
     
       <CanvasContainer>
-      <h1 className="overlay-text" style={{fontFamily:"nasa", position: 'fixed', top: '10%',left:"34%",fontSize:"17px"}}>
-                    Click to Enter The EXOPLANET
-                </h1>
-             {/* <div className="overlay-text" style={{zIndex:"100",fontFamily:"nasa", position: 'fixed', top: '50%', left: '50%' }}>
-                    PRODYOGIKI
-                </div> */}
-                
+     
+                <div>
+      {!loading && (
+        <>
+         <h1 className="overlay-text" style={{fontFamily:"nasa", position: 'fixed', top: '10%',left:"34%",fontSize:"17px"}}>
+         Click to Enter The EXOPLANET
+         </h1>
+         <br />
+         <div className="overlay-text" style={overlayTextStyle}>
+              PRODYOGIKI        
+          </div>
+            </>
+      )    
+        
+      }
+    </div> 
+                            
         <Canvas background="black" camera={{ position: [0, 0, 8], fov: 50 }}>
           <Suspense fallback={null}>
             
