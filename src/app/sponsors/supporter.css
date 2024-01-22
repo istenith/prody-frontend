@@ -4,18 +4,9 @@ body {
   background-repeat: no-repeat !important;
   background-size: cover !important;
   overflow-x: hidden !important;
+
  }
  
-.heading-come{
-  font-size: 3rem;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 15%;
-  margin-bottom: 2rem;
-  color: white;
-  font-family: spacefont;
-
-}
 .supportcard{
   opacity: 0.8;
   width: 20rem;
@@ -38,6 +29,55 @@ body {
  align-items: center;
  border-radius:2vh ;
  z-index: 1000;
+}
+.heading-come{
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  height: 100%;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  color: white;
+  font-family: spacefont;
+  left: 50%;
+  top: 50%;
+
+}
+.heading{
+  padding:14%;
+  height: 100%;
+  margin-top: 20rem;
+  margin-left: 9px;
+    margin-right: 9px;
+    margin-bottom: 2px;
+    margin-top: 5px;
+   height: 100%;
+    
+    
+}
+@media screen and (max-width: 500px) {
+  .heading-come{
+    font-size: 2rem;
+    padding: 20%;
+    font-weight: 600;
+    text-align: center;
+    height: 100%;
+   text-align: center;
+   align-items: center;
+   margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-left: 9px;
+    margin-right: 9px;
+    color: white;
+    font-family: spacefont;
+  
+  }
+  .heading{
+    
+    height: 100%;
+    margin-bottom: 27rem;
+    margin-top: 2rem;
+  }
 }
 
 .close-modal{
@@ -83,6 +123,7 @@ body {
   .modal-img{
     width: 60%;
     height: 60%;
+   
   }
 }
 

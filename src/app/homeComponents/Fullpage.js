@@ -97,6 +97,9 @@ useEffect(() => {
             <Earth />
             <OrbitControls  enableRotate={false} />
             <Stars /> 
+            <Text>
+                ABCD
+            </Text>
             {/* <Text className="spaceFont"
               color="white"
               anchorX="center"

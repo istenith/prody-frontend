@@ -5,6 +5,7 @@ import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import '../event-register.css'
 import Footer from '../../components/Footer/Footer';
+import { useRouter } from 'next/navigation';
 
 const EventRegisterPage = () => {
   const [event, setEvent] = useState(null);
@@ -13,8 +14,10 @@ const EventRegisterPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [isErrorModal, setIsErrorModal] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
+    // const currentUrl = window.location.href;
     // const currentUrl = window.location.href;
     console.log('Current URL:', currentUrl);
 
@@ -25,7 +28,7 @@ const EventRegisterPage = () => {
 
     const fetchEventData = async () => {
       try {
-        const response = await axios.get(`https://api-dev.prody.istenith.com/api/events/${eventId}`);
+        const response = await axios.get(`https://api.prody.istenith.com/api/events/${eventId}`);
         setEvent(response.data);
       } catch (error) {
         console.error('Error fetching event data:', error.message);
@@ -45,7 +48,7 @@ const EventRegisterPage = () => {
       }
 
       const response = await axios.post(
-        `https://api-dev.prody.istenith.com/api/auth/register-event/${event.id}/`,
+        `https://api.prody.istenith.com/api/auth/register-event/${event.id}/`,
         {
           team_name: teamName,
           team_id: teamId,

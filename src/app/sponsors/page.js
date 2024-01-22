@@ -53,7 +53,7 @@ const SupportersComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://api-dev.prody.istenith.com/api/sponsors/');
+        const res = await fetch('https://api.prody.istenith.com/api/sponsors/');
         const resJson = await res.json();
         
         console.log(resJson);
@@ -96,7 +96,7 @@ const SupportersComponent = () => {
       )}
       <Navbar isHomePage={false}/>
       <div className="heading-come">
-        COMING SOON!!
+      <h1 className='heading'> COMING SOON!!</h1> 
       </div>
      {/* <div>
         {selectedSupporter && (

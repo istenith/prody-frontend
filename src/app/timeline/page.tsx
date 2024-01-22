@@ -8,9 +8,21 @@ import "./timeline.css";
 import Loader from "../LoaderEvent";
 
 // const isBrowser = typeof window !== "undefined";
+// const isBrowser = typeof window !== "undefined";
 
 const Timeline = () => {
   const [loading, setLoading] = useState(true);
+  
+useEffect(() => {
+  const fetchData = async () => {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    setLoading(false);
+  };
+
+  fetchData();
+}
+, []);
+
 //   useEffect(() => {
 //     if (isBrowser) {
 //       const fetchData = async () => {
@@ -144,7 +156,7 @@ const Timeline = () => {
       <Navbar isHomePage={false} />
 
       <div className="heading-come">
-        COMING SOON!!
+      <h1 className='heading'> COMING SOON!!</h1> 
       </div>
       {/* <div className="pt-5">
         <Chrono
@@ -174,8 +186,9 @@ const Timeline = () => {
             title: "1.2rem",
           }}
         ></Chrono>
-      </div> */}
-      <Footer />
+      </div> */} 
+      <br></br> <br></br> <br></br> <br></br> <br></br> 
+       <Footer />
     </div>
   );
 };
