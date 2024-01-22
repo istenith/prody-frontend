@@ -8,29 +8,29 @@ import Card from '../components/SponsorCard/Card.tsx';
 import Loader from '../LoaderEvent';
 
 
-const Modal = ({ show, onClose, title,content,src }) => {
+// const Modal = ({ show, onClose, title,content,src }) => {
 
   
 
-  if (!show) return null;
+//   if (!show) return null;
 
-  return (
-    <div className="modal-backdrop">        
-      <div className="modal-content">
-      <br />
-      <br />
-      <button className="close-modal"  onClick={onClose}>&times;</button>
-      <img src={src} alt="supporter"  className="modal-img" /> 
-      <br />
-      <h3 className="text-center p-2 text-white text-4xl font-semibold " style={{ whiteSpace: 'pre-line', overflowWrap: 'break-word' }}>{title}</h3>
-      <p className="text-center text-white text-xl overflow-ellipsis" style={{ whiteSpace: 'pre-line', overflowWrap: 'break-word' }}>
-        {content}
-      </p>
-      </div>
+//   return (
+//     <div className="modal-backdrop">        
+//       <div className="modal-content">
+//       <br />
+//       <br />
+//       <button className="close-modal"  onClick={onClose}>&times;</button>
+//       <img src={src} alt="supporter"  className="modal-img" /> 
+//       <br />
+//       <h3 className="text-center p-2 text-white text-4xl font-semibold " style={{ whiteSpace: 'pre-line', overflowWrap: 'break-word' }}>{title}</h3>
+//       <p className="text-center text-white text-xl overflow-ellipsis" style={{ whiteSpace: 'pre-line', overflowWrap: 'break-word' }}>
+//         {content}
+//       </p>
+//       </div>
     
-    </div>
-  );
-};
+//     </div>
+//   );
+// };
 
 const SupportersComponent = () => {
 

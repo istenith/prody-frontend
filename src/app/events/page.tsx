@@ -6,7 +6,7 @@ import OpenDialogButton from './components/OpenDialogButton';
 import { TypeAnimation } from 'react-type-animation';
 import Navbar from '../components/Navbar/Navbar';
 import { AnimatePresence } from 'framer-motion';
-import Modal from '../components/Modal/modal';
+import Modal from '../components/Modal/Modal';
 import Skeleton from '../components/SkeletonCard/Skeleton';
 import Footer from '../components/Footer/Footer';
 import fetchUserData from '../components/fetchUserData';
@@ -232,13 +232,13 @@ const Page = () => {
           initial={false}
           mode='wait'
         >
-        {modalOpen && (
+        {/* {modalOpen && (
             <Modal
               cardrecieved={selectedCard}
               handleClose={closeModal}
               isRegisteredEvent={registeredEvents.some(registeredEvent => registeredEvent.id === selectedCard?.id)}
             />
-          )}
+          )} */}
 
         </AnimatePresence>
     </div>
