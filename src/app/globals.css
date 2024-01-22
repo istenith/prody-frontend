@@ -125,6 +125,9 @@ body {
   justify-content: space-around;
 }
 
+.tagLineNavbar{
+  font-size: 0.5rem;
+}
 .custom-card {
   width: 100%;
   max-width: 300px;

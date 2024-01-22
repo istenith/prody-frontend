@@ -11,5 +11,4 @@
     height: 270px;
     width: 220px;
     /* max-height: 400px;  */
-    overflow: auto; /* Adds scrollbar if content overflows */
 }

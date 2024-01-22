@@ -2,8 +2,8 @@ import React , {useState ,useEffect} from 'react'
 import {motion} from 'framer-motion'
 import Link from "next/link"
 import { useWindowSize } from '@uidotdev/usehooks'
-import img from "../../../../public/images/prodykkk-01.webp"
 import Image from 'next/image'
+import prodyLogo from '../../../../public/logos/ProdyLogo.webp'
 
 interface NavbarProps {
   isHomePage: Boolean;
@@ -49,7 +49,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
                 <Link href={"/events"}>Events</Link>
               </li>
               <li>
-                <Link href={"/"} className='spaceFont text-xl'>PRODYOGIKI</Link>
+                <Link href={"/home"} className='spaceFont text-xl'>PRODYOGIKI</Link>
               </li>
               <li>
                 <Link href={"/timeline"}>Timeline</Link>
@@ -94,7 +94,10 @@ const Navbar = ({isHomePage}: NavbarProps) => {
           <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
          
           <ul className="menu p-4 w-9/12 min-h-full bg-base-300 flex flex-col items-center justify-center text-base-content">
-          <Image src={img} alt="menu bar" className="drawer-overlay" />
+          <Image src={prodyLogo} alt='prodyLogo' width = "100" style={{ display: 'inline-block' }}/>
+          <p className='spaceFont tagLineNavbar'>IGNITING THE COSMIC CURIOSITY</p>
+          <p className='text-sm mb-8'><span className='text-warning'>9<sup>th</sup> - 11<sup>th</sup></span> February, 2024</p>
+          <br />
             <li><Link href={"/home"}>Home</Link></li>
             <li><Link href={"/events"}>Events</Link></li>
             <li><Link href={"/timeline"}>Timeline</Link></li>
