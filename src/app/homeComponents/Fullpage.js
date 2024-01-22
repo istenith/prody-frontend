@@ -89,17 +89,23 @@ useEffect(() => {
     </div> 
     
       <CanvasContainer>
+      <h1 className="overlay-text" style={{fontFamily:"nasa", position: 'fixed', top: '10%',left:"34%",fontSize:"17px"}}>
+                    Click to Enter The EXOPLANET
+                </h1>
+             {/* <div className="overlay-text" style={{zIndex:"100",fontFamily:"nasa", position: 'fixed', top: '50%', left: '50%' }}>
+                    PRODYOGIKI
+                </div> */}
+                
         <Canvas background="black" camera={{ position: [0, 0, 8], fov: 50 }}>
           <Suspense fallback={null}>
             
             <ambientLight intensity={1} />
             <directionalLight position={[0, 0, 5]} intensity={0.5} />
+           
             <Earth />
             <OrbitControls  enableRotate={false} />
             <Stars /> 
-            <Text>
-                ABCD
-            </Text>
+            
             {/* <Text className="spaceFont"
               color="white"
               anchorX="center"
