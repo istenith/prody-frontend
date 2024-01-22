@@ -17,7 +17,7 @@ const EventRegisterPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // const currentUrl = window.location.href;
+    const currentUrl = window.location.href;
     // const currentUrl = window.location.href;
     console.log('Current URL:', currentUrl);
 

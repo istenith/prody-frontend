@@ -52,10 +52,10 @@ function App() {
     zIndex: "1",
     fontFamily: "nasa",
     position: 'fixed',
-    top: window.innerWidth > 768 ? "50%" : "54%",  // Change 768 to the breakpoint you need,
+    top: window.innerWidth > 768 ? "50%" : "54%",  
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    fontSize: window.innerWidth > 768 ? "4rem" : "1.5rem"  // Change 768 to the breakpoint you need
+    fontSize: window.innerWidth > 768 ? "4rem" : "1.5rem"  
 };
 
 
@@ -99,20 +99,27 @@ useEffect(() => {
     </div> 
     
       <CanvasContainer>
-     
-                <div>
+
+      <div>
       {!loading && (
         <>
-         <h1 className="overlay-text" style={{fontFamily:"nasa", position: 'fixed', top: '10%',left:"34%",fontSize:"17px"}}>
-         Click to Enter The EXOPLANET
-         </h1>
+
+        <h1 className="" style={{
+              fontFamily: "nasa",
+              position: 'fixed',
+              top: '10%',
+              left: window.innerWidth > 768 ? "50%" : "53%",
+              transform: 'translate(-50%, -50%)',
+              fontSize: window.innerWidth > 768 ? "19px" : "10px"  
+            }}>
+              Click to Enter The EXOPLANET
+          </h1>
          <br />
          <div className="overlay-text" style={overlayTextStyle}>
               PRODYOGIKI        
           </div>
             </>
-      )    
-        
+        )       
       }
     </div> 
                             
