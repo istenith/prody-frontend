@@ -15,7 +15,7 @@ const EventRegisterPage = () => {
   const [isErrorModal, setIsErrorModal] = useState(false);
 
   useEffect(() => {
-    const currentUrl = window.location.href;
+    // const currentUrl = window.location.href;
     console.log('Current URL:', currentUrl);
 
     // Extract the last part of the URL
@@ -40,7 +40,7 @@ const EventRegisterPage = () => {
       const token = localStorage.getItem('myJwtToken');
       if (!token) {
         alert('Token not found: User Unauthenticated');
-        window.location.href = '/participate';
+        // window.location.href = '/participate';
         return;
       }
 
@@ -64,7 +64,7 @@ const EventRegisterPage = () => {
       if(response.data.message ==="User registered for the event successfully" || response.data.message === "Team created and user added successfully" || response.data.message === "User joined the team successfully")
       {
         // window.alert("Registered successfully!");
-        window.location.href = '/events';
+        // window.location.href = '/events';
       }
 
     } catch (error) {

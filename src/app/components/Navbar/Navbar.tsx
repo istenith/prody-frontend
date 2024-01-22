@@ -71,7 +71,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
               
             </> :
             <>
-              {/* <li className='text-4xl  navBarShape'>&nbsp; Enter the Exoplanet</li>  */}
+              <li className='text-4xl  navBarShape'>&nbsp; Enter the Exoplanet</li> 
             </>
               }
         </ul>

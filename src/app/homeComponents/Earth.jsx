@@ -16,7 +16,7 @@ function Earth(props) {
     const [animateCamera, setAnimateCamera] = useState(false);
 
     const updateSphereSize = () => {
-        const newSize = window.innerWidth / 700;
+        const newSize = window.innerWidth / 600;
         setSphereSize(Math.max(1.3, newSize));
     };
     useEffect(() => {

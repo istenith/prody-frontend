@@ -19,10 +19,12 @@ const Modal = ({ cardrecieved, handleClose,isRegisteredEvent }) => {
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
+    // window.addEventListener('keydown', handleKeyDown);
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    // return () =>
+    //  window.removeEventListener('keydown', handleKeyDown);
+
   }, [handleClose]);
 
   const router = useRouter();
@@ -49,20 +51,20 @@ const Modal = ({ cardrecieved, handleClose,isRegisteredEvent }) => {
   };
 
   const handleRegister = () => {
-    if (typeof window !== 'undefined') {
+    // if (typeof window !== 'undefined') {
       const eventId = cardrecieved.id;
       const registrationUrl = `/event-register/${eventId}`;
       router.push(registrationUrl);
     }
-  };
+  // };
 
   const handleAbstractLink = () => {
-    if (typeof window !== 'undefined' && cardrecieved.abstract_link) {
-      window.open(cardrecieved.abstract_link, '_blank');
-    } else {
-      window.open('http://istenith.com/');
-    }
-  };
+    // if (typeof window !== 'undefined' && cardrecieved.abstract_link) {
+  //     window.open(cardrecieved.abstract_link, '_blank');
+  //   } else {
+  //     window.open('http://istenith.com/');
+  //   }
+  // };
 
   return (
     <Backdrop onClick={handleClose}>
@@ -160,6 +162,7 @@ const Modal = ({ cardrecieved, handleClose,isRegisteredEvent }) => {
     </Backdrop>
   );
 };
+}
 
 export default Modal;
 
