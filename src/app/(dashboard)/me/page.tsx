@@ -113,17 +113,17 @@ const Dashboard: React.FC = () => {
   }, [events, user]);
 
   return (
-    <div>
+    <div className='w-full'>
       {loading && <Loader />}
       <Navbar isHomePage={false} />
       {user ? (
-        <>
+        <div className='w-full'>
           <LandingPage user={user} totalEvents={events.length} registeredEvents={registeredEvents.length} />
-          <div className='spaceThemeBackground'>
+          <div className='spaceThemeBackground w-full'>
             <EventsListing upComingEvents={false} user={user} events = {registeredEvents}/>
             <EventsListing upComingEvents={true} user={user} events = {nonRegisteredEvents} />
           </div>
-        </>
+        </div>
       ) : (
       <div className="loader-container">
         <div className="loader"></div>
