@@ -4,7 +4,7 @@ import "./footer.css"
 
 const Footer = () => {
   return (
-    <div className='relative w-screen text-white footerContainer bg-current' style={{ paddingBottom: "25px", marginTop: '20px' ,zIndex:-100}}>
+    <div className='w-screen text-white footerContainer bg-current' style={{ paddingBottom: "25px", marginTop: '20px', zIndex: -100}}>
       <footer className="footer-center h-auto md:flex md:justify-around md:gap-2 sm:block relative" style={{ zIndex: -1 }}>
 
         <div className="flex spaceFont justify-center text-xl">
