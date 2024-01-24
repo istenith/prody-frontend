@@ -119,6 +119,9 @@ const SupportersComponent = () => {
                {/*                          </div> */}
                {/*                     </div> */}
                {/*                </div> */}
+               <div className='footerCustom'>
+                 <Footer/>
+               </div>
           </>
      );
 };

@@ -115,8 +115,8 @@ const Home: NextPage = () => {
                     </div>
                          <br />
                          <br />
+                         <Footer/>
                </div>
-
           </div>
 
      )

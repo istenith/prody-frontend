@@ -188,6 +188,10 @@ useEffect(() => {
         ></Chrono>
       </div>
       <br></br> <br></br> <br></br> <br></br> <br></br>  */}
+      {/* Remove div across Footer when footer is complete */}
+      <div className="footerCustom">
+        <Footer />
+      </div>
     </div>
   );
 };
