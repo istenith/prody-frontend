@@ -95,7 +95,7 @@ function Earth(props) {
             earthRef.current.userData.startAnimation();
             {window.innerWidth < 800 ? setTimeout(() => {
                 router.push('/home');
-            }, 300) :
+            }, 100) :
             setTimeout(() => {
                 router.push('/home');
             }, 1300);  }      }
