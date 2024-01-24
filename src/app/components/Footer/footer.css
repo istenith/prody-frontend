@@ -1,0 +1,18 @@
+
+.footerContainer {
+  animation: fadeInUp 1s ease-in-out;
+  background-color: transparent;
+}
+  
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
