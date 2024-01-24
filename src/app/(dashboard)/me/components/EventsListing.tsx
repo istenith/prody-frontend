@@ -64,11 +64,10 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
                 <div className="card-body items-center">
                   <h2 className="card-title">{event.name}</h2>
                   {upComingEvents && (
-                    // Uncomment below line when Registrations begin!
-                    // <button className="register-button btn btn-primary" onClick={() => handleRegisterNow(event)}>
-                    //   Register Now
-                    // </button>
-                    <button className='btn btn-primary'>Coming Soon</button>
+                    
+                    <button className="register-button btn btn-primary" onClick={() => handleRegisterNow(event)}>
+                      Register Now
+                    </button>
 
                   )}
                 </div>

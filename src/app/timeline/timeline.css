@@ -40,7 +40,7 @@
     
     }
     .heading{
-      padding-top: 45%;
+      padding-top: 45% !important;
       height: 100%;
     }
   }
@@ -48,5 +48,8 @@
 @media (max-width: 600px){
     .customTitle{
         margin-left: -18px !important;
+    }
+    .heading{
+      text-align: end;
     }
 }

@@ -62,21 +62,21 @@ body {
     font-weight: 600;
     text-align: center;
     height: 100%;
-   text-align: center;
-   align-items: center;
-   margin-bottom: 1rem;
-  margin-top: 2rem;
-  margin-left: 9px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    margin-left: 9px;
     margin-right: 9px;
     color: white;
     font-family: spacefont;
   
   }
   .heading{
-    
     height: 100%;
     margin-bottom: 27rem;
     margin-top: 2rem;
+    padding: 0% !important;
   }
 }
 
@@ -153,6 +153,9 @@ body {
 
 }
 
+.heading{
+  text-align: end;
+}
 .modal-content{
  width: 95%;
  padding: 2vh;
