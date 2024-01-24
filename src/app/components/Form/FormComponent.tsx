@@ -107,7 +107,7 @@ const FormComponent = ({ isRegistered }: Props) => {
               className="input bg-transparent input-bordered w-full max-w-xs"
             />
                   <label className="label">
-          <span className="label-text">Enter Roll No</span>
+          <span className="">Enter Roll No</span>
         </label>
         
         <input
