@@ -1,67 +1,41 @@
+.link-container {
+  position: relative;
+  overflow: hidden;
+}
 
-  .link-container {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
+.slide-in-left {
+  animation: fadeInOutLeft 0.3s ease-out;
+}
+
+.slide-in-right {
+  animation: fadeInOutRight 0.3s ease-out;
+}
+
+@keyframes fadeInOutLeft {
+  0% {
+    opacity: 0;
+    /* transform: translateX(100%); */
   }
-
-  .slide-in-left {
-    animation: fadeInOutLeft 0.3s ease-out;
+  50% {
+    opacity: 0.5;
   }
-
-  .slide-in-right {
-    animation: fadeInOutRight 0.3s ease-out;
+  100% {
+    opacity: 1;
+    /* transform: translateX(0); */
   }
+}
 
-  @keyframes fadeInOutLeft {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-    }
+@keyframes fadeInOutRight {
+  0% {
+    opacity: 0;
+    /* transform: translateX(-100%); */
   }
-
-  @keyframes fadeInOutRight {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-    }
+  50% {
+    opacity: 0.5;
   }
-
-  .participateContainer {
-    padding-top: 55px;
+  100% {
+    opacity: 1;
+    /* transform: translateX(0); */
   }
-
-  
-  
-
-  .formCard input {
-    border-radius: 6px; /* Add a small border-radius to input fields */
-    border: 1px solid #ccc; /* Add a border to input fields for separation */
-    padding: 8px; /* Add padding to input fields for spacing */
-    width: 100%; /* Make input fields width 100% */
-    box-sizing: border-box; /* Include padding and border in the width calculation */
-  }
-
-  .link-container span:hover {
-    border: 2px gradient(#f1f1f1, #ddd);  
-  }
-
-  .link-primary {
-    font-size: 1.5rem;
-  }
-
-  .card-title {
-    font-size: 1.5rem;
-   
-  }
+}
 
