@@ -4,6 +4,8 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useRouter } from 'next/navigation';
 
+
+
 function Earth(props) {
     const earthTexture = useLoader(THREE.TextureLoader, "/images/testTexture.png");
     const earthRef = useRef();
@@ -41,6 +43,16 @@ function Earth(props) {
             }
         }
     });
+    const overlayTextStyle = {
+        zIndex: "1",
+        fontFamily: "nasa",
+        position: 'fixed',
+        top: window.innerWidth > 768 ? "50%" : "50%",  
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        fontSize: window.innerWidth > 768 ? "4rem" : "1.5rem"  
+    };
+    
 
     const setupAnimation = (gltf, animationClip) => {
         gltf.scene.visible = false;
@@ -81,9 +93,12 @@ function Earth(props) {
     const onEarthClick = () => {
         if (earthRef.current && typeof earthRef.current.userData.startAnimation === 'function') {
             earthRef.current.userData.startAnimation();
+            {window.innerWidth < 800 ? setTimeout(() => {
+                router.push('/home');
+            }, 300) :
             setTimeout(() => {
                 router.push('/home');
-            }, 1300);        }
+            }, 1300);  }      }
          else {
             console.error('not ready.');
         }
@@ -92,14 +107,18 @@ function Earth(props) {
         setAnimateCamera(true);
         
     };
+  
 
     return (
+        
+
         <>
             <ambientLight intensity={0.7} color={"#0000000"} />
             <mesh ref={earthRef} onClick={onEarthClick}>
                 <sphereGeometry args={[sphereSize, 32, 32]} />
                 <meshPhongMaterial specular={"#555555"} shininess={30} map={earthTexture} />
             </mesh>
+           
         </>
     );
 }

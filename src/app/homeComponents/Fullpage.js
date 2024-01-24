@@ -52,7 +52,7 @@ function App() {
     zIndex: "1",
     fontFamily: "nasa",
     position: 'fixed',
-    top: window.innerWidth > 768 ? "50%" : "54%",  
+    top: window.innerWidth > 768 ? "50%" : "50%",  
     left: '50%',
     transform: 'translate(-50%, -50%)',
     fontSize: window.innerWidth > 768 ? "4rem" : "1.5rem"  
