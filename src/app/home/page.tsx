@@ -82,7 +82,7 @@ const Home: NextPage = () => {
                     <Header />
 
                     {countdownEnded ? (
-                         <div className="text-4xl font-bold">Prodyogiki</div>
+                         <div className="text-4xl font-bold">Prodyogiki is LIVE!</div>
                     ) : (
                          <TimerContainer
                               days={days}
@@ -92,7 +92,7 @@ const Home: NextPage = () => {
                          />
                     )}
 
-                    <div style={{ display: 'flex', flexDirection: window.innerWidth < 768  ? 'column' : 'row', gap: '1rem', marginTop: '1rem' }}>
+                    <div className='home-page-events-and-register-btn' style={{ display: 'flex', flexDirection:  'row', gap: '1rem', marginTop: '1rem' }}>
                          <Link href="/events">
                               <button
                                    className=" spaceFont py-2 px-4 border border-blue-500 text-blue-400 font-bold rounded-full transition duration-300 hover:bg-blue-500 hover:text-white "

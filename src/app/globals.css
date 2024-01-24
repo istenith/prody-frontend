@@ -280,3 +280,13 @@ body {
   background-attachment:fixed;
   background-repeat: no-repeat;
 }
+
+.home-page-events-and-register-btn{
+  flex-direction: row !important;
+}
+
+@media (max-width:768px) {
+  .home-page-events-and-register-btn{
+    flex-direction: column !important;
+  }
+}
