@@ -65,6 +65,9 @@
       overflow-x: hidden;
       /* height: 100rem; */
     }
+    .detailM{
+      font-size: small !important;
+    }
 
     .modal-custom{
       height: 85%;

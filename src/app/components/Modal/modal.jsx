@@ -101,7 +101,7 @@ export const Modal = ({ cardrecieved, handleClose, isRegisteredEvent }) => {
                          )}
                     </div>
                     <div className='' style={{ maxWidth: "600px", margin: "10px" }}>
-                         <div className='flex justify-between spaceFont pb-4' style={{borderBottom:"2px solid "}}>
+                         <div className='flex detailM justify-between spaceFont pb-4' style={{borderBottom:"2px solid "}}>
                               <span>{cardrecieved.name}</span>
                               <span className={'text-right'}>{cardrecieved.date}</span>
                          </div>

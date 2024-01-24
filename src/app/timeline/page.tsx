@@ -3,7 +3,7 @@ import React, {useState, useEffect } from "react";
 import { Chrono } from "react-chrono";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import styles from "./page.module.css";
+import "./page.module.css";
 import "./timeline.css";
 import Loader from "../LoaderEvent";
 
