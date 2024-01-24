@@ -11,7 +11,11 @@
     color: white;
     border-radius: 8px;
     overflow: hidden;
-  }
+}
+
+.card-title{
+    text-align: center;
+}
 
 .cardEventL{
     background: rgba(255, 255, 255, 0.1);

@@ -108,6 +108,7 @@ useEffect(() => {
               fontFamily: "nasa",
               position: 'fixed',
               top: '10%',
+              textAlign:'center',
               left: window.innerWidth > 768 ? "50%" : "53%",
               transform: 'translate(-50%, -50%)',
               fontSize: window.innerWidth > 768 ? "19px" : "10px"  

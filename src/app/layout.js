@@ -10,10 +10,13 @@ export default function RootLayout({ children }) {
   const pathname = usePathname()
      console.log(pathname)
      return (
-          <html lang='en' style={{ backgroundColor: "rgb(30, 0, 60)" }} className='relative'>
-               <body className={`${inter.className} h-auto ${pathname==="/" ? "":"bg-all"}`} >{children}
-               </body>
-               <Footer />
+          <html lang='en' style={{ backgroundColor: "rgb(30, 0, 60)" }}>
+               <body className={`${inter.className} min-h-screen ${pathname==="/" ? "":"bg-all"}`} >{children}</body>
+               {pathname !=="/" &&
+               <div className='mt-auto' >
+                    {/* <Footer /> */}
+               </div>
+               }
           </html>
      )
 }
