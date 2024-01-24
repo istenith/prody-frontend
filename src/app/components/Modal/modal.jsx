@@ -59,12 +59,12 @@ export const Modal = ({ cardrecieved, handleClose, isRegisteredEvent }) => {
      // };
 
      const handleAbstractLink = () => {
-          // if (typeof window !== 'undefined' && cardrecieved.abstract_link) {
-          //     window.open(cardrecieved.abstract_link, '_blank');
-          //   } else {
-          //     window.open('http://istenith.com/');
-          //   }
-          // };
+          if (typeof window !== 'undefined' && cardrecieved.abstract_link) {
+              window.open(cardrecieved.abstract_link, '_blank');
+            } else {
+              window.open('http://istenith.com/');
+            }
+          //};
      };
 
      return (
