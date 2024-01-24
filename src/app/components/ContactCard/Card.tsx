@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './contact.css';
 interface CardProps {
   contact: {
     id: number;
@@ -13,7 +13,7 @@ interface CardProps {
 
 const Card = ({ contact }: CardProps) => {
   return (
-    <div key={contact.id} className="card">
+    <div key={contact.id} style={{overflow:"hidden"}} className="contactCard">
       <div className="card-image">
         <img src={contact.image} alt={contact.name} />
       </div>

@@ -5,7 +5,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { useRouter } from 'next/navigation';
 
 function Earth(props) {
-    const earthTexture = useLoader(THREE.TextureLoader, "/images/test.png");
+    const earthTexture = useLoader(THREE.TextureLoader, "/images/testTexture.png");
     const earthRef = useRef();
     const mixerRef = useRef();
     const [sphereSize, setSphereSize] = useState(4);
@@ -83,7 +83,7 @@ function Earth(props) {
             earthRef.current.userData.startAnimation();
             setTimeout(() => {
                 router.push('/home');
-            }, 1500);        }
+            }, 1300);        }
          else {
             console.error('not ready.');
         }

@@ -3,24 +3,36 @@ import React, {useState, useEffect } from "react";
 import { Chrono } from "react-chrono";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import styles from "./page.module.css";
+import "./page.module.css";
 import "./timeline.css";
 import Loader from "../LoaderEvent";
 
+// const isBrowser = typeof window !== "undefined";
+const isBrowser = typeof window !== "undefined";
+
 const Timeline = () => {
   const [loading, setLoading] = useState(true);
+  
+useEffect(() => {
+  const fetchData = async () => {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    setLoading(false);
+  };
+
+  fetchData();
+}
+, []);
 
   useEffect(() => {
-    // Simulate an asynchronous task
-    const fetchData = async () => {
-      // Your asynchronous task goes here
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setLoading(false);
-    };
+    if (isBrowser) {
+      const fetchData = async () => {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        setLoading(false);
+      };
 
-    fetchData();
-  }
-  , []);
+      fetchData();
+    }
+  }, []);
 
 
   const data = [
@@ -139,10 +151,14 @@ const Timeline = () => {
   ];
 
   return (
-    <div className={styles.body}>
+    <div>
       {loading && <Loader />}
       <Navbar isHomePage={false} />
-      <div className="pt-5">
+
+      <div className="heading-come">
+      <h1 className='heading spaceFont'> COMING SOON!!</h1> 
+      </div>
+{/*      <div className="pt-5">
         <Chrono
           items={data}
           mode="VERTICAL_ALTERNATING"
@@ -171,7 +187,7 @@ const Timeline = () => {
           }}
         ></Chrono>
       </div>
-      <Footer />
+      <br></br> <br></br> <br></br> <br></br> <br></br>  */}
     </div>
   );
 };

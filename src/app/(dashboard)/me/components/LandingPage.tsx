@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Astronaut from '../../../../../public/images/Astronaut.webp'
 import { TypeAnimation } from 'react-type-animation'
 import {  motion, useAnimate} from 'framer-motion'
-import { useWindowSize } from '@uidotdev/usehooks'
+// import { useWindowSize } from '@uidotdev/usehooks'
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import "./dashboard.css"
@@ -17,19 +17,19 @@ interface LandingPageProps {
 
 const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registeredEvents }) => {
   const router = useRouter();
-  const window = useWindowSize()
-  const windowWidth = window.width!
+  // const window = useWindowSize()
+  // const windowWidth = window.width!
   const username = user.username
   const prody_id = user.user_id
   const [scope, animate] = useAnimate()
   
-  console.log(windowWidth)
+  // console.log(windowWidth)
   console.log("user",user)
   // console.log("user registered teams", user.registered_teams)
 
   const handleLogout = async () => {
     try {
-      await axios.post('https://api-dev.prody.istenith.com/api/auth/logout/');
+      await axios.post('https://api.prody.istenith.com/api/auth/logout/');
 
       localStorage.removeItem('myJwtToken');
       alert("Logout Successful")
@@ -110,7 +110,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
             <motion.div
               initial={{y: 10, opacity: 0}}
               animate={{y: 0, opacity: 1}}
-              transition={(windowWidth > 500) ? {delay: 10} : {delay: 4}}   
+              // transition={(windowWidth > 500) ? {delay: 10} : {delay: 4}}   
               className='mx-auto'           
             >
               <div 

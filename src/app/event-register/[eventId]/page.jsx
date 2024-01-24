@@ -5,6 +5,7 @@ import axios from 'axios';
 import Navbar from '../../components/Navbar/Navbar';
 import '../event-register.css'
 import Footer from '../../components/Footer/Footer';
+import { useRouter } from 'next/navigation';
 
 const EventRegisterPage = () => {
   const [event, setEvent] = useState(null);
@@ -13,9 +14,11 @@ const EventRegisterPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [isErrorModal, setIsErrorModal] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const currentUrl = window.location.href;
+    // const currentUrl = window.location.href;
     console.log('Current URL:', currentUrl);
 
     // Extract the last part of the URL
@@ -25,7 +28,7 @@ const EventRegisterPage = () => {
 
     const fetchEventData = async () => {
       try {
-        const response = await axios.get(`https://api-dev.prody.istenith.com/api/events/${eventId}`);
+        const response = await axios.get(`https://api.prody.istenith.com/api/events/${eventId}`);
         setEvent(response.data);
       } catch (error) {
         console.error('Error fetching event data:', error.message);
@@ -40,12 +43,12 @@ const EventRegisterPage = () => {
       const token = localStorage.getItem('myJwtToken');
       if (!token) {
         alert('Token not found: User Unauthenticated');
-        window.location.href = '/participate';
+        // window.location.href = '/participate';
         return;
       }
 
       const response = await axios.post(
-        `https://api-dev.prody.istenith.com/api/auth/register-event/${event.id}/`,
+        `https://api.prody.istenith.com/api/auth/register-event/${event.id}/`,
         {
           team_name: teamName,
           team_id: teamId,
@@ -64,7 +67,7 @@ const EventRegisterPage = () => {
       if(response.data.message ==="User registered for the event successfully" || response.data.message === "Team created and user added successfully" || response.data.message === "User joined the team successfully")
       {
         // window.alert("Registered successfully!");
-        window.location.href = '/events';
+        // window.location.href = '/events';
       }
 
     } catch (error) {
@@ -159,7 +162,6 @@ const EventRegisterPage = () => {
         ) : (
           <p>Loading event data...</p>
           )}
-    <Footer />
       </div>           
     </div>
   </>

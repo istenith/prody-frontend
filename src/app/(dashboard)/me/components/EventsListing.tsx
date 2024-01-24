@@ -32,7 +32,7 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
     const eventId = event.id;
     router.push(`/event-register/${eventId}`);
 
-    console.log(`Registering for event: ${event.name}`);
+    console.log(`Registering.. for event:${event.name}`);
   };
 
 
@@ -50,8 +50,8 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
       <div className="carousel carousel-center space-x-4 gap-6 rounded-box" style={{ width: "90vw" }}>
         {isLoaded ?
           events.map((event) => (
-            <div key={event.id} className="carousel-item relative">
-              <div className={["card w-72 max-h-96 md:w-80 lg:w-80 shadow-xl", styles.upComingEventCard].join(" ")}>
+            <div key={event.id} className="carousel-item">
+              <div className={["cardEventL w-72 max-h-96 md:w-80 lg:w-80 shadow-xl", styles.upComingEventCard].join(" ")}>
                 {event.is_live && (
                     <div className="cardT">
                       <div className="live-triangle"  ></div>
@@ -64,9 +64,11 @@ const EventsListing: React.FC<EventsListingProps> = ({ upComingEvents, user, eve
                 <div className="card-body items-center">
                   <h2 className="card-title">{event.name}</h2>
                   {upComingEvents && (
+                    
                     <button className="register-button btn btn-primary" onClick={() => handleRegisterNow(event)}>
                       Register Now
                     </button>
+
                   )}
                   {event.is_live && (
                     <span className='text-red-500'>Event is Live!!</span>

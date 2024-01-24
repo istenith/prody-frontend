@@ -4,7 +4,7 @@ import axios from "axios";
 const fetchUserData = async (setUserData) => {
   try {
     const storedToken = localStorage.getItem('myJwtToken');
-    const response = await axios.get('https://api-dev.prody.istenith.com/api/auth/user/', {
+    const response = await axios.get('https://api.prody.istenith.com/api/auth/user/', {
       headers: {
         Authorization: `${storedToken}`,
       },

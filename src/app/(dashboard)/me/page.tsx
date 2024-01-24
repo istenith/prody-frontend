@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 import LandingPage from './components/LandingPage';
 import EventsListing from './components/EventsListing';
-import axios from 'axios';
 import "./page.module.css"
 import { useRouter } from 'next/navigation';
 import fetchUserData from '../../components/fetchUserData';
@@ -53,7 +52,7 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch('https://api-dev.prody.istenith.com/api/events/', { next: { revalidate: 60 } });
+        const res = await fetch('https://api.prody.istenith.com/api/events/', { next: { revalidate: 60 } });
         const resJson = await res.json();
         const formattedData = resJson.map((event: Event) => {
           const eventDate = new Date(event.date_time);
@@ -123,7 +122,6 @@ const Dashboard: React.FC = () => {
           <div className='spaceThemeBackground'>
             <EventsListing upComingEvents={false} user={user} events = {registeredEvents}/>
             <EventsListing upComingEvents={true} user={user} events = {nonRegisteredEvents} />
-            <Footer />
           </div>
         </>
       ) : (
@@ -134,7 +132,6 @@ const Dashboard: React.FC = () => {
             Loading User Data ...
           </h1>
         </div>
-        <Footer />
       </div>      
       )}
     </div>

@@ -65,10 +65,13 @@
       overflow-x: hidden;
       /* height: 100rem; */
     }
+    .detailM{
+      font-size: small !important;
+    }
 
     .modal-custom{
-      height: 85%;
-      /* margin-top: 3rem; */
+      height: 87%;
+      margin-top: 4.5rem;
       padding-top: 1vh;
     }
 
