@@ -105,7 +105,7 @@ export const Modal = ({ cardrecieved, handleClose, isRegisteredEvent }) => {
                               <span>{cardrecieved.name}</span>
                               <span className={'text-right'}>{cardrecieved.date}</span>
                          </div>
-                         <div className='text-justify mt-5'>
+                         <div className='text-justify mt-5' style={{display:'inline-block'}}>
                               {cardrecieved.description}
                          </div>
                     </div>

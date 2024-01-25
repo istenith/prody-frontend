@@ -211,6 +211,7 @@ body {
   background-position-x: -10%;
 }
 
+
 .modal-custom {
   width: clamp(70%, 700px, 90%);
   height: min(70%, 700px);
