@@ -42,8 +42,8 @@ const EventRegisterPage = () => {
     try {
       const token = localStorage.getItem('myJwtToken');
       if (!token) {
-        alert('Token not found: User Unauthenticated');
-        // window.location.href = '/participate';
+        alert('Please Login/Sign Up For Registration: User Unauthenticated');
+         window.location.href = '/participate';
         return;
       }
 
