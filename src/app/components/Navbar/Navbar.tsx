@@ -96,7 +96,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
           <ul className="menu p-4 w-9/12 min-h-full bg-violet-950		 flex flex-col items-center justify-center">
           <Image src={img} alt="menu bar" className="drawer-overlay" style={{width:'100px'}} />
           <p className='tagLine spaceFont text-xs mt-5' style={{textAlign:'center', lineHeight:'1.5rem'}}>IGNITING THE COSMIC CURIOSITY</p>
-          <p className='lemonMilk text-sm pt-2'><span className='text-warning'>9<sup>th</sup> - 11<sup>th</sup></span> February, 2024</p>
+          {/* <p className='lemonMilk text-sm pt-2'><span className='text-warning'>9<sup>th</sup> - 11<sup>th</sup></span> February, 2024</p> */}
           <br />
           <br />
             <li><Link href={"/home"}>Home</Link></li>
