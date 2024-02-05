@@ -98,7 +98,7 @@ useEffect(() => {
       }
     </div> 
     
-      <CanvasContainer>
+      <CanvasContainer style={{width: '100%', minHeight: '100vh', overflow: 'hidden',}}>
 
       <div>
       {!loading && (
@@ -108,60 +108,30 @@ useEffect(() => {
               fontFamily: "nasa",
               position: 'fixed',
               top: '10%',
+              textAlign:'center',
               left: window.innerWidth > 768 ? "50%" : "53%",
               transform: 'translate(-50%, -50%)',
-              fontSize: window.innerWidth > 768 ? "19px" : "10px"  
+              fontSize: window.innerWidth > 768 ? "19px" : "10px"  ,
+              zIndex:'+1'
             }}>
               Click to Enter The EXOPLANET
           </h1>
          <br />
          <div className="overlay-text" style={overlayTextStyle}>
-              PRODYOGIKI        
+              <a href="/home">PRODYOGIKI</a>        
           </div>
             </>
         )       
       }
     </div> 
                             
-        <Canvas background="black" camera={{ position: [0, 0, 8], fov: 50 }}>
+        <Canvas background="" camera={{ position: [0, 0, 8], fov: 50 }} style={{minHeight:'100vh'}}>
           <Suspense fallback={null}>
-            
             <ambientLight intensity={1} />
             <directionalLight position={[0, 0, 5]} intensity={0.5} />
-           
             <Earth />
             <OrbitControls  enableRotate={false} />
             <Stars /> 
-            
-            {/* <Text className="spaceFont"
-              color="white"
-              anchorX="center"
-              anchorY="top"
-            
-              font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
-              fontSize={text3}
-              position={[0, 1.18, 5]}>Click to Enter The EXOPLANET</Text> */}
-            {/* <Text className="prody-text"
-              color="white"
-              anchorX="center"
-              anchorY="top"
-              font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
-              fontSize={text2}
-              position={[0, 0.65, 5]}>Announcing</Text>
-              <Text
-              color="whitesmoke"
-              anchorX="center"
-              anchorY="middle"
-              fontSize={text}
-              font="/fonts/beyonders/Beyonders.ttf"
-              position={[0, 0.03, 5]}>Prodyogiki</Text>
-              <Text
-              color="white"
-              anchorX="center"
-              anchorY="bottom"
-              fontSize={text2}
-              font="/fonts/lemonMilk/LEMONMILK-Medium.otf"
-              position={[0, -0.65, 5]}>ISTE NITH</Text> */}
           </Suspense>
         </Canvas>
       </CanvasContainer>

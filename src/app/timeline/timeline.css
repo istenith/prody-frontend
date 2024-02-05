@@ -9,19 +9,19 @@
     font-weight: 600;
     text-align: center;
     height: 100%;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     color: white;
     font-family: spacefont;
     text-align: center;
-    margin-left: 9px;
-    margin-right: 9px;
-    margin-bottom: 140px;
-    margin-top: 140px;
+    /* margin-left: 9px; */
+    /* margin-right: 9px; */
+    /* margin-bottom: 140px; */
+    /* margin-top: 140px; */
     align-items: center;
     place-items: center;
     left: 50%;
     top: 50%;
-   
+    padding-top: 10%;
   
   }
   .heading{
@@ -40,10 +40,14 @@
     
     }
     .heading{
-      padding-top: 45%;
+      padding-top: 45% !important;
       height: 100%;
     }
   }
+.footerCustom{
+  position: absolute;
+  bottom: 0;
+}
 
 @media (max-width: 600px){
     .customTitle{

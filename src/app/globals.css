@@ -13,7 +13,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: hsl(251, 100%, 43%);
+  background-color: #3e3c96;
   border-radius: 4px;
   /* border: 3px solid #f1f1f1; */
 }
@@ -211,6 +211,7 @@ body {
   background-position-x: -10%;
 }
 
+
 .modal-custom {
   width: clamp(70%, 700px, 90%);
   height: min(70%, 700px);
@@ -245,7 +246,7 @@ body {
 
 .navBarShape {
   clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
-  background-color: rgb(75, 5, 141);
+  background-color: #231f5c;
   font-size: 0.6rem;
   color: rgb(250, 250, 250);
 }

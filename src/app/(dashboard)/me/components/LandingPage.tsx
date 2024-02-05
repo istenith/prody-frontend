@@ -49,9 +49,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
     animateAstronaut()
   })
   return (
-    <div className=''>
-      <div className="hero randomBlobBackground3 m-auto min-h-screen pt-20 px-10">
-        <div className="hero-content w-11/12 flex-col lg:flex-row items-start">
+    <div className=' whitespace-break-spaces'>
+      <div className="hero flex items-center justify-center randomBlobBackground3 w-screen m-auto min-h-screen pt-20 px-10">
+        <div className="hero-content m-auto w-11/12 flex-col lg:flex-row items-center justify-center">
           <div ref={scope} className="hidden lg:block" style={{translate: '-100px', opacity: 0}}>
             <Image 
             height={200}
@@ -62,7 +62,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
           </div>
         
         
-          <div>
+          <div className='w-full'>
             <div className='hidden lg:block lemonMilkFont text-warning' style={{fontSize: '1rem'}}>
               <TypeAnimation
                     sequence={[1200, `>> Collecting space rock...`, 600, `>> Loaded Astronaut Profile...`, 600]}
@@ -98,7 +98,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
                 animate={{opacity: 1, y: 0}}
                 transition={{delay: 2.5}}
               >
-                <h1 className="text-2xl py-4 flex-wrap font-bold beyonderFont" id='containerText' style={{lineHeight: '4rem'}}>
+                <h1 className="text-2xl py-4 font-bold beyonderFont" id='containerText' style={{lineHeight: '4rem'}}>
                   {`👋 HI, ${username}`}
                 </h1>
                 <h2 className='text-sm flex-wrap beyonderFont'>
@@ -114,10 +114,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
               className='mx-auto'           
             >
               <div 
-                className="py-6 text-2xl coolveticaFont"
+                className="py-6 text-2xl flex-wrap coolveticaFont"
               >
-                {`This is your space hub where you can check the events you've completed,
-                  upcoming events you can participate in and your progress!`}
+{"This is your space hub where you can check the events you've completed, upcoming events you can participate in and your progress!"}
               </div>
 
               <div className="eventStats my-8 mb-12">

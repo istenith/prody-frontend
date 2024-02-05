@@ -59,12 +59,12 @@ export const Modal = ({ cardrecieved, handleClose, isRegisteredEvent }) => {
      // };
 
      const handleAbstractLink = () => {
-          // if (typeof window !== 'undefined' && cardrecieved.abstract_link) {
-          //     window.open(cardrecieved.abstract_link, '_blank');
-          //   } else {
-          //     window.open('http://istenith.com/');
-          //   }
-          // };
+          if (typeof window !== 'undefined' && cardrecieved.abstract_link) {
+              window.open(cardrecieved.abstract_link, '_blank');
+            } else {
+              window.open('http://istenith.com/');
+            }
+          //};
      };
 
      return (
@@ -100,12 +100,12 @@ export const Modal = ({ cardrecieved, handleClose, isRegisteredEvent }) => {
                               />
                          )}
                     </div>
-                    <div className='' style={{ maxWidth: "600px", margin: "10px" }}>
-                         <div className='flex justify-between spaceFont pb-4' style={{borderBottom:"2px solid "}}>
+                    <div className='' style={{ maxWidth: "600px", margin: "10px", padding:"0 15px" }}>
+                         <div className='flex detailM justify-between spaceFont pb-4' style={{borderBottom:"2px solid "}}>
                               <span>{cardrecieved.name}</span>
                               <span className={'text-right'}>Coming Soon</span>
                          </div>
-                         <div className='text-justify mt-5 text-lg'>
+                         <div className='text-justify mt-5' style={{display:'inline-block'}}>
                               {cardrecieved.description}
                          </div>
                     </div>

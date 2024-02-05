@@ -34,8 +34,8 @@ body {
   font-size: 3rem;
   font-weight: 600;
   text-align: center;
-  height: 100%;
-  margin-bottom: 1rem;
+  min-height: 100vh;
+  /* margin-bottom: 1rem; */
   margin-top: 1rem;
   color: white;
   font-family: spacefont;
@@ -44,16 +44,19 @@ body {
 
 }
 .heading{
-  padding:14%;
+  padding:10%;
   height: 100%;
   margin-top: 20rem;
-  margin-left: 9px;
-    margin-right: 9px;
-    margin-bottom: 2px;
-    margin-top: 5px;
-   height: 100%;
+  margin-bottom: 2px;
+  margin-top: 5px;
+  height: 100%;
     
     
+}
+
+.footerCustom{
+  position: absolute;
+  bottom: 0;
 }
 @media screen and (max-width: 500px) {
   .heading-come{
@@ -62,21 +65,20 @@ body {
     font-weight: 600;
     text-align: center;
     height: 100%;
-   text-align: center;
-   align-items: center;
-   margin-bottom: 1rem;
-  margin-top: 2rem;
-  margin-left: 9px;
-    margin-right: 9px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
     color: white;
     font-family: spacefont;
   
   }
   .heading{
-    
     height: 100%;
     margin-bottom: 27rem;
     margin-top: 2rem;
+    padding: 0% !important;
+    margin-top: 190px;
   }
 }
 

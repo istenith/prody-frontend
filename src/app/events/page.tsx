@@ -11,7 +11,7 @@ import Skeleton from '../components/SkeletonCard/Skeleton';
 import fetchUserData from '../components/fetchUserData';
 import axios from 'axios';
 import Loader from "../LoaderEvent"
-
+import Footer from '../components/Footer/Footer';
 
 interface Card {
      name: string;
@@ -190,15 +190,7 @@ const Page = () => {
                          />
                          &nbsp;
                     </h2>
-
-                    {/* <h2 className='spaceFont block lg:hidden text-3xl m-4'>
-              &nbsp;
-                Prodyogiki
-              &nbsp;
-            </h2>             */}
                     <br />
-
-
                     <div className="custom-flex-container">
                          {isLoaded ?
                               cardData.map(card => {
@@ -211,7 +203,7 @@ const Page = () => {
                                              </figure>
                                              <div className="custom-card-body">
                                                   <h2 className="custom-card-title mt-2">{card.name}</h2>
-                                                  {/* <p>{card.date}</p> */}
+                                                  <p>{card.date}</p>
                                                   <br />
                                                   <OpenDialogButton card={card} setModalOpenToTrue={openModal} />
                                              </div>
@@ -236,6 +228,8 @@ const Page = () => {
                     )}
 
                </AnimatePresence>
+               <br />
+               <Footer/>
           </div>
      )
 }

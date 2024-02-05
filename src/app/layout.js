@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
                <body className={`${inter.className} min-h-screen ${pathname==="/" ? "":"bg-all"}`} >{children}</body>
                {pathname !=="/" &&
                <div className='mt-auto' >
-                    <Footer />
+                    {/* <Footer /> */}
                </div>
                }
           </html>

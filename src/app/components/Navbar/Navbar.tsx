@@ -2,7 +2,7 @@ import React , {useState ,useEffect} from 'react'
 import {motion} from 'framer-motion'
 import Link from "next/link"
 import { useWindowSize } from '@uidotdev/usehooks'
-import img from "../../../../public/images/prodykkk-01.webp"
+import img from "../../../../public/logos/ProdyLogo.webp"
 import Image from 'next/image'
 
 interface NavbarProps {
@@ -81,7 +81,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
     return(
       <div className="drawer fixed top-0 left-0" style={{zIndex: 100}}>
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content bg-base-300 flex flex-row justify-around">
+        <div className="drawer-content bg-violet-950	 flex flex-row justify-around">
           <span className='spaceFont my-auto p-3'>Prodyogiki</span>
           <span className='p-3 my-auto'>
             <label htmlFor="my-drawer" className="text-2xl m-auto drawer-button">
@@ -93,8 +93,12 @@ const Navbar = ({isHomePage}: NavbarProps) => {
         <div className="drawer-side">
           <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
          
-          <ul className="menu p-4 w-9/12 min-h-full bg-base-300 flex flex-col items-center justify-center text-base-content">
-          <Image src={img} alt="menu bar" className="drawer-overlay" />
+          <ul className="menu p-4 w-9/12 min-h-full bg-violet-950		 flex flex-col items-center justify-center">
+          <Image src={img} alt="menu bar" className="drawer-overlay" style={{width:'100px'}} />
+          <p className='tagLine spaceFont text-xs mt-5' style={{textAlign:'center', lineHeight:'1.5rem'}}>IGNITING THE COSMIC CURIOSITY</p>
+          {/* <p className='lemonMilk text-sm pt-2'><span className='text-warning'>9<sup>th</sup> - 11<sup>th</sup></span> February, 2024</p> */}
+          <br />
+          <br />
             <li><Link href={"/home"}>Home</Link></li>
             <li><Link href={"/events"}>Events</Link></li>
             <li><Link href={"/timeline"}>Timeline</Link></li>
