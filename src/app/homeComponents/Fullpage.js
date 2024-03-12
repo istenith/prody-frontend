@@ -135,6 +135,7 @@ useEffect(() => {
         )       
       }
     </div> 
+    
                             
         <Canvas background="" camera={{ position: [0, 0, 8], fov: 50 }} style={{minHeight:'100vh'}}>
           <Suspense fallback={null}>
@@ -145,6 +146,7 @@ useEffect(() => {
             <Stars /> 
           </Suspense>
         </Canvas>
+      
       </CanvasContainer>
     </>
   );
