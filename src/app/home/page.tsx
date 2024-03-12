@@ -84,12 +84,13 @@ const Home: NextPage = () => {
                     {countdownEnded ? (
                          <div className="text-4xl font-bold">Prodyogiki is LIVE!</div>
                     ) : (
-                         <TimerContainer
-                              days={days}
-                              hours={hours}
-                              minutes={minutes}
-                              seconds={seconds}
-                         />
+                         // <TimerContainer
+                         //      days={days}
+                         //      hours={hours}
+                         //      minutes={minutes}
+                         //      seconds={seconds}
+                         // />
+                         <div className='text-5xl font-bold lemonMilkFont'>Launching Soon!</div>
                     )}
 
                     <div className='home-page-events-and-register-btn' style={{ display: 'flex', flexDirection:  'row', gap: '1rem', marginTop: '1rem' }}>

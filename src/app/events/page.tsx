@@ -203,7 +203,7 @@ const Page = () => {
                                              </figure>
                                              <div className="custom-card-body">
                                                   <h2 className="custom-card-title mt-2">{card.name}</h2>
-                                                  {/* <p>{card.date}</p> */}
+                                                  <p>{card.date}</p>
                                                   <br />
                                                   <OpenDialogButton card={card} setModalOpenToTrue={openModal} />
                                              </div>

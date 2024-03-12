@@ -116,7 +116,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
               <div 
                 className="py-6 text-2xl flex-wrap coolveticaFont"
               >
-{"                This is your space hub where you can check the events you've completed, upcoming events you can participate in and your progress!"}
+{"This is your space hub where you can check the events you've completed, upcoming events you can participate in and your progress!"}
               </div>
 
               <div className="eventStats my-8 mb-12">
