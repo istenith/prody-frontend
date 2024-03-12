@@ -1,6 +1,6 @@
 "use client";
 
-import React ,{Suspense ,useState ,useEffect} from "react";
+import React ,{Suspense ,useState ,useEffect, use} from "react";
 import "./animation.css";
 import dynamic from 'next/dynamic';
 // import { Canvas } from "@react-three/fiber";
@@ -35,12 +35,15 @@ const CanvasContainer = styled.div`
 `;
 
 
+
 const   Earth = dynamic(
   () => import('./Earth'),
   { ssr: false } 
 );
 
 function App() {
+
+
 
   const [text, setText] = useState(0.43);
   const [text2, setText2] = useState(0.11);
@@ -57,6 +60,14 @@ function App() {
     transform: 'translate(-50%, -50%)',
     fontSize: window.innerWidth > 768 ? "4rem" : "1.5rem"  
 };
+
+useEffect(() => {
+  if(typeof window !== "undefined") {
+    if(window.innerWidth < 768) {
+      window.location.href = "/home";
+    }
+  }
+}, []);
 
 
 
