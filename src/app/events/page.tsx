@@ -192,9 +192,9 @@ const Page = () => {
                     </h2>
                     <br />
                     <div className="custom-flex-container">
-                         {isLoaded ?
+                         {/* {isLoaded ?
                               cardData.map(card => {
-                                   // const isEventRegistered = registeredEvents.some(registeredEvent => registeredEvent.id === card.id);
+                                   const isEventRegistered = registeredEvents.some(registeredEvent => registeredEvent.id === card.id);
 
                                    return (
                                         <div key={card.id} className="custom-card">
@@ -212,7 +212,8 @@ const Page = () => {
                               })
                               :
                               <Skeleton num={3} />
-                         }
+                         } */}
+                         <h1 className='text-4xl coolveticaFont bold my-40'>Events coming soon</h1>
                     </div>
                </div>
                <AnimatePresence
