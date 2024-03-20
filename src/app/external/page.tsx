@@ -5,7 +5,7 @@ import styles from './page.module.css';
 import prodyLogo from '../../../public/logos/hackathon.jpg';
 import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
-import Dropdown from './component/dropdown';
+
 
 const ExternalPage: React.FC = () => {
   const [activeOption, setActiveOption] = useState('about');
@@ -17,10 +17,10 @@ const ExternalPage: React.FC = () => {
   };
 
   useEffect(() => {
-    // Listen for window resize to update mobile state
+    
     window.addEventListener('resize', checkMobile);
 
-    // Cleanup function to remove event listener
+   
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
