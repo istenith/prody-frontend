@@ -10,7 +10,7 @@ interface TimeProps {
   seconds: number | string;
 }
 
-const targetDate = new Date('February 9, 2024 00:00:00 GMT+0000').getTime();
+const targetDate = new Date('April 5, 2024 00:00:00 GMT+0000').getTime();
 
 const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
   const [countdownOver, setCountdownOver] = useState(false);
@@ -68,7 +68,7 @@ const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
             }}
             className={countdownOver ? 'countdown-over' : ''}
           >
-            We are in space!
+            {`Prodyogiki'24 is LIVE now! Check out the events page`}
           </p>
         )}
       </div>

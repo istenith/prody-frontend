@@ -31,7 +31,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
         initial={{y: '-100vh'}}
         animate={{y:0}}
         exit={{y:'100vh'}}
-        transition={{duration: 1.5, delay: 0.6}}
+        transition={{duration: 1.8, delay: 1}}
         className='flex beyonderFont text-xs flex-row justify-around items-center fixed top-0 left-0 mx-auto w-full z-50 text-white'
       >
           <ul className='list-none navBarShape py-2 px-12 items-center flex flex-row justify-center gap-10'>

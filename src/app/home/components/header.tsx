@@ -16,9 +16,7 @@ const Header: React.FC<HeaderProps> = ({ message }) => {
         </Tilt>
         <p className='tagLine spaceFont text-xs mt-5'>IGNITING THE COSMIC CURIOSITY</p>
         <br />
-        {/* <p className='lemonMilk text-xl'><span className='text-warning'>9<sup>th</sup> - 11<sup>th</sup></span> February, 2024</p> */}
-        <br />
-        <br />
+        <p className='lemonMilk text-xl'><span className='text-warning'>5<sup>th</sup> - 7<sup>th</sup></span> April, 2024</p>
         <br />
       </div>
     </header>
