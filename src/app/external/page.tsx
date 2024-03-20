@@ -17,10 +17,10 @@ const ExternalPage: React.FC = () => {
   };
 
   useEffect(() => {
-    
+    // Listen for window resize to update mobile state
     window.addEventListener('resize', checkMobile);
 
-   
+    // Cleanup function to remove event listener
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
@@ -43,7 +43,7 @@ const ExternalPage: React.FC = () => {
         setRulesData('Rules section text...');
         break;
       case 'contact':
-        setRulesData('Abhimanyu Singh : 9548582554 ');
+        setRulesData('Contact section text...');
         break;
       default:
         setRulesData('');
@@ -51,7 +51,7 @@ const ExternalPage: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{background: 'url("/image.svg")', backgroundAttachment: 'fixed', backgroundSize: 'cover'}}>
       <Navbar isHomePage={false} />
       <br /><br /><br /><br />
       <div className={styles.content}>
@@ -96,11 +96,11 @@ const ExternalPage: React.FC = () => {
               </button>
             </div>
             <div>
-              <div>
-                <h2>{activeOption.charAt(0).toUpperCase() + activeOption.slice(1)}</h2>
-                <p>{rulesData}</p>
-              </div>
-            </div>
+                              <div>
+                  <h2>{activeOption.charAt(0).toUpperCase() + activeOption.slice(1)}</h2>
+                  <p>{rulesData}</p>
+                </div>
+                          </div>
           </div>
         ) : (
           <div className={styles.navCard}>
@@ -137,11 +137,11 @@ const ExternalPage: React.FC = () => {
               </button>
             </div>
             <div>
-              <div>
-                <h2>{activeOption.charAt(0).toUpperCase() + activeOption.slice(1)}</h2>
-                <p>{rulesData}</p>
-              </div>
-            </div>
+                              <div>
+                  <h2>{activeOption.charAt(0).toUpperCase() + activeOption.slice(1)}</h2>
+                  <p>{rulesData}</p>
+                </div>
+                          </div>
           </div>
         )}
       </div>
