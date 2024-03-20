@@ -1,5 +1,6 @@
-"use client";
-import React, {useState, useEffect } from "react";
+"use client"
+
+import React, { useState, useEffect } from "react";
 import { Chrono } from "react-chrono";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
@@ -7,33 +8,20 @@ import "./page.module.css";
 import "./timeline.css";
 import Loader from "../LoaderEvent";
 
-// const isBrowser = typeof window !== "undefined";
-const isBrowser = typeof window !== "undefined";
-
 const Timeline = () => {
   const [loading, setLoading] = useState(true);
   
-useEffect(() => {
-  const fetchData = async () => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setLoading(false);
-  };
-
-  fetchData();
-}
-, []);
 
   useEffect(() => {
-    if (isBrowser) {
-      const fetchData = async () => {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        setLoading(false);
-      };
+    const fetchData = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      setLoading(false);
+    };
 
-      fetchData();
-    }
+    fetchData();
+
+    
   }, []);
-
 
   const data = [
     {
@@ -45,7 +33,7 @@ useEffect(() => {
     },
     {
       title: "Day-1",
-      cardTitle: "Stellarscape Hackathon",
+      cardTitle: "Hackathon",
       cardSubtitle: "Day-001",
       cardDetailedText:
         "Develop an app offering an immersive journey into the realms of science and exploration.Create a digital platform that showcases the wonders of space and also delves into other scientific frontier. Develop solutions to the problems the world requires.",
@@ -155,21 +143,19 @@ useEffect(() => {
       {loading && <Loader />}
       <Navbar isHomePage={false} />
 
-      <div className="heading-come">
-      <h1 className='heading spaceFont'> COMING SOON!!</h1> 
-      </div>
-{/*      <div className="pt-5">
+      <br />
+      <div className="pt-5">
         <Chrono
+          className="chrono-container"
           items={data}
           mode="VERTICAL_ALTERNATING"
           hideControls
           classNames={{
-            title: 'customTitle',
-            cardDetailedText: 'cdText',
+            title: "customTitle",
+            cardDetailedText: "cdText",
           }}
-          // flipLayout="true"
           cardWidth="500"
-          highlightCardsOnHover="true"
+          highlightCardsOnHover
           theme={{
             primary: "#90E0EF",
             secondary: "#90E0EF",
@@ -178,6 +164,7 @@ useEffect(() => {
             cardTitleColor: "black",
             cardSubtitleColor: "#9A275A",
             titleColorActive: "black",
+           
           }}
           fontSizes={{
             cardSubtitle: "1rem",
@@ -187,13 +174,11 @@ useEffect(() => {
           }}
         ></Chrono>
       </div>
-      <br></br> <br></br> <br></br> <br></br> <br></br>  */}
-      {/* Remove div across Footer when footer is complete */}
-      <div className="footerCustom">
-        <Footer />
-      </div>
+      <br /> <br /> <br /> <br /> <br />
+      <Footer />
     </div>
   );
 };
 
 export default Timeline;
+  
