@@ -138,6 +138,8 @@ const Timeline = () => {
     },
   ];
 
+  if (typeof window === "undefined") return null;
+
   return (
     <div>
       {loading && <Loader />}
