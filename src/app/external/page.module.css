@@ -1,0 +1,153 @@
+/* page.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: #221d2d;
+  color: #fdfcfd;
+  font-family: "Euclid Circular A", "Poppins";
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align card content */
+  width: 40%;
+  height: auto; /* Adjust height to fit content */
+  padding: 10px; /* Increased padding for better spacing */
+  background: rgba(18, 16, 23, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.customButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center align buttons */
+  margin-top: 20px; /* Add margin to separate from card content */
+}
+
+.customButton {
+  background-color: #00008B;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin: 0 10px; /* Add margin between buttons */
+}
+
+.customButton:hover {
+  background-color: #006400;
+}
+
+.customButton:active {
+  background-color: #8B0000;
+}
+
+.customButton:focus {
+  outline: none;
+}
+
+.navCard {
+  width: 80%; /* Reduce width for better layout on smaller screens */
+  height: auto;
+  padding: 15px;
+  background: rgba(18, 16, 23, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card:first-child {
+  margin-bottom: 20px; /* Add margin to separate cards */
+}
+
+.card img {
+  max-width: 100%; /* Ensure image fits within card width */
+  height: auto; /* Allow image to maintain aspect ratio */
+  border-radius: 10px;
+  margin-bottom: 20px; /* Add margin between image and content */
+}
+
+.card button {
+  border: 1px solid #f8f8f8;
+  background: #f8f8f8;
+  color: #000000;
+  font-family: Poppins;
+  padding: 10px 30px; /* Adjust padding for better appearance */
+  font-size: 16px; /* Decrease font size for better fit */
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px; /* Add margin to separate from previous content */
+}
+
+.card button:hover {
+  background-color: white;
+}
+
+.navOptions {
+  display: flex;
+  flex-wrap: wrap; /* Ensure buttons wrap to new line on smaller screens */
+  justify-content: center; /* Center align buttons */
+  padding: 10px 0; /* Adjust padding for better appearance */
+  border-bottom: 1px solid #333;
+}
+
+.navOptions button {
+  background: transparent;
+  border: #000000;
+  color: #f8f8f8;
+  font-family: inherit;
+  font-size: 20px; /* Decrease font size for better fit */
+  font-weight: 450;
+  padding: 03px 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+  margin: 5px; /* Add margin between buttons */
+}
+
+.navOptions button:hover {
+  background-color: grey;
+}
+
+.active {
+  background: #3a3a3a;
+  border-radius: 20px;
+}
+
+/* Media query for screen sizes below 600px */
+@media only screen and (max-width: 600px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 80%;
+  }
+
+  .customButtonContainer {
+    flex-direction: column; /* Display buttons vertically */
+    align-items: center; /* Center align buttons */
+    margin-top: 20px;
+  }
+
+  .customButton {
+    margin: 10px 0; /* Add margin between buttons */
+  }
+}

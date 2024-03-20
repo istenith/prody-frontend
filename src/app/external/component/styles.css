@@ -1,0 +1,82 @@
+/* styles.css */
+
+/* Center align the dropdown button text */
+.dropdown button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px;
+    width: 230px;
+    height: 72px;
+    color: #afb3b5;
+    background: #2d2f31;
+    border: 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Euclid Circular A";
+    transition: 0.3s;
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Set the background color and border-radius for dropdown options */
+  .dropdown button {
+    background: #1d1e1f;
+    border-radius: 6px;
+  }
+  
+  /* Change the background color and text color on hover */
+  .dropdown button:hover {
+    color: #f9f9f9;
+  }
+  
+  /* Change the chevron rotation when dropdown is open */
+  .dropdown.open > button .chevron {
+    rotate: -180deg;
+  }
+  
+  /* Add margin to the chevron icon */
+  .dropdown button .chevron {
+    margin-left: auto;
+    transition: 0.3s;
+  }
+  
+  /* Adjust the styles for the main menu */
+  .menu {
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    top: 82px;
+    left: 0;
+    width: 100%;
+    height: auto; /* Adjust height to fit content */
+    max-height: 300px; /* Add maximum height to enable scrolling if needed */
+    opacity: 0;
+    transform: translateY(-20px);
+    visibility: hidden;
+    border-radius: 6px;
+    background: #2d2f31;
+    transition: 0.3s;
+  }
+  
+  /* Display the main menu when dropdown is open */
+  .dropdown.open .menu {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  
+  /* Adjust the width of the main menu items */
+  .main-menu {
+    width: 100%; /* Set width to 100% */
+  }
+  
+  /* Adjust the styles for dropdown button icons */
+  .dropdown button .material-symbols-outlined:first-child {
+    background: #4e4f51;
+    color: #afb3b5;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 6px;
+    transition: 0.3s;
+  }
+  

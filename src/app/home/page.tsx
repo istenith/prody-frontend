@@ -105,6 +105,7 @@ const Home: NextPage = () => {
                                    Events
                               </button>
                          </Link>
+                         
 
                          <Link href="/participate">
                               <button

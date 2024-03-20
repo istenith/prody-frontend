@@ -42,6 +42,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
               <li>
                 <Link href={"/sponsors"}>Sponsors</Link>
               </li>
+             
               <li>
                 <Link href={"/contacts"}>Contact</Link>
               </li>
@@ -50,6 +51,9 @@ const Navbar = ({isHomePage}: NavbarProps) => {
               </li>
               <li>
                 <Link href={"/home"} className='spaceFont text-xl'>PRODYOGIKI</Link>
+              </li>
+              <li>
+                <Link href={"/external"}>external</Link>
               </li>
               <li>
                 <Link href={"/timeline"}>Timeline</Link>
