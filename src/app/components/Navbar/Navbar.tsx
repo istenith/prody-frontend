@@ -53,7 +53,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
                 <Link href={"/home"} className='spaceFont text-xl'>PRODYOGIKI</Link>
               </li>
               <li>
-                <Link href={"/external"}>external</Link>
+                <Link href={"/external"}>Hackathon</Link>
               </li>
               <li>
                 <Link href={"/timeline"}>Timeline</Link>
@@ -107,6 +107,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
             <li><Link href={"/events"}>Events</Link></li>
             <li><Link href={"/timeline"}>Timeline</Link></li>
             <li><Link href={"/sponsors"}>Sponsors</Link></li>
+            <li><Link href={"/external"}>Hackathon</Link></li>
             <li><Link href={"/contacts"}>Contact</Link></li>
             {!isLoggedIn ? (
               <li>
