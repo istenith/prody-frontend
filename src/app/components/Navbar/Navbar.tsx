@@ -55,9 +55,7 @@ const Navbar = ({isHomePage}: NavbarProps) => {
               <li>
                 <Link href={"/external"}>Hackathon</Link>
               </li>
-              <li>
-                <Link href={"/timeline"}>Timeline</Link>
-              </li>
+              
               {!isLoggedIn ? (
               <li>
                 <Link href={"/participate"}>Participate &#129042;</Link>

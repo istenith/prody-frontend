@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
-import prodyLogo from '../../../public/logos/hackathon.jpg';
+import prodyLogo from '../../../public/logos/hackathon.png';
 import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 
@@ -156,7 +156,8 @@ const ExternalPage: React.FC = () => {
         <div className={styles.card}>
           <Image src={prodyLogo} alt='prodyLogo' />
           <div>
-    <button>Register Now</button>
+          <a href="https://unstop.com/p/stellerscape-explorer-hackathon-prodyogiki-nit-hamirpur-939534" target="_blank" rel="noopener noreferrer">
+    <button>Register Now</button></a>
     <a href="https://chat.whatsapp.com/Kor1veX6CZ2DPcx27BFQUq" target="_blank" rel="noopener noreferrer">
       <button className={styles.whatsappButton}>Join WhatsApp</button>
     </a>

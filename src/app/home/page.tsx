@@ -113,6 +113,14 @@ const Home: NextPage = () => {
                                    Register
                               </button>
                          </Link>
+                         
+                         <Link href="/external">
+                              <button
+                                   className="underline spaceFont py-2 px-4 border border-green-500 text-green-600 font-bold rounded-full transition duration-300 hover:bg-green-400 hover:text-white"
+                              >
+                                   HACKATHON
+                              </button>
+                         </Link>
                     </div>
                          <br />
                          <br />
