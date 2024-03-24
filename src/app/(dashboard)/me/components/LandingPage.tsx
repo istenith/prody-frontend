@@ -129,12 +129,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ user, totalEvents, registered
                     <h3 className='coolveticaFont text-2xl my-4'>Registered Teams:</h3>
                     <ul style={{ listStyleType: 'decimal' /* or 'circle' for circles */ }}>
                     {user.registered_teams.map((team: any, index: number) => (
-                      <li key={index}>
-                          <h3 className='coolveticaFont text-2xl my-4'>{team.registered_events.name}</h3>
-                          <h3 className='coolveticaFont text-xl my-4'>Team ID: <span className='text-yellow-400'>{team.team_id}</span></h3>
-                          <h3 className='coolveticaFont text-xl my-4'>Team Name: <span className='text-yellow-400'>{team.name}</span></h3>
-                      </li>
-                    ))}
+    <li key={index}>
+        {team.registered_events && (
+            <h3 className='coolveticaFont text-2xl my-4'>{team.registered_events.name}</h3>
+        )}
+        <h3 className='coolveticaFont text-xl my-4'>Team ID: <span className='text-yellow-400'>{team.team_id}</span></h3>
+        <h3 className='coolveticaFont text-xl my-4'>Team Name: <span className='text-yellow-400'>{team.name}</span></h3>
+    </li>
+))}
                     </ul>
                   </>
                 )}                
