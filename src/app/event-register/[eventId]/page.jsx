@@ -42,14 +42,8 @@ const EventRegisterPage = () => {
     try {
       const token = localStorage.getItem('myJwtToken');
       if (!token) {
-<<<<<<< HEAD
         alert('Please Login/Sign Up For Registration: User Unauthenticated');
          window.location.href = '/participate';
-=======
-        alert('Please Login/Signup to register!');
-        // window.location.href = '/participate';
-        router.push('/participate');
->>>>>>> 73bcbbaa1c49c257f8dec37301a66e0a44eb4439
         return;
       }
 
@@ -145,7 +139,7 @@ const EventRegisterPage = () => {
             <button
               onClick={handleRegister}
               className="spaceFont bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"
-              className="spaceFont bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"
+              
             >
               Register
             </button>
