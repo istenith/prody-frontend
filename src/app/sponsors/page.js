@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import "./supporter.css";
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import Card from '../components/SponsorCard/Card.tsx';
+import Cards from '../components/SponsorCard/Card.tsx';
 import Loader from '../LoaderEvent';
 
 
@@ -38,7 +38,6 @@ const SupportersComponent = () => {
      const [loading, setLoading] = useState(true);
 
      useEffect(() => {
-          // Simulate an asynchronous task
           const fetchData = async () => {
                // Your asynchronous task goes here
                await new Promise(resolve => setTimeout(resolve, 2000));
@@ -82,12 +81,15 @@ const SupportersComponent = () => {
                }
           };
           if (selectedSupporter) {
-               // window.addEventListener('keydown', handleEscKeyPress);
+               window.addEventListener('keydown', handleEscKeyPress);
           }
           return () => {
-               // window.removeEventListener('keydown', handleEscKeyPress);
+               window.removeEventListener('keydown', handleEscKeyPress);
           };
      }, [selectedSupporter]);
+
+
+     const srcAndromeda = "./images/andromeda.png";
 
      return (
           <>
@@ -95,33 +97,42 @@ const SupportersComponent = () => {
                     <Loader />
                )}
                <Navbar isHomePage={false} />
-               <div className="heading-come ">
-                    <h1 className='heading spaceFont'> COMING SOON!!</h1>
-               </div>
-               {/*                <div> */}
-               {/*                     {selectedSupporter && ( */}
-               {/*                          <Modal */}
-               {/*                               show={!!selectedSupporter} */}
-               {/*                               title={selectedSupporter.name} */}
-               {/*                               content={selectedSupporter.description} */}
-               {/*                               src={selectedSupporter.logo} */}
-               {/*                               onClose={() => toggleModal(null)} */}
-               {/*                          /> */}
-               {/*                     )} */}
-               {/*                </div> */}
-               {/*                <div className='h-min'> */}
-               {/*                     <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white sponserPage bg"}> */}
-               {/*                          <h2 className="beyonderFont  text-center text-2xl font-bold mb-9 mt-11 pt-12">OUR SUPPORTERS</h2> */}
-               {/*                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 mb-8 sponsor-card-div"> */}
-               {/*                               {sponsors.map(supporter => ( */}
-               {/*                                    <Card key={supporter.id} title={supporter.name} content={supporter.description} src={supporter.logo} onClick={() => toggleModal(supporter)} /> */}
-               {/*                               ))} */}
-               {/*                          </div> */}
-               {/*                     </div> */}
-               {/*                </div> */}
-               <div className='footerCustom'>
+               
+                              <div>
+                                   {selectedSupporter && (
+                                        <Modal
+                                             show={!!selectedSupporter}
+                                             title={selectedSupporter.name}
+                                             content={selectedSupporter.description}
+                                             src={selectedSupporter.logo}
+                                             onClose={() => toggleModal(null)}
+                                        />
+                                   )}
+                              </div>
+                              
+                              <div className='h-min'>
+                                   <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white sponserPage bg"}>
+                                        <h2 className="beyonderFont  text-center text-3xl font-bold mb-9 mt-11 pt-12">OUR SUPPORTERS</h2>
+                                        <h1 className="beyonderFont text-center  font-bold   pt-10">Title Sponser</h1>
+                                        <div className="grid grid-cols-1 xl:grid-cols-3 gap-20 mb-20 sponsor-card-div justify-center">
+                                        
+                                                  <div className="w-full md:w-64"></div> {/* Empty space on the left */}
+                                                  <div className="w-full ">
+                                                  
+                                                       <Cards  title={""} content={"akkad"} src={srcAndromeda} onClick={() => toggleModal({title:"Andromeda", content:"akkad", src:srcAndromeda})} />
+                                                       
+                                                  </div>
+                                                  <div className="w-full md:w-64"></div> {/* Empty space on the right */}
+                                                  </div>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 pt-10 mb-8 sponsor-card-div">
+                                             {sponsors.map(supporter => (
+                                                  <Cards key={supporter.id} title={""} content={supporter.description} src={supporter.logo} category={supporter.tier} onClick={()=>toggleModal(supporter)} />
+                                             ))}
+                                        </div>
+                                   </div>
+                              </div>
                  <Footer/>
-               </div>
+               
           </>
      );
 };

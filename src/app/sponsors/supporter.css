@@ -16,6 +16,10 @@ body {
   cursor: pointer;
 }
 
+/* .andro-card-div{
+  height: 150px;
+} */
+
 .modal-backdrop {
  margin: auto !important;
  position: fixed;
