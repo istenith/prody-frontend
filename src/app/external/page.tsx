@@ -17,10 +17,10 @@ const ExternalPage: React.FC = () => {
   };
 
   useEffect(() => {
-    // Listen for window resize to update mobile state
+    
     window.addEventListener('resize', checkMobile);
 
-    // Cleanup function to remove event listener
+    
     return () => {
       window.removeEventListener('resize', checkMobile);
     };
@@ -64,12 +64,12 @@ const ExternalPage: React.FC = () => {
             <div>
               
               <ul>
-<br/>                <li><strong>HACKATHON (Check point 1)</strong>
+<br/>                <li><strong>HACKATHON (Check point 1) [April 5]</strong>
                   <ul>
                     <li>AT 4 PM</li>
                   </ul>
                 </li><br/>
-                <li><strong>EXPERT LECTURE</strong>
+                <li><strong>EXPERT LECTURE [April 6]</strong>
                   <ul>
                     <li>10 AM-11:30 AM (Lecture)</li>
                     <li>11:30AM-12:00 PM (Interaction with audience)</li>
@@ -80,7 +80,7 @@ const ExternalPage: React.FC = () => {
                     <li>AT 12 PM</li>
                   </ul>
                 </li><br/>
-                <li><strong>HACKATHON</strong>
+                <li><strong>HACKATHON [April 7]</strong>
                   <ul>
                     <li>AT 12 PM - 4 PM</li>
                   </ul>
@@ -156,9 +156,13 @@ const ExternalPage: React.FC = () => {
         <div className={styles.card}>
           <Image src={prodyLogo} alt='prodyLogo' />
           <div>
-    <button>REGISTER</button><br></br>
+    <button>Register Now</button>
     <a href="https://chat.whatsapp.com/Kor1veX6CZ2DPcx27BFQUq" target="_blank" rel="noopener noreferrer">
       <button className={styles.whatsappButton}>Join WhatsApp</button>
+    </a>
+    <br/>
+    <a href="https://drive.google.com/file/d/1fXw7rt99ODKEtVll4aRbgOZigueMtDNS/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+      <button className={styles.whatsapButton}>Problem Statment</button>
     </a>
   </div>
         </div>
