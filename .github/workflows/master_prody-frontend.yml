@@ -24,6 +24,7 @@ jobs:
             cd prody-frontend
             git config pull.rebase false
             git pull origin master
+            npm install
             npm run build
             sudo systemctl restart prody-frontend.service
           EOF
