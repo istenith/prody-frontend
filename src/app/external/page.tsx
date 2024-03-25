@@ -155,8 +155,7 @@ const ExternalPage: React.FC = () => {
               <li><a href="https://docs.andromedaprotocol.io/andromeda">https://docs.andromedaprotocol.io/andromeda</a></li>
               <li><a href="https://www.youtube.com/@andromedaprotocol">https://www.youtube.com/@andromedaprotocol</a></li>
             <ul>
-
-            <p>
+<br/>            <p>
             <b>Contact:</b><br />
 
             Ayan Choradia
