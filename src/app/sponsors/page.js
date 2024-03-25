@@ -49,44 +49,54 @@ const SupportersComponent = () => {
           , []);
 
 
-     useEffect(() => {
-          const fetchData = async () => {
-               try {
-                    const res = await fetch('https://api.prody.istenith.com/api/sponsors/');
-                    const resJson = await res.json();
+          useEffect(() => {
+               const fetchData = async () => {
+                   try {
+                       const res = await fetch('https://api.prody.istenith.com/api/sponsors/');
+                       const resJson = await res.json();
+                       
+                       console.log(resJson);
+                       // Sort the data by title in alphabetical order
+                       const sortedSponsors = resJson.sort((a, b) => b.id - a.id);
 
-                    console.log(resJson);
-                    setSponsors(resJson);
-               } catch (error) {
-                    console.log('error', error);
-               }
-          };
-          fetchData();
-     }, []);
+           
+       
+                   console.log(sortedSponsors);
+       
+           
+                       setSponsors(sortedSponsors);
+                   } catch (error) {
+                       console.log('error', error);
+                   }
+               };
+               fetchData();
+           }, []);
+           
 
 
      const [selectedSupporter, setSelectedSupporter] = useState(null);
      const toggleModal = (supporter) => {
           if (supporter) {
+
                setSelectedSupporter(supporter);
           } else {
                setSelectedSupporter(null);
           }
      };
 
-     useEffect(() => {
-          const handleEscKeyPress = (event) => {
-               if (event.keyCode === 27) {
-                    toggleModal(null);
-               }
-          };
-          if (selectedSupporter) {
-               window.addEventListener('keydown', handleEscKeyPress);
-          }
-          return () => {
-               window.removeEventListener('keydown', handleEscKeyPress);
-          };
-     }, [selectedSupporter]);
+     // useEffect(() => {
+     //      const handleEscKeyPress = (event) => {
+     //           if (event.keyCode === 27) {
+     //                toggleModal(null);
+     //           }
+     //      };
+     //      if (selectedSupporter) {
+     //           window.addEventListener('keydown', handleEscKeyPress);
+     //      }
+     //      return () => {
+     //           window.removeEventListener('keydown', handleEscKeyPress);
+     //      };
+     // }, [selectedSupporter]);
 
 
      const srcAndromeda = "./images/andromeda.png";
@@ -113,7 +123,7 @@ const SupportersComponent = () => {
                               <div className='h-min'>
                                    <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white sponserPage bg"}>
                                         <h2 className="beyonderFont  text-center text-3xl font-bold mb-9 mt-11 pt-12">OUR SUPPORTERS</h2>
-                                        <h1 className="beyonderFont text-center  font-bold   pt-10">Title Sponser</h1>
+                                        <h1 className="beyonderFont text-center    pt-10">Title Sponser <br/><br/>( Stellarscape Hackathon )</h1>
                                         <div className="grid grid-cols-1 xl:grid-cols-3 gap-20 mb-20 sponsor-card-div justify-center">
                                         
                                                   <div className="w-full md:w-64"></div> {/* Empty space on the left */}
