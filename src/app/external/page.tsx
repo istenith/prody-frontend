@@ -9,7 +9,74 @@ import Navbar from '../components/Navbar/Navbar';
 
 const ExternalPage: React.FC = () => {
   const [activeOption, setActiveOption] = useState('about');
-  const [rulesData, setRulesData] = useState('');
+  const [rulesData, setRulesData] = useState(`
+  <div><br/>
+    <h2>Welcome to Stellerscape Hackathon presented by Andromeda!</h2>
+    <p>Andromeda is The First Decentralized, On-Chain Operating System. It is an all on-chain and multi-chain suite of products, tools, and utilities enabled by a decentralized Operating System called aOS, or Andromeda Operating System. aOS is where Web3 starts.</p>
+
+    <p>Are you ready for an exciting opportunity to showcase your talent in a competitive environment? In this hackathon presented by Andromeda, participants will have to build solutions on problem statements given below and they should be developed with Andromeda's SDK.</p>
+    <br />
+    <h1>Tracks:</h1>
+
+    <b>Track 1</b> - Backend - Rust - ADO: Solve Problem Statement 1 - Flexible-pay crowdfund related to the backend using Rust programming language and Andromeda's SDK or solve Problem Statement 2 which is Open submission (Use your creativity to build a new AOS compatible ADO that can easily connect and operate with other existing ADO in rust)<br/><br />
+    <b>Track 2</b> - UI - Embeddables: Create UI and embeddable solutions for real-world use cases using andromeda.js. <br /><br />
+    <b>Track 3</b> - Use Case Build: Use aOS to turn your ideas into real-world applications using provided no-code embeddable builders. <br /> <br />
+
+    Note: 
+    You should be using Andromeda SDK to devise your solution.
+    A workshop will be taken by Andromeda on April 1, 2024 , time will be shared by email.<br />
+    <u>Supported Languages:</u>
+
+    Rust, Next.js, TypeScript, JavaScript
+
+
+    <br /><br />
+    <p>Prize Pool:
+
+    Exciting rewards await with a total prize pool of 8.5+ Lakhs INR.
+    Participants stand a chance to win goodies and merchandise in addition to the cash prizes.
+
+    So, gear up and get ready to embark on a coding journey like never before. Don't miss this chance to shine in the world of technology with Andromeda's Hackathon!
+    </p>
+    <br />
+    Rules:
+    <ul style="list-style: inside;">
+      <li>Participants must use Andromedas SDK in their projects.</li>
+      <li>Solutions must adhere to the guidelines provided by Andromeda.</li>
+      <li>Participants in the Open Submission category must justify their choice of problem and demonstrate how Andromedas SDK was utilized.</li>
+      <li>Teams must comply with the event's code of conduct and ethics.</li>
+      <li>Submission deadline will be communicated during the event.</li>
+    </ul>
+
+    <br />
+    <p>
+      <b>Accommodation</b><br/>
+      Relevant details will be e-mailed to the participants. Approximate cost will be 500INR per day per head (including meals thrice a day) 
+    </p>
+
+    <br /><br />
+    <b>Terms and Condition:</b><br>
+    All winning amount will be awarded in the form of INR convertible $ANDR Tokens.
+    All token conversions will be assisted by the organizers.
+
+    <b>Important Links:</b>
+    <ul style="list-style: inside;">
+      <li><a href="https://www.andromedaprotocol.io/">https://www.andromedaprotocol.io/</a></li>
+      <li><a href="https://github.com/andromedaprotocol/">https://github.com/andromedaprotocol/</a></li>
+      <li><a href="https://docs.andromedaprotocol.io/andromeda">https://docs.andromedaprotocol.io/andromeda</a></li>
+      <li><a href="https://www.youtube.com/@andromedaprotocol">https://www.youtube.com/@andromedaprotocol</a></li>
+    <ul>
+
+    <p>
+    <b>Contact:</b><br />
+
+    Ayan Choradia
+    +91 9460384779 <br/>
+    Sourabh Awasthy
+    +91 9418223946
+    </p>
+  </div>
+`);
   const [isMobile, setIsMobile] = useState(false);
 
   const checkMobile = () => {
@@ -32,30 +99,70 @@ const ExternalPage: React.FC = () => {
     switch (option) {
       case 'about':
         setRulesData(`
-        <div><br/>
-        <h2>Welcome to Stellerscape Hackathon presented by Andromeda!</h2>
-        <p>Andromeda is The First Decentralized, On-Chain Operating System. It is an all on-chain and multi-chain suite of products, tools, and utilities enabled by a decentralized Operating System called aOS, or Andromeda Operating System. aOS is where Web3 starts.</p>
-        <p>Are you ready for an exciting opportunity to showcase your talent in a competitive environment? In this hackathon presented by Andromeda, participants will have to build solutions on problem statements given below and they should be developed with Andromeda's SDK.</p>
-        <br/><h3>Tracks:</h3>
+          <div><br/>
+            <h2>Welcome to Stellerscape Hackathon presented by Andromeda!</h2>
+            <p>Andromeda is The First Decentralized, On-Chain Operating System. It is an all on-chain and multi-chain suite of products, tools, and utilities enabled by a decentralized Operating System called aOS, or Andromeda Operating System. aOS is where Web3 starts.</p>
+
+            <p>Are you ready for an exciting opportunity to showcase your talent in a competitive environment? In this hackathon presented by Andromeda, participants will have to build solutions on problem statements given below and they should be developed with Andromeda's SDK.</p>
+            <br />
+            <h1>Tracks:</h1>
+
+            <b>Track 1</b> - Backend - Rust - ADO: Solve Problem Statement 1 - Flexible-pay crowdfund related to the backend using Rust programming language and Andromeda's SDK or solve Problem Statement 2 which is Open submission (Use your creativity to build a new AOS compatible ADO that can easily connect and operate with other existing ADO in rust)<br/><br />
+            <b>Track 2</b> - UI - Embeddables: Create UI and embeddable solutions for real-world use cases using andromeda.js. <br /><br />
+            <b>Track 3</b> - Use Case Build: Use aOS to turn your ideas into real-world applications using provided no-code embeddable builders. <br /> <br />
+
+            Note: 
+            You should be using Andromeda SDK to devise your solution.
+            A workshop will be taken by Andromeda on April 1, 2024 , time will be shared by email.<br />
+            <u>Supported Languages:</u>
+
+            Rust, Next.js, TypeScript, JavaScript
+
+
+            <br /><br />
+            <p>Prize Pool:
+
+            Exciting rewards await with a total prize pool of 8.5+ Lakhs INR.
+            Participants stand a chance to win goodies and merchandise in addition to the cash prizes.
+
+            So, gear up and get ready to embark on a coding journey like never before. Don't miss this chance to shine in the world of technology with Andromeda's Hackathon!
+            </p>
+            <br />
+            Rules:
+            <ul style="list-style: inside;">
+              <li>Participants must use Andromedas SDK in their projects.</li>
+              <li>Solutions must adhere to the guidelines provided by Andromeda.</li>
+              <li>Participants in the Open Submission category must justify their choice of problem and demonstrate how Andromedas SDK was utilized.</li>
+              <li>Teams must comply with the event's code of conduct and ethics.</li>
+              <li>Submission deadline will be communicated during the event.</li>
+            </ul>
+
+            <br />
+            <p>
+              <b>Accommodation</b><br/>
+              Relevant details will be e-mailed to the participants. Approximate cost will be 500INR per day per head (including meals thrice a day) 
+            </p>
+
+            <br /><br />
+            <b>Terms and Condition:</b><br>
+            All winning amount will be awarded in the form of INR convertible $ANDR Tokens.
+            All token conversions will be assisted by the organizers.
+
+            <b>Important Links:</b>
+            <ul style="list-style: inside;">
+              <li><a href="https://www.andromedaprotocol.io/">https://www.andromedaprotocol.io/</a></li>
+              <li><a href="https://github.com/andromedaprotocol/">https://github.com/andromedaprotocol/</a></li>
+              <li><a href="https://docs.andromedaprotocol.io/andromeda">https://docs.andromedaprotocol.io/andromeda</a></li>
+              <li><a href="https://www.youtube.com/@andromedaprotocol">https://www.youtube.com/@andromedaprotocol</a></li>
             <ul>
-              <li><strong>Track 1 - Backend - Rust - ADO:</strong> Solve problem statements related to backend using Rust programming language and Andromeda's SDK, also with open submission category.</li>
-              <li><strong>Track 2 - UI - Embeddables:</strong> Create UI and embeddable solutions for real-world use cases using Andromeda's embeddable builders.</li>
-              <li><strong>Track 3 - Use Case Build:</strong> Use aOS to turn your ideas into real-world applications using provided no-code embeddable builders.</li>
-            </ul><br/>
-            <ul><strong>Note: </strong> Your should be using Andromeda SDK to devise your solution. </ul><br/>
-            <h3>Supported Languages:</h3>
-            <ul>
-              
-              <li>Rust,
-              Next.js,
-              TypeScript,
-              JavaScript</li>
-            </ul><br/>
-            <h3>Prize Pool:</h3>
-            <p>Exciting rewards await with a total prize pool of 8.5+ Lakhs INR.</p>
-            
-            <p>Participants stand a chance to win goodies and merchandise in addition to the cash prizes.</p><br/>
-            <p>So, gear up and get ready to embark on a coding journey like never before. Don't miss this chance to shine in the world of technology with Andromeda's Hackathon!</p>
+<br/>            <p>
+            <b>Contact:</b><br />
+
+            Ayan Choradia
+            +91 9460384779 <br/>
+            Sourabh Awasthy
+            +91 9418223946
+            </p>
           </div>
         `);
         break;
@@ -163,7 +270,7 @@ const ExternalPage: React.FC = () => {
     </a>
     <br/>
     <a href="https://drive.google.com/file/d/1fXw7rt99ODKEtVll4aRbgOZigueMtDNS/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-      <button className={styles.whatsapButton}>Problem Statment</button>
+      <button className={styles.whatsapButton}>Problem Statement</button>
     </a>
   </div>
         </div>
@@ -206,7 +313,7 @@ const ExternalPage: React.FC = () => {
                 <h2>{activeOption.charAt(0).toUpperCase() + activeOption.slice(1)}</h2>
                 <div dangerouslySetInnerHTML={{ __html: rulesData }}></div>
               </div>
-                          </div>
+            </div>
           </div>
         ) : (
           <div className={styles.navCard}>
@@ -244,10 +351,11 @@ const ExternalPage: React.FC = () => {
             </div>
             <div>
             <div>
-                <h2>{activeOption.charAt(0).toUpperCase() + activeOption.slice(1)}</h2>
-                <div dangerouslySetInnerHTML={{ __html: rulesData }}></div>
+                {/* <h2>{activeOption.charAt(0).toUpperCase() + activeOption.slice(1)}</h2> */}
+                <div dangerouslySetInnerHTML={{ __html: rulesData }}>
+                </div>
               </div>
-                          </div>
+            </div>
           </div>
         )}
 
