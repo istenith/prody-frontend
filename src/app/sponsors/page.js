@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import Cards from '../components/SponsorCard/Card.tsx';
 import Loader from '../LoaderEvent';
+import next from 'next';
 
 
 const Modal = ({ show, onClose, title, content, src }) => {
@@ -122,24 +123,51 @@ const SupportersComponent = () => {
                               
                               <div className='h-min'>
                                    <div className={selectedSupporter ? " blurred items-center text-white" : " items-center text-white sponserPage bg"}>
-                                        <h2 className="beyonderFont  text-center text-3xl font-bold mb-9 mt-11 pt-12">OUR SUPPORTERS</h2>
-                                        <h1 className="beyonderFont text-center    pt-10">Title Sponser <br/><br/>( Stellarscape Hackathon )</h1>
-                                        <div className="grid grid-cols-1 xl:grid-cols-3 gap-20 mb-20 sponsor-card-div justify-center">
-                                        
-                                                  <div className="w-full md:w-64"></div> {/* Empty space on the left */}
-                                                  <div className="w-full ">
-                                                  
-                                                       <Cards  title={""} content={"akkad"} src={srcAndromeda} onClick={() => toggleModal({title:"Andromeda", content:"akkad", src:srcAndromeda})} />
-                                                       
-                                                  </div>
-                                                  <div className="w-full md:w-64"></div> {/* Empty space on the right */}
-                                                  </div>
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-20 pt-10 mb-8 sponsor-card-div">
-                                             {sponsors.map(supporter => (
-                                                  <Cards key={supporter.id} title={""} content={supporter.description} src={supporter.logo} category={supporter.tier} onClick={()=>toggleModal(supporter)} />
-                                             ))}
+                                        <h2 className="beyonderFont  text-center text-3xl font-bold leading-loose mb-9 mt-11 pt-12">OUR SUPPORTERS</h2>
+                                        <h1 className="beyonderFont text-center mb-10 pt-10">Title Sponser <br/>[Stellarscape hackathon]</h1>
+                                        <div className="flex justify-center mb-20">
+                                             <div className='w-1/3 andro'>
+                                                  <img src={srcAndromeda} alt='eyewear' className='' />
+                                             </div>
+                                             
                                         </div>
+
+                                        {/* educational */}
+                                        <h1 className="beyonderFont text-center mb-10 pt-10">Educational Partners</h1>
+                                        <div className="flex justify-center mb-20">
+                                             <div className="w-full md:w-64"></div> {/* Empty space on the left */}
+                                             <div className="flex flex-col md:flex-row gap-10">
+                                             <div className="w-full text-center md:w-1/2 flex justify-center items-center">
+                                                  <img src='./sponsers/next.png' alt='eyewear' className='w-1/2' />
+                                             </div>
+                                             <div className="w-full text-center md:w-1/2 flex justify-center items-center">
+                                                  <img src='./sponsers/placewit.png' alt='eyewear' className='w-1/2' />
+                                             </div>
+
+                                             </div>
+                                             <div className="w-full md:w-64"></div> {/* Empty space on the right */}
+                                        </div>
+
+                                        <h1 className="beyonderFont text-center mb-10 pt-10">eyewear Partner</h1>
+                                        <div className="flex justify-center mb-20">
+                                             
+                                                  <img src="./sponsers/akash.png" alt='eyewear' className="w-full h-full max-w-none" style={{ maxWidth: '800px' }} />
+                                             
+                                        </div>
+
+                                        <h1 className="beyonderFont text-center mb-10 pt-10">Media Partner</h1>
+                                        <div className="flex justify-center mb-20">
+                                             <div className='w-1/3'>
+                                                  <img src="https://exchange4media.gumlet.io/news-photo/93208-hindunew.jpg?w=400&dpr=2.6" alt='eyewear' className='' />
+                                             </div>
+                                             
+                                        </div>
+
+
+                                       
+
                                    </div>
+
                               </div>
                  <Footer/>
                

@@ -16,9 +16,17 @@ body {
   cursor: pointer;
 }
 
-/* .andro-card-div{
-  height: 150px;
-} */
+
+
+@media 
+only screen and (max-width: 600px)
+{
+  .andro{
+      width:60%;
+  }
+}
+
+
 
 .modal-backdrop {
  margin: auto !important;
