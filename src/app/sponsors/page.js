@@ -138,7 +138,9 @@ const SupportersComponent = () => {
                                              <div className="w-full md:w-64"></div> {/* Empty space on the left */}
                                              <div className="flex flex-col md:flex-row gap-10">
                                              <div className="w-full text-center md:w-1/2 flex justify-center items-center">
-                                                  <img src='./sponsers/next.png' alt='eyewear' className='w-1/2' />
+
+                                                  <img src='./sponsers/new_Next.png' alt='eyewear' className='w-1/2' />
+
                                              </div>
                                              <div className="w-full text-center md:w-1/2 flex justify-center items-center">
                                                   <img src='./sponsers/placewit.png' alt='eyewear' className='w-1/2' />
