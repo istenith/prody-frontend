@@ -16,6 +16,18 @@ body {
   cursor: pointer;
 }
 
+
+
+@media 
+only screen and (max-width: 600px)
+{
+  .andro{
+      width:60%;
+  }
+}
+
+
+
 .modal-backdrop {
  margin: auto !important;
  position: fixed;
