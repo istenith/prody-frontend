@@ -40,6 +40,13 @@ const EventRegisterPage = () => {
 
   const handleRegister = async () => {
     try {
+
+      console.log('Event:', event.id);
+
+      if(event.id ==28){
+        window.location.href="https://abhedya.istenith.com/sign"
+      }
+      
       const token = localStorage.getItem('myJwtToken');
       if (!token) {
         alert('Please Login/Sign Up For Registration: User Unauthenticated');
