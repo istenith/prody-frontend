@@ -51,7 +51,7 @@ const ExternalPage: React.FC = () => {
     <br />
     <p>
       <b>Accommodation</b><br/>
-      Relevant details will be e-mailed to the participants. Approximate cost will be 500INR per day per head (including meals thrice a day) 
+      Relevant details will be e-mailed to the participants. <br/>Approximate cost : <br/> [180INR (for accomodation) + 210INR (optional) (for meals thrice a day)] per day per head
     </p>
 
     <br /><br />
@@ -196,6 +196,36 @@ const ExternalPage: React.FC = () => {
             </div>
           `);
         break;
+        case 'judges':
+          setRulesData(`
+          <div>
+            <ul>
+              <li style="display: flex; align-items: center; margin-bottom: 20px; margin-top:40px;">
+                <img src="./judges/dany.png" alt="Daniel" height="30px" width="50px" style="border-radius: 40px; margin-right: 10px;">
+                <strong>Mr. Dany Wehbe</strong>
+                <span style="margin-left: auto;">Documentation Lead at Andromeda</span>
+              </li>
+              <li style="display: flex; align-items: center; margin-bottom: 20px; margin-top:10px;">
+                <img src="./judges/myron.png" alt="Daniel" height="40px" width="50px" style="border-radius: 40px; margin-right: 10px;">
+                <strong>Mr. Myron Koch</strong>
+                <span style="margin-left: auto;">Head of Product and CX at Andromeda</span>
+              </li>
+              <li style="display: flex; align-items: center; margin-bottom: 20px; margin-top:10px;">
+                <img src="./judges/lief.png" alt="Daniel" height="40px" width="50px" style="border-radius: 40px; margin-right: 10px;">
+                <strong>Mr. Leif Sorensen</strong>
+                <span style="margin-left: auto;">Lead Offchain Engineer at Andromeda</span>
+              </li>
+              <li style="display: flex; align-items: center; margin-bottom: 20px; margin-top:10px;">
+                <img src="./judges/kevin.png" alt="Daniel" height="40px" width="50px" style="border-radius: 40px; margin-right: 10px;">
+                <strong>Mr. Kevin Colahan</strong>
+                <span style="margin-left: auto;">Head of Technical Operations at Andromeda</span>
+              </li>
+            </ul>
+          </div>
+        `);
+        
+        break;
+
         case 'faq':
           setRulesData(`
             <div>
@@ -249,7 +279,9 @@ const ExternalPage: React.FC = () => {
         break;
       case 'contact':
         setRulesData('<div><br/>Abhimanyu Singh<br/>+91 9548582554<br/> <br/>Sourabh Awasthy<br/>+91 9418223946<br/>');
-        break;  
+        break; 
+      
+       
       default:
         setRulesData('');
     }
@@ -307,6 +339,12 @@ const ExternalPage: React.FC = () => {
               >
                 Contact
               </button>
+              <button
+                className={`${styles.active} ${activeOption === 'judges' ? styles.active : ''}`}
+                onClick={() => handleOptionClick('judges')}
+              >
+                Judges
+              </button>
             </div>
             <div>
             <div>
@@ -347,6 +385,12 @@ const ExternalPage: React.FC = () => {
                 onClick={() => handleOptionClick('contact')}
               >
                 Contact
+              </button>
+              <button
+                className={`${styles.active} ${activeOption === 'judges' ? styles.active : ''}`}
+                onClick={() => handleOptionClick('judges')}
+              >
+                Judges
               </button>
             </div>
             <div>
