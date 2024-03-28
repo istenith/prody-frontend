@@ -40,6 +40,13 @@ const EventRegisterPage = () => {
 
   const handleRegister = async () => {
     try {
+
+      console.log('Event:', event.id);
+
+      if(event.id ==28){
+        window.location.href="https://abhedya.istenith.com/sign"
+      }
+      
       const token = localStorage.getItem('myJwtToken');
       if (!token) {
         alert('Please Login/Sign Up For Registration: User Unauthenticated');
@@ -170,6 +177,9 @@ const EventRegisterPage = () => {
         ) : (
           <p>Loading event data...</p>
           )}
+
+<h2>The server is under maintainance , due to which registerations has been stopped .<br/> Registrations will restart from <b>3PM, 29th March</b>. Please check back to book your place in the event!</h2> 
+
       </div>           
     </div>
   </>
