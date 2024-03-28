@@ -177,6 +177,9 @@ const EventRegisterPage = () => {
         ) : (
           <p>Loading event data...</p>
           )}
+
+<h2>The server is under maintainance , due to which registerations has been stopped .<br/> Registrations will restart from <b>3PM, 29th March</b>. Please check back to book your place in the event!</h2> 
+
       </div>           
     </div>
   </>
