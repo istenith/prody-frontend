@@ -157,6 +157,8 @@ const EventRegisterPage = () => {
 </svg></a>
             </button>
 
+            
+
             </div>
           {showModal && (
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
@@ -177,11 +179,11 @@ const EventRegisterPage = () => {
         ) : (
           <p>Loading event data...</p>
           )}
-
-<h2>The server is under maintainance , due to which registerations has been stopped .<br/> Registrations will restart from <b>3PM, 29th March</b>. Please check back to book your place in the event!</h2> 
-
-      </div>           
+           <h2>If you face any error during registeration please try to login again .<br/>If you have any query , reach out to us via whatsapp community channels </h2> 
+      </div>
+     
     </div>
+    
   </>
   );
 };
