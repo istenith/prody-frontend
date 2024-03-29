@@ -61,7 +61,6 @@ const Participate = () => {
               ) : (
                 <FormComponent isRegistered={false} />
               )}
-              <h2>The server is under maintainance , due to which registerations have been stopped .<br/> Registrations will <u>restart from <b>8PM, 29th March</b></u>KO. Please check back to book your place in the event!</h2> 
             </div>
           </div>
         </div>
