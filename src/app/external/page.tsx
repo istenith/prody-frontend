@@ -51,7 +51,10 @@ const ExternalPage: React.FC = () => {
     <br />
     <p>
       <b>Accommodation</b><br/>
-      Relevant details will be e-mailed to the participants. <br/>Approximate cost : <br/> [180INR (for accomodation) + 210INR (optional) (for meals thrice a day)] per day per head
+      Approximate cost : <br/> [180INR (for accomodation) + 210INR (optional) (for meals thrice a day)] per day per head
+      <br/>
+      <a href="https://forms.gle/UkvVu1babDcRArwU8" style="text-decoration: underline; font-weight: bold; cursor: pointer;">Form Link for Accommodation</a>
+
     </p>
 
     <br /><br />
@@ -60,7 +63,7 @@ const ExternalPage: React.FC = () => {
     All token conversions will be assisted by the organizers.
 
     <b>Important Links:</b>
-    <ul style="list-style: inside;">
+    <ul style="list-style: inside; overflow-x: scroll;">
       <li><a href="https://www.andromedaprotocol.io/">https://www.andromedaprotocol.io/</a></li>
       <li><a href="https://github.com/andromedaprotocol/">https://github.com/andromedaprotocol/</a></li>
       <li><a href="https://docs.andromedaprotocol.io/andromeda">https://docs.andromedaprotocol.io/andromeda</a></li>
