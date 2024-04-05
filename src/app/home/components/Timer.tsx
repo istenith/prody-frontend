@@ -1,5 +1,3 @@
-// Timer.tsx
-
 import React, { useEffect, useState } from 'react';
 import NumberBox from './NumberBox';  
 
@@ -41,7 +39,7 @@ const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
 
   return (
     <div className="mt-2 md:mt-20 rounded-xl">
-      <div className="grid grid-cols-2 gap-4 py-6 px-10 md:flex md:items-center md:justify-between md:mt-2 rounded-xl md:px-6 md:py-8 " style={{marginTop:-170}} > 
+      <div className="grid grid-cols-2 gap-4 py-6 px-10 md:flex md:items-center md:justify-between md:mt-2 rounded-xl md:px-6 md:py-8 " style={{marginTop: countdownOver ? '-100px' : '-170px'}} > 
         {!countdownOver ? (
           <>
             {/* Use the NumberBox component */}
@@ -54,22 +52,7 @@ const TimerContainer = ({ days, hours, minutes, seconds }: TimeProps) => {
             <NumberBox num={updatedSeconds} unit="Seconds" flip={true} countdownOver={countdownOver} />
           </>
         ) : (
-          <p
-            style={{
-              textAlign: 'center',
-              fontSize: '2.5rem',
-              fontWeight: 'bold',
-              color: '#ffffff',
-              backgroundColor: '#000000',
-              padding: '20px',
-              borderRadius: '8px',
-              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-              margin: '10px 0',
-            }}
-            className={countdownOver ? 'countdown-over' : ''}
-          >
-            {`Prodyogiki'24 is LIVE now! Check out the events page`}
-          </p>
+          <div className="text-4xl font-bold text-center md:text-left" style={{marginTop: '20px'}}>Prodyogiki is LIVE!</div>
         )}
       </div>
     </div>
