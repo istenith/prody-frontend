@@ -40,6 +40,13 @@ const EventRegisterPage = () => {
 
   const handleRegister = async () => {
     try {
+
+      console.log('Event:', event.id);
+
+      if(event.id ==28){
+        window.location.href="https://abhedya.istenith.com/sign"
+      }
+      
       const token = localStorage.getItem('myJwtToken');
       if (!token) {
         alert('Please Login/Sign Up For Registration: User Unauthenticated');
@@ -150,6 +157,8 @@ const EventRegisterPage = () => {
 </svg></a>
             </button>
 
+            
+
             </div>
           {showModal && (
             <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
@@ -170,8 +179,11 @@ const EventRegisterPage = () => {
         ) : (
           <p>Loading event data...</p>
           )}
-      </div>           
+           <h2>If you face any error during registeration please try to login again .<br/>If you have any query , reach out to us via whatsapp community channels </h2> 
+      </div>
+     
     </div>
+    
   </>
   );
 };
